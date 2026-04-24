@@ -1,4 +1,4 @@
-import Header from '@/components/common/Header';
+'use client';
 import Footer from '@/components/common/Footer';
 import Hero from '@/components/sections/Hero';
 import MetricsGrid from '@/components/metrics/MetricsGrid';
@@ -13,7 +13,7 @@ const Section = styled.section`
   h2 {
     font-size: 42px;
     font-weight: 700;
-    color: #000;
+    color: var(--foreground);
     margin-bottom: 40px;
     text-align: center;
   }
@@ -53,8 +53,6 @@ export default function Home() {
 
   return (
     <>
-      <Header />
-      
       <Hero
         title="Welcome to Lumen X Labs"
         description="Creating digital experiences with innovative solutions. From video production to interactive metrics, we bring your vision to life."
@@ -83,7 +81,7 @@ export default function Home() {
         <h2 style={{ textAlign: 'center', marginBottom: '40px' }}>Ready to Start?</h2>
         <div style={{ textAlign: 'center' }}>
           <p style={{ fontSize: '18px', color: '#495057', marginBottom: '30px' }}>
-            Let's create something amazing together.
+            Let&apos;s create something amazing together.
           </p>
           <button
             style={{

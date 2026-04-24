@@ -1,6 +1,6 @@
 'use client';
 
-import { useEffect, useRef, useState } from 'react';
+import { useRef, useState } from 'react';
 import styled from 'styled-components';
 
 interface VideoPlayerProps {
@@ -89,13 +89,6 @@ export default function VideoPlayer({
     if (videoRef.current) {
       videoRef.current.play();
       setIsPlaying(true);
-    }
-  };
-
-  const handlePause = () => {
-    if (videoRef.current) {
-      videoRef.current.pause();
-      setIsPlaying(false);
     }
   };
 

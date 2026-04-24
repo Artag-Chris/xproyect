@@ -1,7 +1,8 @@
 'use client';
 
-import { useEffect, useRef, useState } from 'react';
+import { useEffect, useState } from 'react';
 import styled from 'styled-components';
+import { motion } from 'framer-motion';
 
 interface MetricProps {
   label: string;
@@ -9,59 +10,58 @@ interface MetricProps {
   prefix?: string;
   suffix?: string;
   icon?: React.ReactNode;
-  animated?: boolean;
+  index?: number;
 }
 
-const MetricCard = styled.div`
-  background: white;
-  border: 1px solid #e9ecef;
-  border-radius: 12px;
-  padding: 24px;
+const MetricContainer = styled.div`
+  padding: 40px 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
   text-align: center;
   transition: all var(--transition-base);
-  box-shadow: var(--shadow-sm);
+`;
 
-  &:hover {
-    border-color: #007bff;
-    box-shadow: var(--shadow-md);
-    transform: translateY(-2px);
-  }
+const IconWrapper = styled(motion.div)`
+  font-size: 32px;
+  margin-bottom: 24px;
+  display: inline-block;
+  filter: grayscale(1);
+  transition: filter var(--transition-base);
 
-  .metric-icon {
-    font-size: 32px;
-    margin-bottom: 12px;
-    display: inline-block;
-  }
-
-  .metric-value {
-    font-size: 32px;
-    font-weight: bold;
-    color: #007bff;
-    margin: 12px 0;
-    font-variant-numeric: tabular-nums;
-  }
-
-  .metric-label {
-    font-size: 14px;
-    color: #495057;
-    font-weight: 500;
-    text-transform: uppercase;
-    letter-spacing: 0.5px;
+  ${MetricContainer}:hover & {
+    filter: grayscale(0);
+    transform: scale(1.1);
   }
 `;
 
-interface CountUpProps {
-  end: number;
-  duration?: number;
-  prefix?: string;
-  suffix?: string;
-}
+const MetricValue = styled.div`
+  font-family: var(--font-syne);
+  font-size: 48px;
+  font-weight: 800;
+  color: var(--text-primary);
+  margin-bottom: 8px;
+  line-height: 1;
+  letter-spacing: -0.02em;
+`;
 
-function CountUp({ end, duration = 2000, prefix = '', suffix = '' }: CountUpProps) {
+const MetricLabel = styled.div`
+  font-family: var(--font-jakarta);
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--text-secondary);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+`;
+
+function CountUp({ end, prefix = '', suffix = '' }: { end: number; prefix?: string; suffix?: string }) {
   const [count, setCount] = useState(0);
 
   useEffect(() => {
     let startTime: number;
+    const duration = 2000;
+
     const animate = (currentTime: number) => {
       if (!startTime) startTime = currentTime;
       const elapsed = currentTime - startTime;
@@ -74,35 +74,44 @@ function CountUp({ end, duration = 2000, prefix = '', suffix = '' }: CountUpProp
     };
 
     requestAnimationFrame(animate);
-  }, [end, duration]);
+  }, [end]);
 
   return (
     <>
-      {prefix}
-      {count.toLocaleString()}
-      {suffix}
+      {prefix}{count.toLocaleString()}{suffix}
     </>
   );
 }
 
-export default function Metric({ label, value, prefix = '', suffix = '', icon, animated = true }: MetricProps) {
+export default function Metric({ label, value, prefix = '', suffix = '', icon, index = 0 }: MetricProps) {
   const isNumeric = typeof value === 'number';
 
   return (
-    <MetricCard>
-      {icon && <div className="metric-icon">{icon}</div>}
-      <div className="metric-value">
-        {animated && isNumeric ? (
+    <MetricContainer
+      as={motion.div}
+      initial={{ opacity: 0, y: 30 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true }}
+      transition={{ duration: 0.6, delay: index * 0.1, ease: [0.22, 1, 0.36, 1] }}
+    >
+      {icon && (
+        <IconWrapper
+          initial={{ scale: 0 }}
+          whileInView={{ scale: 1 }}
+          viewport={{ once: true }}
+          transition={{ type: 'spring', stiffness: 260, damping: 20, delay: (index * 0.1) + 0.2 }}
+        >
+          {icon}
+        </IconWrapper>
+      )}
+      <MetricValue>
+        {isNumeric ? (
           <CountUp end={value as number} prefix={prefix} suffix={suffix} />
         ) : (
-          <>
-            {prefix}
-            {value}
-            {suffix}
-          </>
+          <>{prefix}{value}{suffix}</>
         )}
-      </div>
-      <div className="metric-label">{label}</div>
-    </MetricCard>
+      </MetricValue>
+      <MetricLabel>{label}</MetricLabel>
+    </MetricContainer>
   );
 }

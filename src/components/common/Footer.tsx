@@ -1,5 +1,6 @@
 'use client';
 
+import Link from 'next/link';
 import styled from 'styled-components';
 
 const FooterContainer = styled.footer`
@@ -30,7 +31,7 @@ const FooterSection = styled.div`
   h3 {
     font-size: 16px;
     font-weight: 700;
-    color: #000;
+    color: var(--foreground);
     margin-bottom: 16px;
   }
 
@@ -112,26 +113,27 @@ export default function Footer() {
           <FooterSection>
             <h3>About</h3>
             <p>
-              Lumen X Labs is a digital solutions company specializing in video production,
-              metrics tracking, and interactive experiences.
+               Lumen <span style={{ color: 'var(--primary)' }}>X</span> Labs is a digital solutions company specializing in video production,
+               metrics tracking, and interactive experiences.
+
             </p>
           </FooterSection>
 
           <FooterSection>
             <h3>Quick Links</h3>
             <ul>
-              <li>
-                <a href="/">Home</a>
-              </li>
-              <li>
-                <a href="/projects">Projects</a>
-              </li>
-              <li>
-                <a href="/about">About Us</a>
-              </li>
-              <li>
-                <a href="/contact">Contact</a>
-              </li>
+                <li>
+                  <Link href="/">Home</Link>
+                </li>
+                <li>
+                  <Link href="/projects">Projects</Link>
+                </li>
+                <li>
+                  <Link href="/about">About Us</Link>
+                </li>
+                <li>
+                  <Link href="/contact">Contact</Link>
+                </li>
             </ul>
           </FooterSection>
 
@@ -170,14 +172,14 @@ export default function Footer() {
           </FooterSection>
         </FooterGrid>
 
-        <FooterBottom>
-          <p>&copy; 2024 Lumen X Labs. All rights reserved.</p>
-          <SocialLinks>
-            <a href="#">Privacy</a>
-            <a href="#">Terms</a>
-            <a href="#">Cookies</a>
-          </SocialLinks>
-        </FooterBottom>
+         <FooterBottom>
+           <p>&copy; 2024 Lumen <span style={{ color: 'var(--primary)' }}>X</span> Labs. All rights reserved.</p>
+           <SocialLinks>
+             <a href="#">Privacy</a>
+             <a href="#">Terms</a>
+             <a href="#">Cookies</a>
+           </SocialLinks>
+         </FooterBottom>
       </FooterContent>
     </FooterContainer>
   );

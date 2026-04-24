@@ -14,30 +14,42 @@ interface MetricsGridProps {
   columns?: 2 | 3 | 4;
 }
 
-const GridContainer = styled.div<{ columns: number }>`
+const GridContainer = styled.div<{ $columns: number }>`
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-  gap: 20px;
-  margin: 20px 0;
+  grid-template-columns: repeat(${(props) => props.$columns}, 1fr);
+  border-top: 1px solid var(--border);
+  border-left: 1px solid var(--border);
+  background: var(--background);
 
-  @media (min-width: 768px) {
-    grid-template-columns: repeat(${(props) => props.columns}, 1fr);
+  @media (max-width: 768px) {
+    grid-template-columns: 1fr;
+  }
+`;
+
+const GridItem = styled.div`
+  border-right: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+  transition: background var(--transition-base);
+
+  &:hover {
+    background: var(--surface-secondary);
   }
 `;
 
 export default function MetricsGrid({ metrics, columns = 3 }: MetricsGridProps) {
   return (
-    <GridContainer columns={columns}>
+    <GridContainer $columns={columns}>
       {metrics.map((metric, index) => (
-        <Metric
-          key={index}
-          label={metric.label}
-          value={metric.value}
-          prefix={metric.prefix}
-          suffix={metric.suffix}
-          icon={metric.icon}
-          animated={true}
-        />
+        <GridItem key={index}>
+          <Metric
+            index={index}
+            label={metric.label}
+            value={metric.value}
+            prefix={metric.prefix}
+            suffix={metric.suffix}
+            icon={metric.icon}
+          />
+        </GridItem>
       ))}
     </GridContainer>
   );
