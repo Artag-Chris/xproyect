@@ -2,6 +2,11 @@
 
 import styled from 'styled-components';
 import { motion } from 'framer-motion';
+import React, { useEffect, useState } from 'react';
+import VideoHero from '@/components/video/VideoHero';
+import dynamic from 'next/dynamic';
+
+const VideoHeroDynamic = dynamic(() => import('@/components/video/VideoHero'), { ssr: false });
 
 const HeroSection = styled.section`
   min-height: 100vh;
@@ -57,10 +62,6 @@ const Title = styled(motion.h1)`
   line-height: 0.9;
   letter-spacing: -0.04em;
   margin: 0;
-`;
-
-const BrandX = styled.span`
-  color: var(--primary);
 `;
 
 const DescriptionWrapper = styled.div`
@@ -157,6 +158,8 @@ interface HeroProps {
   secondaryButtonText?: string;
   onPrimaryClick?: () => void;
   onSecondaryClick?: () => void;
+  videoSrc?: string;
+  videoPoster?: string;
 }
 
 export default function Hero({
@@ -166,9 +169,12 @@ export default function Hero({
   secondaryButtonText = 'Learn More',
   onPrimaryClick,
   onSecondaryClick,
+  videoSrc,
+  videoPoster,
 }: HeroProps) {
   return (
     <HeroSection>
+      {videoSrc && <VideoHeroDynamic src={videoSrc} poster={videoPoster} />}
       <HeroContent>
         <div className="flex flex-col">
           <TitleWrapper>
@@ -177,13 +183,10 @@ export default function Hero({
               animate={{ y: 0 }}
               transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
             >
-              {title.split(' ').map((word, i) => 
-                word.toUpperCase().includes('X') 
-                ? <span key={i}>{word.split('').map((char, ci) => char.toUpperCase() === 'X' ? <BrandX key={ci}>X</BrandX> : char)} </span> : word + ' '
-              )}
+              {title}
             </Title>
           </TitleWrapper>
-          
+
           <DescriptionWrapper>
             <Description
               initial={{ opacity: 0, y: 20 }}

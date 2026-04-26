@@ -1,8 +1,12 @@
 'use client';
 import Footer from '@/components/common/Footer';
 import Hero from '@/components/sections/Hero';
-import MetricsGrid from '@/components/metrics/MetricsGrid';
-import VideoPlayer from '@/components/video/VideoPlayer';
+import PainSection from '@/components/sections/PainSection';
+import MethodSection from '@/components/sections/MethodSection';
+import CapacitiesSection from '@/components/sections/CapacitiesSection';
+import ProofSection from '@/components/sections/ProofSection';
+import ShowcaseSection from '@/components/sections/ShowcaseSection';
+import CallSection from '@/components/sections/CallSection';
 import styled from 'styled-components';
 
 const Section = styled.section`
@@ -19,16 +23,7 @@ const Section = styled.section`
   }
 `;
 
-const DemoVideoSection = styled(Section)`
-  h2 {
-    margin-bottom: 30px;
-  }
-
-  .video-wrapper {
-    max-width: 800px;
-    margin: 0 auto;
-  }
-`;
+// Video section removed for narrative-first approach; use optional visuals later
 
 export default function Home() {
   const metrics = [
@@ -58,58 +53,16 @@ export default function Home() {
         description="Creating digital experiences with innovative solutions. From video production to interactive metrics, we bring your vision to life."
         primaryButtonText="View Our Work"
         secondaryButtonText="Get in Touch"
+        videoSrc="/videos/hero-demo.mp4"
+        videoPoster="/videos/hero-poster.jpg"
       />
 
-      <Section>
-        <h2>Our Impact</h2>
-        <MetricsGrid metrics={metrics} columns={3} />
-      </Section>
-
-      <DemoVideoSection>
-        <h2>Featured Work</h2>
-        <div className="video-wrapper">
-          <VideoPlayer
-            src="https://www.w3schools.com/html/mov_bbb.mp4"
-            poster="https://via.placeholder.com/800x450?text=Video+Placeholder"
-            title="Demo Video"
-            controls
-          />
-        </div>
-      </DemoVideoSection>
-
-      <Section style={{ marginTop: '100px', marginBottom: '100px' }}>
-        <h2 style={{ textAlign: 'center', marginBottom: '40px' }}>Ready to Start?</h2>
-        <div style={{ textAlign: 'center' }}>
-          <p style={{ fontSize: '18px', color: '#495057', marginBottom: '30px' }}>
-            Let&apos;s create something amazing together.
-          </p>
-          <button
-            style={{
-              padding: '12px 32px',
-              backgroundColor: '#007bff',
-              color: 'white',
-              border: 'none',
-              borderRadius: '8px',
-              fontSize: '16px',
-              fontWeight: '600',
-              cursor: 'pointer',
-              transition: 'all 0.3s ease',
-            }}
-            onMouseEnter={(e) => {
-              e.currentTarget.style.backgroundColor = '#0056b3';
-              e.currentTarget.style.transform = 'translateY(-2px)';
-              e.currentTarget.style.boxShadow = '0 10px 25px rgba(0, 123, 255, 0.3)';
-            }}
-            onMouseLeave={(e) => {
-              e.currentTarget.style.backgroundColor = '#007bff';
-              e.currentTarget.style.transform = 'translateY(0)';
-              e.currentTarget.style.boxShadow = 'none';
-            }}
-          >
-            Contact Us
-          </button>
-        </div>
-      </Section>
+      <PainSection />
+      <MethodSection />
+      <CapacitiesSection />
+      <ProofSection />
+      <ShowcaseSection />
+      <CallSection />
 
       <Footer />
     </>
