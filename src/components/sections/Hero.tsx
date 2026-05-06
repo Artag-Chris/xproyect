@@ -2,8 +2,7 @@
 
 import styled from 'styled-components';
 import { motion } from 'framer-motion';
-import React, { useEffect, useState } from 'react';
-import VideoHero from '@/components/video/VideoHero';
+import React from 'react';
 import dynamic from 'next/dynamic';
 
 const VideoHeroDynamic = dynamic(() => import('@/components/video/VideoHero'), { ssr: false });

@@ -46,12 +46,12 @@ const LogoLink = styled(Link)`
 `;
 
 const LogoImage = styled.img`
-  height: 50px;
+  height: 110px;
   width: auto;
   transition: transform 0.2s ease;
 
   @media (max-width: 768px) {
-    height: 40px;
+    height: 80px;
   }
 `;
 
@@ -185,8 +185,8 @@ export default function Header() {
     <NavWrapper>
       <NavContainer>
         <LogoLink href="/">
-          <LogoImage 
-            src="/lumenXlogo-removebg-preview.png" 
+           <LogoImage 
+            src="/lumenXlogoSVG.svg" 
             alt="Lumen X Labs Logo" 
           />
         </LogoLink>
