@@ -1,0 +1,91 @@
+{
+  "meta": {
+    "title": "Lumen X Labs - Soluciones Digitales",
+    "description": "Moderniza, automatiza y escala tu negocio con soluciones impulsadas por IA."
+  },
+  "nav": {
+    "home": "Inicio",
+    "about": "Nosotros",
+    "projects": "Proyectos",
+    "contact": "Contacto"
+  },
+  "hero": {
+    "title": "Modernizamos. Automatizamos. Escalamos.",
+    "description": "Del caos fragmentado a la precisión optimizada — diseñamos sistemas, no solo sitios web.",
+    "cta_primary": "Ver Nuestro Trabajo",
+    "cta_secondary": "Contáctanos",
+    "badge": "Laboratorio Interactivo"
+  },
+  "pain": {
+    "heading": "El Costo de la Ineficiencia",
+    "subtitle": "Muchos negocios operan en un estado de caos invisible. Procesos lentos, errores humanos y la sensación de que el dueño es la única pieza que mantiene todo unido.",
+    "items": [
+      { "title": "Procesos Fragmentados", "desc": "Información dispersa en múltiples hojas de cálculo y correos, generando cuellos de botella." },
+      { "title": "Carga Operativa Alta", "desc": "Tareas repetitivas que consumen el tiempo de tu equipo, limitando la capacidad de crecimiento." },
+      { "title": "Sistemas Obsoletos", "desc": "Herramientas que no se comunican entre sí, obligando a la entrada manual de datos." }
+    ]
+  },
+  "method": {
+    "heading": "Mi Metodología de Transformación",
+    "steps": [
+      { "title": "Reviso", "desc": "Analizo a fondo tu operación actual, identificando cuellos de botella y fugas de tiempo que pasan desapercibidas." },
+      { "title": "Diseño", "desc": "Creo un nuevo mapa de procesos optimizado, eliminando la fricción y diseñando la ruta más corta hacia el resultado." },
+      { "title": "Conecto", "desc": "Implemento la tecnología (IA, Web, Automatizaciones) para que el proceso se ejecute solo, con precisión quirúrgica." }
+    ]
+  },
+  "capacities": {
+    "heading": "Nuestras Capacidades Clave",
+    "items": [
+      { "title": "Automatización de Procesos", "desc": "Orquestación entre sistemas, ejecución sin intervención humana." },
+      { "title": "IA Integrada", "desc": "Modelos IA para toma de decisiones y operaciones en tiempo real." },
+      { "title": "Integración de Datos", "desc": "Conexión de fuentes y normalización para una visión única." },
+      { "title": "Gobernanza y Cumplimiento", "desc": "Políticas, seguridad y calidad de datos en tu stack." },
+      { "title": "Experiencia de Usuario", "desc": "UI/UX refinada, accesibilidad y rendimiento." },
+      { "title": "Estrategia de Negocio", "desc": "Transformación digital alineada con objetivos y ROI." }
+    ]
+  },
+  "proof": {
+    "heading": "Pruebas y Credibilidad",
+    "items": [
+      { "name": "Caso de éxito A", "text": "Reduje tiempos de entrega en un 40% en 90 días." },
+      { "name": "Caso de éxito B", "text": "Aumenté la eficiencia de procesos en un 35%." },
+      { "name": "Caso de éxito C", "text": "ROI estimado de 3x a 12 meses." }
+    ]
+  },
+  "showcase": {
+    "heading": "Casos de Estudio",
+    "items": [
+      { "title": "Caso de proyecto 1", "desc": "Breve descripción del caso de estudio." },
+      { "title": "Caso de proyecto 2", "desc": "Breve descripción del caso de estudio." },
+      { "title": "Caso de proyecto 3", "desc": "Breve descripción del caso de estudio." },
+      { "title": "Caso de proyecto 4", "desc": "Breve descripción del caso de estudio." },
+      { "title": "Caso de proyecto 5", "desc": "Breve descripción del caso de estudio." },
+      { "title": "Caso de proyecto 6", "desc": "Breve descripción del caso de estudio." }
+    ]
+  },
+  "call": {
+    "heading": "¿Listo para empezar?",
+    "subtitle": "Agenda una consultoría de 30 minutos para entender tus objetivos y mapear una ruta de transformación.",
+    "form": {
+      "name_placeholder": "Nombre",
+      "email_placeholder": "Email",
+      "phone_placeholder": "Teléfono",
+      "company_placeholder": "Empresa",
+      "submit": "Solicitar Consulta",
+      "alert": "Gracias por tu interés. Nos pondremos en contacto pronto."
+    }
+  },
+  "footer": {
+    "about_title": "Acerca de",
+    "about_text": "Lumen X Labs es una empresa de soluciones digitales especializada en modernización empresarial, automatización e integraciones de IA.",
+    "quick_links": "Enlaces Rápidos",
+    "services": "Servicios",
+    "service_items": ["Producción de Video", "Analítica", "Diseño Interactivo", "Desarrollo Web"],
+    "connect": "Conectar",
+    "connect_text": "Contáctanos para consultas y colaboraciones.",
+    "copyright": "Todos los derechos reservados.",
+    "privacy": "Privacidad",
+    "terms": "Términos",
+    "cookies": "Cookies"
+  }
+}

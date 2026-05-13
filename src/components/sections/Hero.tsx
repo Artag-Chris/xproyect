@@ -3,9 +3,7 @@
 import styled from 'styled-components';
 import { motion } from 'framer-motion';
 import React from 'react';
-import dynamic from 'next/dynamic';
-
-const VideoHeroDynamic = dynamic(() => import('@/components/video/VideoHero'), { ssr: false });
+import { useLocale } from '@/lib/locale-context';
 
 const HeroSection = styled.section`
   min-height: 100vh;
@@ -130,7 +128,7 @@ const VisualElement = styled(motion.div)`
   position: relative;
   width: 100%;
   aspect-ratio: 1;
-  background: var(--surface-secondary);
+  background: url('/fondo%20de%20muestra.png') center / cover no-repeat;
   border: 1px solid var(--border);
   border-radius: 24px;
   display: flex;
@@ -139,41 +137,19 @@ const VisualElement = styled(motion.div)`
   overflow: hidden;
 
   &::after {
-    content: 'LUMEN';
+    content: '';
     position: absolute;
-    font-family: var(--font-syne);
-    font-weight: 800;
-    font-size: 12vw;
-    color: var(--border-light);
-    opacity: 0.5;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.3);
     z-index: 0;
   }
 `;
 
-interface HeroProps {
-  title: string;
-  description: string;
-  primaryButtonText?: string;
-  secondaryButtonText?: string;
-  onPrimaryClick?: () => void;
-  onSecondaryClick?: () => void;
-  videoSrc?: string;
-  videoPoster?: string;
-}
+export default function Hero() {
+  const { t } = useLocale();
 
-export default function Hero({
-  title,
-  description,
-  primaryButtonText = 'Get Started',
-  secondaryButtonText = 'Learn More',
-  onPrimaryClick,
-  onSecondaryClick,
-  videoSrc,
-  videoPoster,
-}: HeroProps) {
   return (
     <HeroSection>
-      {videoSrc && <VideoHeroDynamic src={videoSrc} poster={videoPoster} />}
       <HeroContent>
         <div className="flex flex-col">
           <TitleWrapper>
@@ -182,7 +158,7 @@ export default function Hero({
               animate={{ y: 0 }}
               transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
             >
-              {title}
+              {t('hero.title')}
             </Title>
           </TitleWrapper>
 
@@ -192,7 +168,7 @@ export default function Hero({
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.2, ease: [0.22, 1, 0.36, 1] }}
             >
-              {description}
+              {t('hero.description')}
             </Description>
           </DescriptionWrapper>
 
@@ -201,10 +177,8 @@ export default function Hero({
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.4, ease: [0.22, 1, 0.36, 1] }}
           >
-            <Button onClick={onPrimaryClick}>{primaryButtonText}</Button>
-            <Button $variant="secondary" onClick={onSecondaryClick}>
-              {secondaryButtonText}
-            </Button>
+            <Button>{t('hero.cta_primary')}</Button>
+            <Button $variant="secondary">{t('hero.cta_secondary')}</Button>
           </ButtonGroup>
         </div>
 
@@ -215,8 +189,8 @@ export default function Hero({
         >
           <div className="relative z-10 p-12 text-center">
             <div className="text-6xl mb-4">⚡</div>
-            <div className="font-syne font-bold text-sm uppercase tracking-widest opacity-60">
-              Interactive Lab
+            <div className="font-syne font-bold text-sm uppercase tracking-widest text-white/90">
+              {t('hero.badge')}
             </div>
           </div>
         </VisualElement>

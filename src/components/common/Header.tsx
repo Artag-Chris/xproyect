@@ -4,6 +4,8 @@ import Link from 'next/link';
 import { useState, useEffect } from 'react';
 import styled from 'styled-components';
 import { useTheme } from '@/lib/theme-context';
+import { useLocale } from '@/lib/locale-context';
+import { usePathname, useRouter } from 'next/navigation';
 
 const NavWrapper = styled.header`
   position: sticky;
@@ -138,6 +140,33 @@ const ThemeToggle = styled.button`
   }
 `;
 
+const LocaleToggle = styled.button`
+  background: var(--primary);
+  border: 1px solid var(--primary);
+  color: white;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  font-family: var(--font-syne);
+  font-weight: 700;
+  font-size: 14px;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  transition: all var(--transition-base);
+  margin-left: 8px;
+  line-height: 1;
+
+  &:hover {
+    background: var(--primary-dark);
+    border-color: var(--primary-dark);
+    transform: scale(1.05);
+  }
+`;
+
 const MobileToggle = styled.button`
   display: none;
   background: none;
@@ -171,6 +200,9 @@ const MobileMenu = styled.div<{ $isOpen: boolean }>`
 export default function Header() {
   const [isOpen, setIsOpen] = useState(false);
   const { theme, toggleTheme } = useTheme();
+  const { t, locale } = useLocale();
+  const pathname = usePathname();
+  const router = useRouter();
 
   // Prevent scrolling when mobile menu is open
   useEffect(() => {
@@ -193,11 +225,22 @@ export default function Header() {
 
         <div className="flex items-center gap-16">
           <NavLinks>
-            <LinkItem href="/" $active>Home</LinkItem>
-            <LinkItem href="/about">About</LinkItem>
-            <LinkItem href="/projects">Projects</LinkItem>
-            <CTA href="/contact">Contact</CTA>
+            <LinkItem href="/" $active>{t('nav.home')}</LinkItem>
+            <LinkItem href="/about">{t('nav.about')}</LinkItem>
+            <LinkItem href="/projects">{t('nav.projects')}</LinkItem>
+            <CTA href="/contact">{t('nav.contact')}</CTA>
           </NavLinks>
+
+          <LocaleToggle
+            onClick={() => {
+              const newLocale = locale === 'en' ? 'es' : 'en';
+              const newPath = pathname.replace(/^\/[a-z]{2}/, `/${newLocale}`);
+              router.push(newPath);
+            }}
+            title="Toggle language"
+          >
+            {locale === 'en' ? 'ES' : 'EN'}
+          </LocaleToggle>
 
           <ThemeToggle onClick={toggleTheme} title="Toggle Theme">
             {theme === 'light' ? '🌙' : '☀️'}
@@ -216,10 +259,10 @@ export default function Header() {
       </NavContainer>
 
         <MobileMenu $isOpen={isOpen}>
-          <LinkItem href="/" onClick={() => setIsOpen(false)} style={{ fontSize: '2rem' }} $active>Home</LinkItem>
-          <LinkItem href="/about" onClick={() => setIsOpen(false)} style={{ fontSize: '2rem' }}>About</LinkItem>
-          <LinkItem href="/projects" onClick={() => setIsOpen(false)} style={{ fontSize: '2rem' }}>Projects</LinkItem>
-          <CTA href="/contact" onClick={() => setIsOpen(false)} style={{ fontSize: '1.2rem' }}>Contact</CTA>
+          <LinkItem href="/" onClick={() => setIsOpen(false)} style={{ fontSize: '2rem' }} $active>{t('nav.home')}</LinkItem>
+          <LinkItem href="/about" onClick={() => setIsOpen(false)} style={{ fontSize: '2rem' }}>{t('nav.about')}</LinkItem>
+          <LinkItem href="/projects" onClick={() => setIsOpen(false)} style={{ fontSize: '2rem' }}>{t('nav.projects')}</LinkItem>
+          <CTA href="/contact" onClick={() => setIsOpen(false)} style={{ fontSize: '1.2rem' }}>{t('nav.contact')}</CTA>
           <button 
             onClick={() => setIsOpen(false)}
             style={{ 

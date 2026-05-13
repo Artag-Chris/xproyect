@@ -1,5 +1,8 @@
+'use client';
+
 import React from 'react'
 import styled from 'styled-components'
+import { useLocale } from '@/lib/locale-context'
 
 const Section = styled.section`
   padding: 120px 20px;
@@ -54,18 +57,20 @@ const Button = styled.button`
 `;
 
 export default function CallSection(){
-  const onSubmit = (e: React.FormEvent) => { e.preventDefault(); alert('Gracias por tu interés. Nos pondremos en contacto pronto.'); };
+  const { t } = useLocale();
+  const onSubmit = (e: React.FormEvent) => { e.preventDefault(); alert(t('call.form.alert')); };
+
   return (
     <Section id="contact">
-      <Heading>¿Listo para empezar?</Heading>
-      <Sub>Agenda una consultoría de 30 minutos para entender tus objetivos y mapear una ruta de transformación.</Sub>
+      <Heading>{t('call.heading')}</Heading>
+      <Sub>{t('call.subtitle')}</Sub>
       <Form onSubmit={onSubmit}>
-        <Input placeholder="Nombre" required />
-        <Input placeholder="Email" type="email" required />
-        <Input placeholder="Teléfono" />
-        <Input placeholder="Empresa" />
+        <Input placeholder={t('call.form.name_placeholder')} required />
+        <Input placeholder={t('call.form.email_placeholder')} type="email" required />
+        <Input placeholder={t('call.form.phone_placeholder')} />
+        <Input placeholder={t('call.form.company_placeholder')} />
         <div style={{gridColumn:'1 / -1'}}>
-          <Button type="submit">Solicitar Consulta</Button>
+          <Button type="submit">{t('call.form.submit')}</Button>
         </div>
       </Form>
     </Section>

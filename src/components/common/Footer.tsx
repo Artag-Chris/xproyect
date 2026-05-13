@@ -2,6 +2,7 @@
 
 import Link from 'next/link';
 import styled from 'styled-components';
+import { useLocale } from '@/lib/locale-context';
 
 const FooterContainer = styled.footer`
   background: #f8f9fa;
@@ -106,80 +107,58 @@ const SocialLinks = styled.div`
 `;
 
 export default function Footer() {
+  const { t } = useLocale();
+
   return (
     <FooterContainer>
       <FooterContent>
         <FooterGrid>
           <FooterSection>
-            <h3>About</h3>
+            <h3>{t('footer.about_title')}</h3>
             <p>
-               Lumen <span style={{ color: 'var(--primary)' }}>X</span> Labs is a digital solutions company specializing in video production,
-               metrics tracking, and interactive experiences.
-
+              Lumen <span style={{ color: 'var(--primary)' }}>X</span> Labs {t('footer.about_text')}
             </p>
           </FooterSection>
 
           <FooterSection>
-            <h3>Quick Links</h3>
+            <h3>{t('footer.quick_links')}</h3>
             <ul>
-                <li>
-                  <Link href="/">Home</Link>
-                </li>
-                <li>
-                  <Link href="/projects">Projects</Link>
-                </li>
-                <li>
-                  <Link href="/about">About Us</Link>
-                </li>
-                <li>
-                  <Link href="/contact">Contact</Link>
-                </li>
+              <li><Link href="/">{t('nav.home')}</Link></li>
+              <li><Link href="/projects">{t('nav.projects')}</Link></li>
+              <li><Link href="/about">{t('nav.about')}</Link></li>
+              <li><Link href="/contact">{t('nav.contact')}</Link></li>
             </ul>
           </FooterSection>
 
           <FooterSection>
-            <h3>Services</h3>
+            <h3>{t('footer.services')}</h3>
             <ul>
-              <li>
-                <a href="#">Video Production</a>
-              </li>
-              <li>
-                <a href="#">Analytics</a>
-              </li>
-              <li>
-                <a href="#">Interactive Design</a>
-              </li>
-              <li>
-                <a href="#">Web Development</a>
-              </li>
+              <li><a href="#">{t('footer.service_items.0')}</a></li>
+              <li><a href="#">{t('footer.service_items.1')}</a></li>
+              <li><a href="#">{t('footer.service_items.2')}</a></li>
+              <li><a href="#">{t('footer.service_items.3')}</a></li>
             </ul>
           </FooterSection>
 
           <FooterSection>
-            <h3>Connect</h3>
-            <p>Get in touch with us for inquiries and collaborations.</p>
+            <h3>{t('footer.connect')}</h3>
+            <p>{t('footer.connect_text')}</p>
             <SocialLinks>
-              <a href="#" title="Twitter">
-                𝕏
-              </a>
-              <a href="#" title="LinkedIn">
-                in
-              </a>
-              <a href="#" title="GitHub">
-                gh
-              </a>
+              <a href="#" title="Twitter">𝕏</a>
+              <a href="#" title="LinkedIn">in</a>
+              <a href="#" title="GitHub">gh</a>
             </SocialLinks>
           </FooterSection>
         </FooterGrid>
 
-         <FooterBottom>
-           <p>&copy; 2024 Lumen <span style={{ color: 'var(--primary)' }}>X</span> Labs. All rights reserved.</p>
-           <SocialLinks>
-             <a href="#">Privacy</a>
-             <a href="#">Terms</a>
-             <a href="#">Cookies</a>
-           </SocialLinks>
-         </FooterBottom>
+        <FooterBottom>
+          <p>&copy; 2024 Lumen <span style={{ color: 'var(--primary)' }}>X</span> Labs. {t('footer.copyright')}</p>
+          <SocialLinks>
+            <a href="#">{t('footer.privacy')}</a>
+            <a href="#">{t('footer.terms')}</a>
+            <a href="#">{t('footer.cookies')}</a>
+          </SocialLinks>
+        </FooterBottom>
       </FooterContent>
     </FooterContainer>
   );

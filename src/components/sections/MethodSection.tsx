@@ -2,6 +2,7 @@
 
 import styled from 'styled-components';
 import { motion } from 'framer-motion';
+import { useLocale } from '@/lib/locale-context';
 
 const Section = styled.section`
   padding: 120px 20px;
@@ -80,19 +81,12 @@ const MethodStep = styled(motion.div)`
 `;
 
 export default function MethodSection() {
+  const { t } = useLocale();
+
   const steps = [
-    {
-      title: "Reviso",
-      desc: "Analizo a fondo tu operación actual, identificando cuellos de botella y fugas de tiempo que pasan desapercibidas."
-    },
-    {
-      title: "Diseño",
-      desc: "Creo un nuevo mapa de procesos optimizado, eliminando la fricción y diseñando la ruta más corta hacia el resultado."
-    },
-    {
-      title: "Conecto",
-      desc: "Implemento la tecnología (IA, Web, Automatizaciones) para que el proceso se ejecute solo, con precisión quirúrgica."
-    }
+    { title: t('method.steps.0.title'), desc: t('method.steps.0.desc') },
+    { title: t('method.steps.1.title'), desc: t('method.steps.1.desc') },
+    { title: t('method.steps.2.title'), desc: t('method.steps.2.desc') },
   ];
 
   return (
@@ -103,7 +97,7 @@ export default function MethodSection() {
         viewport={{ once: true }}
         transition={{ duration: 0.6 }}
       >
-        Mi Metodología de Transformación
+        {t('method.heading')}
       </Heading>
 
       <MethodGrid>

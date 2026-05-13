@@ -1,0 +1,91 @@
+{
+  "meta": {
+    "title": "Lumen X Labs - Digital Solutions",
+    "description": "Modernize, automate, and scale your business with AI-powered solutions."
+  },
+  "nav": {
+    "home": "Home",
+    "about": "About",
+    "projects": "Projects",
+    "contact": "Contact"
+  },
+  "hero": {
+    "title": "We Modernize. We Automate. We Scale.",
+    "description": "From fragmented chaos to streamlined precision — we design systems, not just websites.",
+    "cta_primary": "View Our Work",
+    "cta_secondary": "Get in Touch",
+    "badge": "Interactive Lab"
+  },
+  "pain": {
+    "heading": "The Cost of Inefficiency",
+    "subtitle": "Most businesses operate in a state of invisible chaos. Slow processes, human error, and the feeling that you're the only one holding it all together.",
+    "items": [
+      { "title": "Fragmented Processes", "desc": "Information scattered across spreadsheets and emails, creating bottlenecks." },
+      { "title": "High Operational Load", "desc": "Repetitive tasks consume your team's time, limiting growth capacity." },
+      { "title": "Outdated Systems", "desc": "Tools that don't communicate, forcing manual data entry." }
+    ]
+  },
+  "method": {
+    "heading": "My Transformation Methodology",
+    "steps": [
+      { "title": "Audit", "desc": "I deeply analyze your current operations, identifying bottlenecks and time leaks that go unnoticed." },
+      { "title": "Design", "desc": "I create a new optimized process map, removing friction and designing the shortest path to results." },
+      { "title": "Connect", "desc": "I implement the technology (AI, Web, Automations) so the process runs itself with surgical precision." }
+    ]
+  },
+  "capacities": {
+    "heading": "Our Key Capabilities",
+    "items": [
+      { "title": "Process Automation", "desc": "Orchestration across systems, execution without human intervention." },
+      { "title": "Integrated AI", "desc": "AI models for real-time decision making and operations." },
+      { "title": "Data Integration", "desc": "Connecting sources and normalizing for a single source of truth." },
+      { "title": "Governance & Compliance", "desc": "Policies, security, and data quality across your stack." },
+      { "title": "User Experience", "desc": "Refined UI/UX, accessibility, and performance." },
+      { "title": "Business Strategy", "desc": "Digital transformation aligned with goals and ROI." }
+    ]
+  },
+  "proof": {
+    "heading": "Proof & Credibility",
+    "items": [
+      { "name": "Success Case A", "text": "Reduced delivery times by 40% in 90 days." },
+      { "name": "Success Case B", "text": "Increased process efficiency by 35%." },
+      { "name": "Success Case C", "text": "Estimated ROI of 3x in 12 months." }
+    ]
+  },
+  "showcase": {
+    "heading": "Case Studies",
+    "items": [
+      { "title": "Project Case 1", "desc": "Brief description of the case study." },
+      { "title": "Project Case 2", "desc": "Brief description of the case study." },
+      { "title": "Project Case 3", "desc": "Brief description of the case study." },
+      { "title": "Project Case 4", "desc": "Brief description of the case study." },
+      { "title": "Project Case 5", "desc": "Brief description of the case study." },
+      { "title": "Project Case 6", "desc": "Brief description of the case study." }
+    ]
+  },
+  "call": {
+    "heading": "Ready to Get Started?",
+    "subtitle": "Schedule a 30-minute consultation to understand your goals and map a transformation roadmap.",
+    "form": {
+      "name_placeholder": "Name",
+      "email_placeholder": "Email",
+      "phone_placeholder": "Phone",
+      "company_placeholder": "Company",
+      "submit": "Request Consultation",
+      "alert": "Thank you for your interest. We'll be in touch soon."
+    }
+  },
+  "footer": {
+    "about_title": "About",
+    "about_text": "Lumen X Labs is a digital solutions company specializing in business modernization, automation, and AI integrations.",
+    "quick_links": "Quick Links",
+    "services": "Services",
+    "service_items": ["Video Production", "Analytics", "Interactive Design", "Web Development"],
+    "connect": "Connect",
+    "connect_text": "Get in touch with us for inquiries and collaborations.",
+    "copyright": "All rights reserved.",
+    "privacy": "Privacy",
+    "terms": "Terms",
+    "cookies": "Cookies"
+  }
+}

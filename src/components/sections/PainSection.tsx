@@ -2,6 +2,7 @@
 
 import styled from 'styled-components';
 import { motion } from 'framer-motion';
+import { useLocale } from '@/lib/locale-context';
 
 const Section = styled.section`
   padding: 120px 20px;
@@ -71,19 +72,12 @@ const ChaosCard = styled(motion.div)`
 `;
 
 export default function PainSection() {
+  const { t } = useLocale();
+
   const painPoints = [
-    {
-      title: "Procesos Fragmentados",
-      desc: "Información dispersa en múltiples hojas de cálculo y correos, generando cuellos de botella."
-    },
-    {
-      title: "Carga Operativa Alta",
-      desc: "Tareas repetitivas que consumen el tiempo de tu equipo, limitando la capacidad de crecimiento."
-    },
-    {
-      title: "Sistemas Obsoletos",
-      desc: "Herramientas que no se comunican entre sí, obligando a la entrada manual de datos."
-    }
+    { title: t('pain.items.0.title'), desc: t('pain.items.0.desc') },
+    { title: t('pain.items.1.title'), desc: t('pain.items.1.desc') },
+    { title: t('pain.items.2.title'), desc: t('pain.items.2.desc') },
   ];
 
   return (
@@ -95,7 +89,7 @@ export default function PainSection() {
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
         >
-          El costo de la ineficiencia
+          {t('pain.heading')}
         </Heading>
         <Text
           initial={{ opacity: 0, y: 20 }}
@@ -103,7 +97,7 @@ export default function PainSection() {
           viewport={{ once: true }}
           transition={{ duration: 0.6, delay: 0.2 }}
         >
-          Muchos negocios operan en un estado de caos invisible. Procesos lentos, errores humanos y la sensación de que el dueño es la única pieza que mantiene todo unido.
+          {t('pain.subtitle')}
         </Text>
       </ContentWrapper>
 

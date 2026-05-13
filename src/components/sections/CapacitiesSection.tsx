@@ -1,6 +1,9 @@
+'use client';
+
 import React from 'react'
 import styled from 'styled-components'
 import { motion } from 'framer-motion'
+import { useLocale } from '@/lib/locale-context'
 
 const Section = styled.section`
   padding: 120px 20px;
@@ -44,18 +47,20 @@ const CardDesc = styled.p`
 `;
 
 export default function CapacitiesSection(){
+  const { t } = useLocale();
+
   const capabilities = [
-    { title: 'Automatización de procesos', desc: 'Orquestación entre sistemas, ejecución sin intervención humana.' },
-    { title: 'IA integrada', desc: 'Modelos IA para toma de decisiones y operaciones en tiempo real.' },
-    { title: 'Integración de datos', desc: 'Conexión de fuentes y normalización para una visión única.' },
-    { title: 'Gobernanza y cumplimiento', desc: 'Políticas, seguridad y calidad de datos en tu stack.' },
-    { title: 'Experiencia de usuario', desc: 'UI/UX refinada, accesibilidad y rendimiento.' },
-    { title: 'Estrategia de negocio', desc: 'Transformación digital alineada con objetivos y ROI.' },
+    { title: t('capacities.items.0.title'), desc: t('capacities.items.0.desc') },
+    { title: t('capacities.items.1.title'), desc: t('capacities.items.1.desc') },
+    { title: t('capacities.items.2.title'), desc: t('capacities.items.2.desc') },
+    { title: t('capacities.items.3.title'), desc: t('capacities.items.3.desc') },
+    { title: t('capacities.items.4.title'), desc: t('capacities.items.4.desc') },
+    { title: t('capacities.items.5.title'), desc: t('capacities.items.5.desc') },
   ];
 
   return (
     <Section id="capacities">
-      <Heading>Nuestras Capacidades Clave</Heading>
+      <Heading>{t('capacities.heading')}</Heading>
       <Grid>
         {capabilities.map((c, idx) => (
           <Card key={idx} whileHover={{ scale: 1.02 }} whileTap={{ scale: 0.98 }}>

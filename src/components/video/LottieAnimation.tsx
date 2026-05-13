@@ -8,7 +8,6 @@ interface LottieAnimationProps {
   url: string;
   loop?: boolean;
   autoplay?: boolean;
-  speed?: number;
   width?: number | string;
   height?: number | string;
   className?: string;
@@ -28,7 +27,6 @@ export default function LottieAnimation({
   url,
   loop = true,
   autoplay = true,
-  speed = 1,
   width = 200,
   height = 200,
   className = '',
@@ -57,7 +55,7 @@ export default function LottieAnimation({
   return (
     <LottieContainer style={{ width, height }} className={className}>
       {animationData ? (
-        <Lottie animationData={animationData} loop={loop} autoplay={autoplay} speed={speed} />
+        <Lottie animationData={animationData} loop={loop} autoplay={autoplay} />
       ) : (
         <div className="text-gray-400">Animation failed to load</div>
       )}

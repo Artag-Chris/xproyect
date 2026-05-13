@@ -1,6 +1,9 @@
+'use client';
+
 import React from 'react'
 import styled from 'styled-components'
 import { motion } from 'framer-motion'
+import { useLocale } from '@/lib/locale-context'
 
 const Section = styled.section`
   padding: 120px 20px;
@@ -46,14 +49,17 @@ const Cred = styled.p`
 `;
 
 export default function ProofSection(){
+  const { t } = useLocale();
+
   const items = [
-    { name: 'Caso de éxito A', text: 'Reduje tiempos de entrega en un 40% en 90 días.' },
-    { name: 'Caso de éxito B', text: 'Aumenté la eficiencia de procesos en un 35%.' },
-    { name: 'Caso de éxito C', text: 'ROI estimado de 3x a 12 meses.' },
+    { name: t('proof.items.0.name'), text: t('proof.items.0.text') },
+    { name: t('proof.items.1.name'), text: t('proof.items.1.text') },
+    { name: t('proof.items.2.name'), text: t('proof.items.2.text') },
   ];
+
   return (
     <Section id="proof">
-      <Heading>Pruebas y Credibilidad</Heading>
+      <Heading>{t('proof.heading')}</Heading>
       <Grid>
         {items.map((it, idx) => (
           <Card key={idx} initial={{ opacity:0, y:20 }} animate={{ opacity:1, y:0 }} transition={{ duration:0.5, delay: idx*0.15 }}>

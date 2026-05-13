@@ -1,6 +1,9 @@
+'use client';
+
 import React from 'react'
 import styled from 'styled-components'
 import { motion } from 'framer-motion'
+import { useLocale } from '@/lib/locale-context'
 
 const Section = styled.section`
   padding: 120px 20px;
@@ -44,10 +47,20 @@ const Caption = styled.div`
 `;
 
 export default function ShowcaseSection(){
-  const items = Array.from({length:6}).map((_,i)=>({title:`Caso de proyecto ${i+1}`, desc:'Breve descripción del caso de estudio.'}));
+  const { t } = useLocale();
+
+  const items = [
+    { title: t('showcase.items.0.title'), desc: t('showcase.items.0.desc') },
+    { title: t('showcase.items.1.title'), desc: t('showcase.items.1.desc') },
+    { title: t('showcase.items.2.title'), desc: t('showcase.items.2.desc') },
+    { title: t('showcase.items.3.title'), desc: t('showcase.items.3.desc') },
+    { title: t('showcase.items.4.title'), desc: t('showcase.items.4.desc') },
+    { title: t('showcase.items.5.title'), desc: t('showcase.items.5.desc') },
+  ];
+
   return (
     <Section id="showcase">
-      <Heading>Casos de Estudio</Heading>
+      <Heading>{t('showcase.heading')}</Heading>
       <Grid>
         {items.map((it, idx) => (
           <Card key={idx} initial={{ opacity:0, y:20 }} animate={{ opacity:1, y:0 }} transition={{ duration:0.5, delay: idx*0.05 }}>
