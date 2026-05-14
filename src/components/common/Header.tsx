@@ -1,6 +1,5 @@
 'use client';
 
-import Link from 'next/link';
 import { useState, useEffect } from 'react';
 import styled from 'styled-components';
 import { useTheme } from '@/lib/theme-context';
@@ -34,7 +33,7 @@ const NavContainer = styled.nav`
   }
 `;
 
-const LogoLink = styled(Link)`
+const LogoLink = styled.a`
   display: flex;
   align-items: center;
   gap: 12px;
@@ -67,7 +66,7 @@ const NavLinks = styled.div`
   }
 `;
 
-const LinkItem = styled(Link)<{ $active?: boolean }>`
+const LinkItem = styled.a<{ $active?: boolean }>`
   font-family: var(--font-syne);
   font-size: 13px;
   font-weight: 700;
@@ -78,6 +77,7 @@ const LinkItem = styled(Link)<{ $active?: boolean }>`
   transition: color var(--transition-base);
   position: relative;
   padding: 4px 0;
+  cursor: pointer;
 
   &::after {
     content: '';
@@ -98,7 +98,7 @@ const LinkItem = styled(Link)<{ $active?: boolean }>`
   }
 `;
 
-const CTA = styled(Link)`
+const CTA = styled.a`
   font-family: var(--font-syne);
   font-size: 12px;
   font-weight: 800;
@@ -111,7 +111,8 @@ const CTA = styled(Link)`
   border: 1px solid var(--primary);
   text-decoration: none;
   transition: all var(--transition-base);
-  
+  cursor: pointer;
+
   &:hover {
     background: transparent;
     color: var(--primary);
@@ -204,7 +205,6 @@ export default function Header() {
   const pathname = usePathname();
   const router = useRouter();
 
-  // Prevent scrolling when mobile menu is open
   useEffect(() => {
     if (isOpen) {
       document.body.style.overflow = 'hidden';
@@ -213,22 +213,24 @@ export default function Header() {
     }
   }, [isOpen]);
 
+  const closeMenu = () => setIsOpen(false);
+
   return (
     <NavWrapper>
       <NavContainer>
-        <LogoLink href="/">
-           <LogoImage 
-            src="/lumenXlogoSVG.svg" 
-            alt="Lumen X Labs Logo" 
+        <LogoLink href="#hero">
+           <LogoImage
+            src="/lumenXlogoSVG.svg"
+            alt="Lumen X Labs Logo"
           />
         </LogoLink>
 
         <div className="flex items-center gap-4">
           <NavLinks>
-            <LinkItem href="/" $active>{t('nav.home')}</LinkItem>
-            <LinkItem href="/about">{t('nav.about')}</LinkItem>
-            <LinkItem href="/projects">{t('nav.projects')}</LinkItem>
-            <CTA href="/contact">{t('nav.contact')}</CTA>
+            <LinkItem href="#hero">{t('nav.hero')}</LinkItem>
+            <LinkItem href="#capacities">{t('nav.services')}</LinkItem>
+            <LinkItem href="#showcase">{t('nav.cases')}</LinkItem>
+            <CTA href="#contact">{t('nav.contact')}</CTA>
           </NavLinks>
 
           <div className="desktop-only flex items-center gap-2">
@@ -261,10 +263,10 @@ export default function Header() {
       </NavContainer>
 
         <MobileMenu $isOpen={isOpen}>
-          <LinkItem href="/" onClick={() => setIsOpen(false)} style={{ fontSize: '2rem' }} $active>{t('nav.home')}</LinkItem>
-          <LinkItem href="/about" onClick={() => setIsOpen(false)} style={{ fontSize: '2rem' }}>{t('nav.about')}</LinkItem>
-          <LinkItem href="/projects" onClick={() => setIsOpen(false)} style={{ fontSize: '2rem' }}>{t('nav.projects')}</LinkItem>
-          <CTA href="/contact" onClick={() => setIsOpen(false)} style={{ fontSize: '1.2rem' }}>{t('nav.contact')}</CTA>
+          <LinkItem href="#hero" onClick={closeMenu} style={{ fontSize: '2rem' }}>{t('nav.hero')}</LinkItem>
+          <LinkItem href="#capacities" onClick={closeMenu} style={{ fontSize: '2rem' }}>{t('nav.services')}</LinkItem>
+          <LinkItem href="#showcase" onClick={closeMenu} style={{ fontSize: '2rem' }}>{t('nav.cases')}</LinkItem>
+          <CTA href="#contact" onClick={closeMenu} style={{ fontSize: '1.2rem' }}>{t('nav.contact')}</CTA>
 
           <div style={{ display: 'flex', gap: '12px', marginTop: '16px' }}>
             <LocaleToggle
@@ -272,29 +274,29 @@ export default function Header() {
                 const newLocale = locale === 'en' ? 'es' : 'en';
                 const newPath = pathname.replace(/^\/[a-z]{2}/, `/${newLocale}`);
                 router.push(newPath);
-                setIsOpen(false);
+                closeMenu();
               }}
               title="Toggle language"
             >
               {locale === 'en' ? 'ES' : 'EN'}
             </LocaleToggle>
 
-            <ThemeToggle onClick={() => { toggleTheme(); setIsOpen(false); }} title="Toggle Theme">
+            <ThemeToggle onClick={() => { toggleTheme(); closeMenu(); }} title="Toggle Theme">
               {theme === 'light' ? '🌙' : '☀️'}
             </ThemeToggle>
           </div>
 
-          <button 
-            onClick={() => setIsOpen(false)}
-            style={{ 
-              position: 'absolute', 
-              top: '2rem', 
-              right: '2rem', 
-              background: 'none', 
-              border: 'none', 
-              color: 'var(--text-primary)', 
+          <button
+            onClick={closeMenu}
+            style={{
+              position: 'absolute',
+              top: '2rem',
+              right: '2rem',
+              background: 'none',
+              border: 'none',
+              color: 'var(--text-primary)',
               cursor: 'pointer',
-              fontSize: '1.5rem' 
+              fontSize: '1.5rem'
             }}
           >
             Close

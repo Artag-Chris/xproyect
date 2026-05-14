@@ -1,14 +1,12 @@
 'use client';
 
-import Link from 'next/link';
 import styled from 'styled-components';
 import { useLocale } from '@/lib/locale-context';
 
 const FooterContainer = styled.footer`
-  background: #f8f9fa;
-  border-top: 1px solid #e9ecef;
+  background: var(--surface);
+  border-top: 1px solid var(--border);
   padding: 60px 20px 20px;
-  margin-top: 100px;
 `;
 
 const FooterContent = styled.div`
@@ -18,7 +16,7 @@ const FooterContent = styled.div`
 
 const FooterGrid = styled.div`
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
   gap: 40px;
   margin-bottom: 40px;
 
@@ -30,10 +28,13 @@ const FooterGrid = styled.div`
 
 const FooterSection = styled.div`
   h3 {
-    font-size: 16px;
+    font-family: var(--font-syne);
+    font-size: 14px;
     font-weight: 700;
-    color: var(--foreground);
+    color: var(--text-primary);
     margin-bottom: 16px;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
   }
 
   ul {
@@ -43,65 +44,91 @@ const FooterSection = styled.div`
       margin-bottom: 10px;
 
       a {
-        color: #495057;
+        font-family: var(--font-jakarta);
+        color: var(--text-secondary);
         text-decoration: none;
+        font-size: 14px;
         transition: color var(--transition-base);
 
         &:hover {
-          color: #007bff;
+          color: var(--primary);
         }
       }
     }
   }
 
   p {
-    color: #495057;
+    font-family: var(--font-jakarta);
+    color: var(--text-secondary);
     font-size: 14px;
     line-height: 1.6;
   }
 `;
 
+const SocialIcons = styled.div`
+  display: flex;
+  gap: 12px;
+  margin-top: 16px;
+
+  a {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    background: var(--surface-secondary);
+    border: 1px solid var(--border);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--text-secondary);
+    font-family: var(--font-jakarta);
+    font-size: 13px;
+    font-weight: 600;
+    text-decoration: none;
+    transition: all var(--transition-base);
+
+    &:hover {
+      background: var(--primary);
+      color: white;
+      border-color: var(--primary);
+      transform: translateY(-2px);
+    }
+  }
+`;
+
 const FooterBottom = styled.div`
-  border-top: 1px solid #e9ecef;
-  padding-top: 30px;
+  border-top: 1px solid var(--border);
+  padding-top: 24px;
   display: flex;
   justify-content: space-between;
   align-items: center;
   flex-wrap: wrap;
-  gap: 20px;
+  gap: 16px;
 
   @media (max-width: 768px) {
     flex-direction: column;
     text-align: center;
   }
-
-  p {
-    color: #495057;
-    font-size: 14px;
-  }
 `;
 
-const SocialLinks = styled.div`
+const Copyright = styled.p`
+  font-family: var(--font-jakarta);
+  color: var(--text-tertiary);
+  font-size: 13px;
+`;
+
+const LegalLinks = styled.div`
   display: flex;
-  gap: 16px;
+  gap: 20px;
 
   a {
-    width: 40px;
-    height: 40px;
-    border-radius: 50%;
-    background: white;
-    border: 1px solid #e9ecef;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: #007bff;
+    font-family: var(--font-jakarta);
+    color: var(--text-tertiary);
     text-decoration: none;
-    transition: all var(--transition-base);
+    font-size: 13px;
+    transition: color var(--transition-base);
 
     &:hover {
-      background: #007bff;
-      color: white;
-      transform: translateY(-2px);
+      color: var(--primary);
     }
   }
 `;
@@ -123,10 +150,10 @@ export default function Footer() {
           <FooterSection>
             <h3>{t('footer.quick_links')}</h3>
             <ul>
-              <li><Link href="/">{t('nav.home')}</Link></li>
-              <li><Link href="/projects">{t('nav.projects')}</Link></li>
-              <li><Link href="/about">{t('nav.about')}</Link></li>
-              <li><Link href="/contact">{t('nav.contact')}</Link></li>
+              <li><a href="#hero">{t('nav.hero')}</a></li>
+              <li><a href="#capacities">{t('nav.services')}</a></li>
+              <li><a href="#showcase">{t('nav.cases')}</a></li>
+              <li><a href="#contact">{t('nav.contact')}</a></li>
             </ul>
           </FooterSection>
 
@@ -143,21 +170,21 @@ export default function Footer() {
           <FooterSection>
             <h3>{t('footer.connect')}</h3>
             <p>{t('footer.connect_text')}</p>
-            <SocialLinks>
-              <a href="#" title="Twitter">𝕏</a>
+            <SocialIcons>
+              <a href="#" title="Twitter / X">X</a>
               <a href="#" title="LinkedIn">in</a>
-              <a href="#" title="GitHub">gh</a>
-            </SocialLinks>
+              <a href="#" title="GitHub">GH</a>
+            </SocialIcons>
           </FooterSection>
         </FooterGrid>
 
         <FooterBottom>
-          <p>&copy; 2024 Lumen <span style={{ color: 'var(--primary)' }}>X</span> Labs. {t('footer.copyright')}</p>
-          <SocialLinks>
+          <Copyright>&copy; 2024 Lumen <span style={{ color: 'var(--primary)' }}>X</span> Labs. {t('footer.copyright')}</Copyright>
+          <LegalLinks>
             <a href="#">{t('footer.privacy')}</a>
             <a href="#">{t('footer.terms')}</a>
             <a href="#">{t('footer.cookies')}</a>
-          </SocialLinks>
+          </LegalLinks>
         </FooterBottom>
       </FooterContent>
     </FooterContainer>

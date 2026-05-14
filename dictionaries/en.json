@@ -4,9 +4,9 @@
     "description": "Modernize, automate, and scale your business with AI-powered solutions."
   },
   "nav": {
-    "home": "Home",
-    "about": "About",
-    "projects": "Projects",
+    "hero": "Home",
+    "services": "Services",
+    "cases": "Case Studies",
     "contact": "Contact"
   },
   "hero": {
@@ -45,22 +45,19 @@
     ]
   },
   "proof": {
-    "heading": "Proof & Credibility",
+    "heading": "Why Companies Choose Lumen",
     "items": [
-      { "name": "Success Case A", "text": "Reduced delivery times by 40% in 90 days." },
-      { "name": "Success Case B", "text": "Increased process efficiency by 35%." },
-      { "name": "Success Case C", "text": "Estimated ROI of 3x in 12 months." }
+      { "title": "Direct Access to the Founder", "desc": "You work directly with who builds. No account managers, no layers, no filtered communication. Just straight talk and real answers." },
+      { "title": "Real Results or You Don't Pay", "desc": "If in the first 30 days you don't see concrete improvement in your operations, you don't pay. No fine print, no excuses." },
+      { "title": "Technology That Actually Works", "desc": "Every system is tested, measured, and delivered working — or it doesn't ship. No empty promises, no half-baked deliveries." }
     ]
   },
   "showcase": {
-    "heading": "Case Studies",
+    "heading": "Real Results",
     "items": [
-      { "title": "Project Case 1", "desc": "Brief description of the case study." },
-      { "title": "Project Case 2", "desc": "Brief description of the case study." },
-      { "title": "Project Case 3", "desc": "Brief description of the case study." },
-      { "title": "Project Case 4", "desc": "Brief description of the case study." },
-      { "title": "Project Case 5", "desc": "Brief description of the case study." },
-      { "title": "Project Case 6", "desc": "Brief description of the case study." }
+      { "title": "Unified Social Inbox", "desc": "WhatsApp, Instagram, and Facebook messages scattered across devices. Now every conversation lands in one dashboard — no more missed leads, no more chaos.", "result": "Never lose a lead again" },
+      { "title": "Business Automation", "desc": "Hours lost on invoices, follow-ups, and manual data entry. Now the business runs itself — automations handle the repetitive work while you focus on what matters.", "result": "Reclaim 10+ hours per week" },
+      { "title": "Complete Web Presence", "desc": "No website or one that doesn't represent you. A professional online presence with admin panel, integrated with your social channels. Your business, online and under control.", "result": "Your business, online and under control" }
     ]
   },
   "call": {

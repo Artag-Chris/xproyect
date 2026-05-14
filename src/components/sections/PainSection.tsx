@@ -113,7 +113,7 @@ export default function PainSection() {
   ];
 
   return (
-    <Section>
+    <Section id="pain">
       <ContentWrapper>
         <Heading
           initial={{ opacity: 0, y: 20 }}

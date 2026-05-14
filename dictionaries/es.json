@@ -4,9 +4,9 @@
     "description": "Moderniza, automatiza y escala tu negocio con soluciones impulsadas por IA."
   },
   "nav": {
-    "home": "Inicio",
-    "about": "Nosotros",
-    "projects": "Proyectos",
+    "hero": "Inicio",
+    "services": "Servicios",
+    "cases": "Casos de Éxito",
     "contact": "Contacto"
   },
   "hero": {
@@ -45,22 +45,19 @@
     ]
   },
   "proof": {
-    "heading": "Pruebas y Credibilidad",
+    "heading": "Por qué las empresas eligen Lumen",
     "items": [
-      { "name": "Caso de éxito A", "text": "Reduje tiempos de entrega en un 40% en 90 días." },
-      { "name": "Caso de éxito B", "text": "Aumenté la eficiencia de procesos en un 35%." },
-      { "name": "Caso de éxito C", "text": "ROI estimado de 3x a 12 meses." }
+      { "title": "Acceso Directo al Fundador", "desc": "Trabajas directamente con quien construye. Sin account managers, sin capas, sin filtros. Conversación directa y respuestas reales." },
+      { "title": "Resultados Reales o No Pagas", "desc": "Si en los primeros 30 días no ves una mejora concreta en tu operación, no pagas. Sin letra chica, sin excusas." },
+      { "title": "Tecnología Que Funciona de Verdad", "desc": "Cada sistema se prueba, se mide y se entrega funcionando — o no se entrega. Sin promesas vacías, sin entregas a medias." }
     ]
   },
   "showcase": {
-    "heading": "Casos de Estudio",
+    "heading": "Resultados Reales",
     "items": [
-      { "title": "Caso de proyecto 1", "desc": "Breve descripción del caso de estudio." },
-      { "title": "Caso de proyecto 2", "desc": "Breve descripción del caso de estudio." },
-      { "title": "Caso de proyecto 3", "desc": "Breve descripción del caso de estudio." },
-      { "title": "Caso de proyecto 4", "desc": "Breve descripción del caso de estudio." },
-      { "title": "Caso de proyecto 5", "desc": "Breve descripción del caso de estudio." },
-      { "title": "Caso de proyecto 6", "desc": "Breve descripción del caso de estudio." }
+      { "title": "Bandeja Unificada de Redes", "desc": "Mensajes de WhatsApp, Instagram y Facebook dispersos en varios dispositivos. Ahora cada conversación llega a un solo panel — sin más leads perdidos, sin más caos.", "result": "Nunca pierdas un cliente" },
+      { "title": "Automatización del Negocio", "desc": "Horas perdidas en facturas, seguimientos y datos manuales. Ahora el negocio funciona solo — las automatizaciones hacen el trabajo repetitivo mientras tú te enfocas en lo que importa.", "result": "Recupera 10+ horas a la semana" },
+      { "title": "Presencia Web Completa", "desc": "Sin sitio web o uno que no te representa. Una presencia profesional con panel de administración, integrada con tus redes sociales. Tu negocio online y bajo control.", "result": "Tu negocio online y bajo control" }
     ]
   },
   "call": {

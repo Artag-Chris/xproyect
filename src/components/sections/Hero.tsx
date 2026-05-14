@@ -147,7 +147,7 @@ export default function Hero() {
   const { t } = useLocale();
 
   return (
-    <HeroSection>
+    <HeroSection id="hero">
       <HeroBg />
       <HeroContent>
         <TitleWrapper>
