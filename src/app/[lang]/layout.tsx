@@ -4,6 +4,7 @@ import { LocaleProvider } from '@/lib/locale-context';
 import ThemeProvider from '@/lib/theme-context';
 import LenisProvider from '@/lib/lenis-context';
 import Header from '@/components/common/Header';
+import FloatingContactHub from '@/components/common/FloatingContactHub';
 
 export async function generateStaticParams() {
   return locales.map((lang) => ({ lang }));
@@ -28,6 +29,7 @@ export default async function LangLayout({
         <LenisProvider>
           <Header />
           {children}
+          <FloatingContactHub />
         </LenisProvider>
       </ThemeProvider>
     </LocaleProvider>
