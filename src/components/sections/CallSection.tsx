@@ -9,6 +9,10 @@ const Section = styled.section`
   max-width: 960px;
   margin: 0 auto;
   text-align: center;
+
+  @media (max-width: 768px) {
+    padding: 60px 16px;
+  }
 `;
 
 const Heading = styled.h2`
@@ -17,6 +21,12 @@ const Heading = styled.h2`
   font-weight: 800;
   color: var(--text-primary);
   margin-bottom: 16px;
+  text-wrap: balance;
+
+  @media (max-width: 768px) {
+    font-size: clamp(20px, 5vw, 26px);
+    line-height: 1.3;
+  }
 `;
 
 const Sub = styled.p`

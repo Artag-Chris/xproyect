@@ -12,6 +12,10 @@ const Section = styled.section`
   flex-direction: column;
   align-items: center;
   text-align: center;
+
+  @media (max-width: 768px) {
+    padding: 60px 16px;
+  }
 `;
 
 const ContentWrapper = styled.div`
@@ -26,6 +30,12 @@ const Heading = styled(motion.h2)`
   color: var(--text-primary);
   margin-bottom: 24px;
   line-height: 1.1;
+  text-wrap: balance;
+
+  @media (max-width: 768px) {
+    font-size: clamp(22px, 6vw, 28px);
+    line-height: 1.3;
+  }
 `;
 
 const Text = styled(motion.p)`
@@ -34,25 +44,34 @@ const Text = styled(motion.p)`
   color: var(--text-secondary);
   line-height: 1.6;
   margin-bottom: 60px;
+  overflow-wrap: break-word;
+
+  @media (max-width: 768px) {
+    font-size: 16px;
+    line-height: 1.5;
+    margin-bottom: 32px;
+  }
 `;
 
 const ChaosGrid = styled.div`
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
   gap: 30px;
   width: 100%;
 `;
 
 const ChaosCard = styled(motion.div)`
   padding: 40px;
-  background: var(--surface-secondary);
+  background: var(--surface);
   border: 1px solid var(--border);
   border-radius: 12px;
   text-align: left;
+  box-shadow: var(--shadow-sm);
   transition: all var(--transition-base);
 
   &:hover {
     border-color: var(--primary);
+    box-shadow: var(--shadow-md);
     transform: translateY(-5px);
   }
 
@@ -68,6 +87,19 @@ const ChaosCard = styled(motion.div)`
     font-size: 15px;
     color: var(--text-secondary);
     line-height: 1.5;
+    overflow-wrap: break-word;
+  }
+
+  @media (max-width: 768px) {
+    padding: 24px;
+
+    h3 {
+      font-size: 18px;
+    }
+
+    p {
+      font-size: 14px;
+    }
   }
 `;
 

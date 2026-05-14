@@ -194,7 +194,7 @@ const MobileMenu = styled.div<{ $isOpen: boolean }>`
   gap: 2rem;
   transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
   transform: ${({ $isOpen }) => ($isOpen ? 'translateX(0)' : 'translateX(100%)')};
-  z-//index: 100;
+  z-index: 100;
 `;
 
 export default function Header() {
@@ -223,7 +223,7 @@ export default function Header() {
           />
         </LogoLink>
 
-        <div className="flex items-center gap-16">
+        <div className="flex items-center gap-4">
           <NavLinks>
             <LinkItem href="/" $active>{t('nav.home')}</LinkItem>
             <LinkItem href="/about">{t('nav.about')}</LinkItem>
@@ -231,20 +231,22 @@ export default function Header() {
             <CTA href="/contact">{t('nav.contact')}</CTA>
           </NavLinks>
 
-          <LocaleToggle
-            onClick={() => {
-              const newLocale = locale === 'en' ? 'es' : 'en';
-              const newPath = pathname.replace(/^\/[a-z]{2}/, `/${newLocale}`);
-              router.push(newPath);
-            }}
-            title="Toggle language"
-          >
-            {locale === 'en' ? 'ES' : 'EN'}
-          </LocaleToggle>
+          <div className="desktop-only flex items-center gap-2">
+            <LocaleToggle
+              onClick={() => {
+                const newLocale = locale === 'en' ? 'es' : 'en';
+                const newPath = pathname.replace(/^\/[a-z]{2}/, `/${newLocale}`);
+                router.push(newPath);
+              }}
+              title="Toggle language"
+            >
+              {locale === 'en' ? 'ES' : 'EN'}
+            </LocaleToggle>
 
-          <ThemeToggle onClick={toggleTheme} title="Toggle Theme">
-            {theme === 'light' ? '🌙' : '☀️'}
-          </ThemeToggle>
+            <ThemeToggle onClick={toggleTheme} title="Toggle Theme">
+              {theme === 'light' ? '🌙' : '☀️'}
+            </ThemeToggle>
+          </div>
         </div>
 
         <MobileToggle onClick={() => setIsOpen(!isOpen)}>
@@ -263,6 +265,25 @@ export default function Header() {
           <LinkItem href="/about" onClick={() => setIsOpen(false)} style={{ fontSize: '2rem' }}>{t('nav.about')}</LinkItem>
           <LinkItem href="/projects" onClick={() => setIsOpen(false)} style={{ fontSize: '2rem' }}>{t('nav.projects')}</LinkItem>
           <CTA href="/contact" onClick={() => setIsOpen(false)} style={{ fontSize: '1.2rem' }}>{t('nav.contact')}</CTA>
+
+          <div style={{ display: 'flex', gap: '12px', marginTop: '16px' }}>
+            <LocaleToggle
+              onClick={() => {
+                const newLocale = locale === 'en' ? 'es' : 'en';
+                const newPath = pathname.replace(/^\/[a-z]{2}/, `/${newLocale}`);
+                router.push(newPath);
+                setIsOpen(false);
+              }}
+              title="Toggle language"
+            >
+              {locale === 'en' ? 'ES' : 'EN'}
+            </LocaleToggle>
+
+            <ThemeToggle onClick={() => { toggleTheme(); setIsOpen(false); }} title="Toggle Theme">
+              {theme === 'light' ? '🌙' : '☀️'}
+            </ThemeToggle>
+          </div>
+
           <button 
             onClick={() => setIsOpen(false)}
             style={{ 

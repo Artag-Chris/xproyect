@@ -12,6 +12,10 @@ const Section = styled.section`
   flex-direction: column;
   align-items: center;
   text-align: center;
+
+  @media (max-width: 768px) {
+    padding: 60px 16px;
+  }
 `;
 
 const Heading = styled(motion.h2)`
@@ -21,6 +25,13 @@ const Heading = styled(motion.h2)`
   color: var(--text-primary);
   margin-bottom: 60px;
   line-height: 1.1;
+  text-wrap: balance;
+
+  @media (max-width: 768px) {
+    font-size: clamp(22px, 6vw, 28px);
+    line-height: 1.3;
+    margin-bottom: 28px;
+  }
 `;
 
 const MethodGrid = styled.div`
@@ -31,6 +42,7 @@ const MethodGrid = styled.div`
 
   @media (max-width: 992px) {
     grid-template-columns: 1fr;
+    gap: 24px;
   }
 `;
 
@@ -41,6 +53,7 @@ const MethodStep = styled(motion.div)`
   border: 1px solid var(--border);
   border-radius: 16px;
   text-align: left;
+  box-shadow: var(--shadow-sm);
   transition: all var(--transition-base);
 
   &:hover {
@@ -53,11 +66,13 @@ const MethodStep = styled(motion.div)`
     font-size: 64px;
     font-weight: 800;
     color: var(--primary);
-    opacity: 0.2;
+    opacity: 0.15;
     position: absolute;
     top: 20px;
     right: 30px;
     line-height: 1;
+    pointer-events: none;
+    user-select: none;
   }
 
   h3 {
@@ -77,6 +92,29 @@ const MethodStep = styled(motion.div)`
     line-height: 1.6;
     position: relative;
     z-index: 1;
+    overflow-wrap: break-word;
+  }
+
+  @media (max-width: 768px) {
+    padding: 20px;
+
+    .step-number {
+      font-size: 28px;
+      opacity: 0.12;
+      top: 8px;
+      right: 12px;
+    }
+
+    h3 {
+      font-size: 18px;
+      margin-bottom: 10px;
+      padding-right: 32px;
+    }
+
+    p {
+      font-size: 14px;
+      line-height: 1.5;
+    }
   }
 `;
 

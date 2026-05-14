@@ -10,82 +10,95 @@ const HeroSection = styled.section`
   display: flex;
   align-items: center;
   justify-content: center;
-  background: var(--background);
   padding: 40px 20px;
   position: relative;
   overflow: hidden;
   padding-top: 80px;
 
-  &::before {
+  @media (max-width: 768px) {
+    padding: 80px 24px 60px;
+    min-height: 90vh;
+  }
+`;
+
+const HeroBg = styled.div`
+  position: absolute;
+  inset: 0;
+  background: url('/fondo%20de%20muestra.png') center / cover no-repeat;
+  z-index: 0;
+
+  &::after {
     content: '';
     position: absolute;
-    top: 10%;
-    right: -10%;
-    width: 60%;
-    height: 60%;
-    background: radial-gradient(circle, rgba(0, 123, 255, 0.08) 0%, transparent 70%);
-    pointer-events: none;
-    z-index: 0;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.55);
   }
 `;
 
 const HeroContent = styled.div`
-  max-width: 1100px;
+  max-width: 900px;
   width: 100%;
-  text-align: left;
+  text-align: center;
   position: relative;
   z-index: 1;
-  display: grid;
-  grid-template-columns: 1.2fr 0.8fr;
-  gap: 40px;
-  align-items: center;
-
-  @media (max-width: 992px) {
-    grid-template-columns: 1fr;
-    text-align: center;
-  }
 `;
 
 const TitleWrapper = styled.div`
   overflow: hidden;
   margin-bottom: 20px;
+
+  @media (max-width: 768px) {
+    margin-bottom: 16px;
+  }
 `;
 
 const Title = styled(motion.h1)`
   font-family: var(--font-syne);
   font-size: clamp(48px, 10vw, 96px);
   font-weight: 800;
-  color: var(--text-primary);
+  color: white;
   line-height: 0.9;
   letter-spacing: -0.04em;
   margin: 0;
+
+  @media (max-width: 768px) {
+    font-size: clamp(22px, 8vw, 32px);
+    font-weight: 700;
+    line-height: 1.1;
+    letter-spacing: -0.01em;
+  }
 `;
 
 const DescriptionWrapper = styled.div`
   overflow: hidden;
   margin-bottom: 40px;
+
+  @media (max-width: 768px) {
+    margin-bottom: 32px;
+  }
 `;
 
 const Description = styled(motion.p)`
   font-family: var(--font-jakarta);
   font-size: clamp(18px, 2vw, 24px);
-  color: var(--text-secondary);
+  color: rgba(255, 255, 255, 0.7);
   max-width: 600px;
   line-height: 1.4;
-  margin: 0;
+  margin: 0 auto;
+  overflow-wrap: break-word;
 
-  @media (max-width: 992px) {
-    margin: 0 auto;
+  @media (max-width: 768px) {
+    font-size: 15px;
+    line-height: 1.5;
+    max-width: 100%;
   }
 `;
 
 const ButtonGroup = styled(motion.div)`
   display: flex;
   gap: 20px;
-  
-  @media (max-width: 992px) {
-    justify-content: center;
-  }
+  justify-content: center;
+  flex-wrap: wrap;
 `;
 
 const Button = styled.button<{ $variant?: 'primary' | 'secondary' }>`
@@ -104,12 +117,12 @@ const Button = styled.button<{ $variant?: 'primary' | 'secondary' }>`
     props.$variant === 'secondary'
       ? `
     background: transparent;
-    color: var(--text-primary);
-    border-color: var(--border);
+    color: white;
+    border-color: rgba(255, 255, 255, 0.4);
 
     &:hover {
-      background: var(--surface-secondary);
-      border-color: var(--text-primary);
+      background: rgba(255, 255, 255, 0.1);
+      border-color: white;
     }
   `
       : `
@@ -122,26 +135,11 @@ const Button = styled.button<{ $variant?: 'primary' | 'secondary' }>`
       transform: translateY(-2px);
     }
   `}
-`;
 
-const VisualElement = styled(motion.div)`
-  position: relative;
-  width: 100%;
-  aspect-ratio: 1;
-  background: url('/fondo%20de%20muestra.png') center / cover no-repeat;
-  border: 1px solid var(--border);
-  border-radius: 24px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  overflow: hidden;
-
-  &::after {
-    content: '';
-    position: absolute;
-    inset: 0;
-    background: rgba(0, 0, 0, 0.3);
-    z-index: 0;
+  @media (max-width: 768px) {
+    padding: 14px 24px;
+    font-size: 13px;
+    width: 100%;
   }
 `;
 
@@ -150,50 +148,36 @@ export default function Hero() {
 
   return (
     <HeroSection>
+      <HeroBg />
       <HeroContent>
-        <div className="flex flex-col">
-          <TitleWrapper>
-            <Title
-              initial={{ y: '100%' }}
-              animate={{ y: 0 }}
-              transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
-            >
-              {t('hero.title')}
-            </Title>
-          </TitleWrapper>
+        <TitleWrapper>
+          <Title
+            initial={{ y: '100%' }}
+            animate={{ y: 0 }}
+            transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
+          >
+            {t('hero.title')}
+          </Title>
+        </TitleWrapper>
 
-          <DescriptionWrapper>
-            <Description
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.2, ease: [0.22, 1, 0.36, 1] }}
-            >
-              {t('hero.description')}
-            </Description>
-          </DescriptionWrapper>
-
-          <ButtonGroup
+        <DescriptionWrapper>
+          <Description
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.4, ease: [0.22, 1, 0.36, 1] }}
+            transition={{ duration: 0.8, delay: 0.2, ease: [0.22, 1, 0.36, 1] }}
           >
-            <Button>{t('hero.cta_primary')}</Button>
-            <Button $variant="secondary">{t('hero.cta_secondary')}</Button>
-          </ButtonGroup>
-        </div>
+            {t('hero.description')}
+          </Description>
+        </DescriptionWrapper>
 
-        <VisualElement
-          initial={{ opacity: 0, scale: 0.8, rotate: -5 }}
-          animate={{ opacity: 1, scale: 1, rotate: 0 }}
-          transition={{ duration: 1, delay: 0.5, ease: [0.22, 1, 0.36, 1] }}
+        <ButtonGroup
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: 0.4, ease: [0.22, 1, 0.36, 1] }}
         >
-          <div className="relative z-10 p-12 text-center">
-            <div className="text-6xl mb-4">⚡</div>
-            <div className="font-syne font-bold text-sm uppercase tracking-widest text-white/90">
-              {t('hero.badge')}
-            </div>
-          </div>
-        </VisualElement>
+          <Button>{t('hero.cta_primary')}</Button>
+          <Button $variant="secondary">{t('hero.cta_secondary')}</Button>
+        </ButtonGroup>
       </HeroContent>
     </HeroSection>
   );
