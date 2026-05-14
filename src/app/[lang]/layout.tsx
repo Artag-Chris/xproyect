@@ -2,8 +2,8 @@ import { notFound } from 'next/navigation';
 import { getDictionary, hasLocale, locales } from '@/lib/get-dictionary';
 import { LocaleProvider } from '@/lib/locale-context';
 import ThemeProvider from '@/lib/theme-context';
+import LenisProvider from '@/lib/lenis-context';
 import Header from '@/components/common/Header';
-import SmoothScroll from '@/components/common/SmoothScroll';
 
 export async function generateStaticParams() {
   return locales.map((lang) => ({ lang }));
@@ -25,10 +25,10 @@ export default async function LangLayout({
   return (
     <LocaleProvider locale={lang} dictionary={dictionary}>
       <ThemeProvider>
-        <SmoothScroll>
+        <LenisProvider>
           <Header />
           {children}
-        </SmoothScroll>
+        </LenisProvider>
       </ThemeProvider>
     </LocaleProvider>
   );

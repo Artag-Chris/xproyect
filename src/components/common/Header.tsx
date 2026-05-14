@@ -1,10 +1,11 @@
 'use client';
 
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useCallback } from 'react';
 import styled from 'styled-components';
 import { useTheme } from '@/lib/theme-context';
 import { useLocale } from '@/lib/locale-context';
 import { usePathname, useRouter } from 'next/navigation';
+import { useLenis } from '@/lib/lenis-context';
 
 const NavWrapper = styled.header`
   position: sticky;
@@ -49,6 +50,7 @@ const LogoLink = styled.a`
 const LogoImage = styled.img`
   height: 110px;
   width: auto;
+  aspect-ratio: 612 / 408;
   transition: transform 0.2s ease;
 
   @media (max-width: 768px) {
@@ -204,6 +206,7 @@ export default function Header() {
   const { t, locale } = useLocale();
   const pathname = usePathname();
   const router = useRouter();
+  const lenis = useLenis();
 
   useEffect(() => {
     if (isOpen) {
@@ -215,22 +218,31 @@ export default function Header() {
 
   const closeMenu = () => setIsOpen(false);
 
+  const handleNavClick = useCallback((e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
+    if (href.startsWith('#') && lenis) {
+      e.preventDefault();
+      lenis.scrollTo(href);
+    }
+  }, [lenis]);
+
   return (
     <NavWrapper>
       <NavContainer>
-        <LogoLink href="#hero">
+        <LogoLink href="#hero" onClick={(e: React.MouseEvent<HTMLAnchorElement>) => handleNavClick(e, '#hero')}>
            <LogoImage
             src="/lumenXlogoSVG.svg"
             alt="Lumen X Labs Logo"
+            width={165}
+            height={110}
           />
         </LogoLink>
 
         <div className="flex items-center gap-4">
           <NavLinks>
-            <LinkItem href="#hero">{t('nav.hero')}</LinkItem>
-            <LinkItem href="#capacities">{t('nav.services')}</LinkItem>
-            <LinkItem href="#showcase">{t('nav.cases')}</LinkItem>
-            <CTA href="#contact">{t('nav.contact')}</CTA>
+            <LinkItem href="#hero" onClick={(e: React.MouseEvent<HTMLAnchorElement>) => handleNavClick(e, '#hero')}>{t('nav.hero')}</LinkItem>
+            <LinkItem href="#capacities" onClick={(e: React.MouseEvent<HTMLAnchorElement>) => handleNavClick(e, '#capacities')}>{t('nav.services')}</LinkItem>
+            <LinkItem href="#showcase" onClick={(e: React.MouseEvent<HTMLAnchorElement>) => handleNavClick(e, '#showcase')}>{t('nav.cases')}</LinkItem>
+            <CTA href="#contact" onClick={(e: React.MouseEvent<HTMLAnchorElement>) => handleNavClick(e, '#contact')}>{t('nav.contact')}</CTA>
           </NavLinks>
 
           <div className="desktop-only flex items-center gap-2">
@@ -263,10 +275,10 @@ export default function Header() {
       </NavContainer>
 
         <MobileMenu $isOpen={isOpen}>
-          <LinkItem href="#hero" onClick={closeMenu} style={{ fontSize: '2rem' }}>{t('nav.hero')}</LinkItem>
-          <LinkItem href="#capacities" onClick={closeMenu} style={{ fontSize: '2rem' }}>{t('nav.services')}</LinkItem>
-          <LinkItem href="#showcase" onClick={closeMenu} style={{ fontSize: '2rem' }}>{t('nav.cases')}</LinkItem>
-          <CTA href="#contact" onClick={closeMenu} style={{ fontSize: '1.2rem' }}>{t('nav.contact')}</CTA>
+          <LinkItem href="#hero" onClick={(e: React.MouseEvent<HTMLAnchorElement>) => { handleNavClick(e, '#hero'); closeMenu(); }} style={{ fontSize: '2rem' }}>{t('nav.hero')}</LinkItem>
+          <LinkItem href="#capacities" onClick={(e: React.MouseEvent<HTMLAnchorElement>) => { handleNavClick(e, '#capacities'); closeMenu(); }} style={{ fontSize: '2rem' }}>{t('nav.services')}</LinkItem>
+          <LinkItem href="#showcase" onClick={(e: React.MouseEvent<HTMLAnchorElement>) => { handleNavClick(e, '#showcase'); closeMenu(); }} style={{ fontSize: '2rem' }}>{t('nav.cases')}</LinkItem>
+          <CTA href="#contact" onClick={(e: React.MouseEvent<HTMLAnchorElement>) => { handleNavClick(e, '#contact'); closeMenu(); }} style={{ fontSize: '1.2rem' }}>{t('nav.contact')}</CTA>
 
           <div style={{ display: 'flex', gap: '12px', marginTop: '16px' }}>
             <LocaleToggle

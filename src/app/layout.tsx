@@ -27,6 +27,9 @@ export default function RootLayout({
 }>) {
   return (
     <html className={`${syne.variable} ${jakarta.variable} h-full antialiased`}>
+      <head>
+        <link rel="preload" href="/lumenXlogoSVG.svg" as="image" />
+      </head>
       <body className="min-h-full flex flex-col">
         <StyledComponentsRegistry>
           {children}
