@@ -4,6 +4,7 @@ import React from 'react'
 import styled from 'styled-components'
 import { motion } from 'framer-motion'
 import { useLocale } from '@/lib/locale-context'
+import { useTrack } from '@/hooks/useTrack'
 
 const Section = styled.section`
   padding: 120px 40px;
@@ -189,7 +190,8 @@ const TrustLine = styled(motion.p)`
 
 export default function CallSection(){
   const { t } = useLocale();
-  const onSubmit = (e: React.FormEvent) => { e.preventDefault(); alert(t('call.form.alert')); };
+  const track = useTrack();
+  const onSubmit = (e: React.FormEvent) => { e.preventDefault(); track('form_submitted', { form_type: 'contact' }); alert(t('call.form.alert')); };
 
   return (
     <Section id="contact">

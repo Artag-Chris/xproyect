@@ -5,6 +5,8 @@ import ThemeProvider from '@/lib/theme-context';
 import LenisProvider from '@/lib/lenis-context';
 import Header from '@/components/common/Header';
 import FloatingContactHub from '@/components/common/FloatingContactHub';
+import GTMProvider from '@/components/common/GTMProvider';
+import PageViewTracker from '@/components/common/PageViewTracker';
 
 export async function generateStaticParams() {
   return locales.map((lang) => ({ lang }));
@@ -27,6 +29,8 @@ export default async function LangLayout({
     <LocaleProvider locale={lang} dictionary={dictionary}>
       <ThemeProvider>
         <LenisProvider>
+          <GTMProvider />
+          <PageViewTracker />
           <Header />
           {children}
           <FloatingContactHub />

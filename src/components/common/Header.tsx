@@ -6,6 +6,7 @@ import { useTheme } from '@/lib/theme-context';
 import { useLocale } from '@/lib/locale-context';
 import { usePathname, useRouter } from 'next/navigation';
 import { useLenis } from '@/lib/lenis-context';
+import { useTrack } from '@/hooks/useTrack';
 
 const NavWrapper = styled.header`
   position: sticky;
@@ -207,6 +208,7 @@ export default function Header() {
   const pathname = usePathname();
   const router = useRouter();
   const lenis = useLenis();
+  const track = useTrack();
 
   useEffect(() => {
     if (isOpen) {
@@ -239,16 +241,17 @@ export default function Header() {
 
         <div className="flex items-center gap-4">
           <NavLinks>
-            <LinkItem href="#hero" onClick={(e: React.MouseEvent<HTMLAnchorElement>) => handleNavClick(e, '#hero')}>{t('nav.hero')}</LinkItem>
-            <LinkItem href="#capacities" onClick={(e: React.MouseEvent<HTMLAnchorElement>) => handleNavClick(e, '#capacities')}>{t('nav.services')}</LinkItem>
-            <LinkItem href="#showcase" onClick={(e: React.MouseEvent<HTMLAnchorElement>) => handleNavClick(e, '#showcase')}>{t('nav.cases')}</LinkItem>
-            <CTA href="#contact" onClick={(e: React.MouseEvent<HTMLAnchorElement>) => handleNavClick(e, '#contact')}>{t('nav.contact')}</CTA>
+            <LinkItem href="#hero" onClick={(e: React.MouseEvent<HTMLAnchorElement>) => { handleNavClick(e, '#hero'); track('nav_link_clicked', { link_text: t('nav.hero'), link_href: '#hero', location: 'header' }); }}>{t('nav.hero')}</LinkItem>
+            <LinkItem href="#capacities" onClick={(e: React.MouseEvent<HTMLAnchorElement>) => { handleNavClick(e, '#capacities'); track('nav_link_clicked', { link_text: t('nav.services'), link_href: '#capacities', location: 'header' }); }}>{t('nav.services')}</LinkItem>
+            <LinkItem href="#showcase" onClick={(e: React.MouseEvent<HTMLAnchorElement>) => { handleNavClick(e, '#showcase'); track('nav_link_clicked', { link_text: t('nav.cases'), link_href: '#showcase', location: 'header' }); }}>{t('nav.cases')}</LinkItem>
+            <CTA href="#contact" onClick={(e: React.MouseEvent<HTMLAnchorElement>) => { handleNavClick(e, '#contact'); track('cta_clicked', { cta_text: t('nav.contact'), cta_location: 'nav_cta' }); }}>{t('nav.contact')}</CTA>
           </NavLinks>
 
           <div className="desktop-only flex items-center gap-2">
             <LocaleToggle
               onClick={() => {
                 const newLocale = locale === 'en' ? 'es' : 'en';
+                track('locale_switched', { locale_from: locale, locale_to: newLocale });
                 const newPath = pathname.replace(/^\/[a-z]{2}/, `/${newLocale}`);
                 router.push(newPath);
               }}
@@ -257,7 +260,7 @@ export default function Header() {
               {locale === 'en' ? 'ES' : 'EN'}
             </LocaleToggle>
 
-            <ThemeToggle onClick={toggleTheme} title="Toggle Theme">
+            <ThemeToggle onClick={() => { toggleTheme(); track('theme_toggled', { theme: theme === 'light' ? 'dark' : 'light' }); }} title="Toggle Theme">
               {theme === 'light' ? '🌙' : '☀️'}
             </ThemeToggle>
           </div>

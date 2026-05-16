@@ -4,6 +4,7 @@ import styled from 'styled-components';
 import { motion } from 'framer-motion';
 import React from 'react';
 import { useLocale } from '@/lib/locale-context';
+import { useTrack } from '@/hooks/useTrack';
 
 const HeroSection = styled.section`
   min-height: 100vh;
@@ -153,6 +154,7 @@ const Button = styled.button<{ $variant?: 'primary' | 'secondary' }>`
 
 export default function Hero() {
   const { t } = useLocale();
+  const track = useTrack();
 
   return (
     <HeroSection id="hero">
@@ -183,8 +185,17 @@ export default function Hero() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.4, ease: [0.22, 1, 0.36, 1] }}
         >
-          <Button>{t('hero.cta_primary')}</Button>
-          <Button $variant="secondary">{t('hero.cta_secondary')}</Button>
+          <Button
+            onClick={() => track('cta_clicked', { cta_text: t('hero.cta_primary'), cta_location: 'hero_primary' })}
+          >
+            {t('hero.cta_primary')}
+          </Button>
+          <Button
+            $variant="secondary"
+            onClick={() => track('cta_clicked', { cta_text: t('hero.cta_secondary'), cta_location: 'hero_secondary' })}
+          >
+            {t('hero.cta_secondary')}
+          </Button>
         </ButtonGroup>
       </HeroContent>
     </HeroSection>

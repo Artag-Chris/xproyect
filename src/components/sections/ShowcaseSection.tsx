@@ -4,6 +4,7 @@ import React from 'react'
 import styled from 'styled-components'
 import { motion } from 'framer-motion'
 import { useLocale } from '@/lib/locale-context'
+import { useTrack } from '@/hooks/useTrack'
 
 const Section = styled.section`
   padding: 120px 40px;
@@ -153,6 +154,7 @@ const gradients = [
 
 export default function ShowcaseSection() {
   const { t } = useLocale();
+  const track = useTrack();
 
   const items = [
     { title: t('showcase.items.0.title'), desc: t('showcase.items.0.desc'), result: t('showcase.items.0.result') },
@@ -178,6 +180,8 @@ export default function ShowcaseSection() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.5, delay: idx * 0.15 }}
+            onClick={() => track('showcase_card_clicked', { card_title: it.title, card_index: idx })}
+            style={{ cursor: 'pointer' }}
           >
             <Thumb $gradient={gradients[idx]} />
             <Body>

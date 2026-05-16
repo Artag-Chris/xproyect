@@ -5,6 +5,7 @@ import styled from 'styled-components';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useLenis } from '@/lib/lenis-context';
 import { useLocale } from '@/lib/locale-context';
+import { useTrack } from '@/hooks/useTrack';
 
 const Wrapper = styled(motion.div)`
   position: fixed;
@@ -283,6 +284,7 @@ export default function FloatingContactHub({
   const menuRef = useRef<HTMLDivElement>(null);
   const lenis = useLenis();
   const { t } = useLocale();
+  const track = useTrack();
 
   useEffect(() => {
     const handleClickOutside = (e: MouseEvent) => {
@@ -307,8 +309,9 @@ export default function FloatingContactHub({
     { id: 'schedule', label: t('contact.schedule'), href: scheduleAnchor, icon: <FloatingIcon icon={CalendarIcon} /> },
   ];
 
-  const handleOptionClick = (href: string) => {
+  const handleOptionClick = (id: string, href: string) => {
     setIsOpen(false);
+    track('contact_option_clicked', { platform: id });
     if (href.startsWith('#') && lenis) {
       lenis.scrollTo(href);
     }
@@ -341,7 +344,7 @@ export default function FloatingContactHub({
                 initial="hidden"
                 animate="visible"
                 exit="exit"
-                onClick={() => handleOptionClick(item.href)}
+                onClick={() => handleOptionClick(item.id, item.href)}
               >
                 {item.icon}
                 <Label>{item.label}</Label>
@@ -352,7 +355,11 @@ export default function FloatingContactHub({
       </AnimatePresence>
 
       <TriggerButton
-        onClick={() => setIsOpen((prev) => !prev)}
+        onClick={() => {
+          const next = !isOpen;
+          setIsOpen(next);
+          track('contact_hub_toggled', { action: next ? 'open' : 'close' });
+        }}
         whileHover={{ scale: 1.06 }}
         whileTap={{ scale: 0.94 }}
         animate={{ rotate: isOpen ? 45 : 0 }}
