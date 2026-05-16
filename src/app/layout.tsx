@@ -57,7 +57,6 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
               logo: 'https://lumenxlabs.com.co/lumenXlogoSVG.svg',
               description: 'Modernización empresarial, automatización de procesos e integraciones de IA.',
               foundingDate: '2024',
-              founders: [{ '@type': 'Person', name: 'Chris Artag' }],
               sameAs: [
                 'https://www.linkedin.com/company/lumenxlabs',
                 'https://github.com/lumenxlabs',

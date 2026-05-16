@@ -75,11 +75,11 @@ const Arrow = styled.span<{ $isOpen: boolean }>`
 `;
 
 export default function FAQSection() {
-  const { t } = useLocale();
+  const { t, tRaw } = useLocale();
   const [openIndex, setOpenIndex] = useState<number | null>(null);
 
-  const items = t('faq.items') as unknown as Array<{ question: string; answer: string }>;
-  const heading = t('faq.heading') as string;
+  const items = (tRaw('faq.items') ?? []) as Array<{ question: string; answer: string }>;
+  const heading = t('faq.heading');
 
   return (
     <>
