@@ -5,7 +5,7 @@ import { motion } from 'framer-motion';
 import { useLocale } from '@/lib/locale-context';
 
 const Section = styled.section`
-  padding: 120px 20px;
+  padding: 120px 40px;
   max-width: 1200px;
   margin: 0 auto;
   display: flex;
@@ -56,7 +56,7 @@ const Text = styled(motion.p)`
 const ChaosGrid = styled.div`
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 30px;
+  gap: 40px;
   width: 100%;
 `;
 
@@ -64,7 +64,7 @@ const ChaosCard = styled(motion.div)`
   padding: 40px;
   background: var(--surface);
   border: 1px solid var(--border);
-  border-radius: 12px;
+  border-radius: 16px;
   text-align: left;
   box-shadow: var(--shadow-sm);
   transition: all var(--transition-base);
@@ -77,16 +77,17 @@ const ChaosCard = styled(motion.div)`
 
   h3 {
     font-family: var(--font-syne);
-    font-size: 20px;
-    margin-bottom: 12px;
+    font-size: 24px;
+    font-weight: 800;
+    margin-bottom: 16px;
     color: var(--text-primary);
   }
 
   p {
     font-family: var(--font-jakarta);
-    font-size: 15px;
+    font-size: 16px;
     color: var(--text-secondary);
-    line-height: 1.5;
+    line-height: 1.6;
     overflow-wrap: break-word;
   }
 
@@ -95,10 +96,12 @@ const ChaosCard = styled(motion.div)`
 
     h3 {
       font-size: 18px;
+      margin-bottom: 10px;
     }
 
     p {
       font-size: 14px;
+      line-height: 1.5;
     }
   }
 `;

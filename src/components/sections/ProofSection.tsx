@@ -6,35 +6,39 @@ import { motion } from 'framer-motion'
 import { useLocale } from '@/lib/locale-context'
 
 const Section = styled.section`
-  padding: 120px 20px;
+  padding: 120px 40px;
   max-width: 1200px;
   margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 
   @media (max-width: 768px) {
     padding: 60px 16px;
   }
 `;
 
-const Heading = styled.h2`
+const Heading = styled(motion.h2)`
   font-family: var(--font-syne);
-  font-size: clamp(28px, 4vw, 40px);
+  font-size: clamp(32px, 5vw, 56px);
   font-weight: 800;
   color: var(--text-primary);
   text-align: center;
-  margin-bottom: 48px;
+  margin-bottom: 60px;
+  line-height: 1.1;
   text-wrap: balance;
 
   @media (max-width: 768px) {
-    font-size: clamp(20px, 5vw, 26px);
+    font-size: clamp(22px, 6vw, 28px);
     line-height: 1.3;
-    margin: 0 auto 32px;
+    margin-bottom: 28px;
   }
 `;
 
 const Grid = styled.div`
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 24px;
+  gap: 40px;
 
   @media (max-width: 900px) {
     grid-template-columns: 1fr;
@@ -62,7 +66,7 @@ const Accent = styled.div<{ $color: string }>`
 `;
 
 const Body = styled.div`
-  padding: 28px;
+  padding: 40px;
 
   @media (max-width: 768px) {
     padding: 20px;
@@ -71,22 +75,28 @@ const Body = styled.div`
 
 const CardTitle = styled.h3`
   font-family: var(--font-syne);
-  font-size: 18px;
+  font-size: 24px;
   font-weight: 800;
   color: var(--text-primary);
-  margin-bottom: 10px;
+  margin-bottom: 16px;
   line-height: 1.2;
 
   @media (max-width: 768px) {
-    font-size: 16px;
+    font-size: 18px;
+    margin-bottom: 10px;
   }
 `;
 
 const CardDesc = styled.p`
   font-family: var(--font-jakarta);
-  font-size: 14px;
+  font-size: 16px;
   color: var(--text-secondary);
   line-height: 1.6;
+  overflow-wrap: break-word;
+
+  @media (max-width: 768px) {
+    font-size: 14px;
+  }
 `;
 
 const accentColors = ['#007bff', '#0056b3', '#4da3ff'];
@@ -102,7 +112,14 @@ export default function ProofSection() {
 
   return (
     <Section id="proof">
-      <Heading>{t('proof.heading')}</Heading>
+      <Heading
+        initial={{ opacity: 0, y: 20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.6 }}
+      >
+        {t('proof.heading')}
+      </Heading>
       <Grid>
         {items.map((it, idx) => (
           <Card

@@ -6,7 +6,7 @@ import { useLocale } from '@/lib/locale-context';
 const FooterContainer = styled.footer`
   background: var(--surface);
   border-top: 1px solid var(--border);
-  padding: 60px 20px 20px;
+  padding: 60px 40px 20px;
 `;
 
 const FooterContent = styled.div`

@@ -60,9 +60,13 @@
       { "title": "Complete Web Presence", "desc": "No website or one that doesn't represent you. A professional online presence with admin panel, integrated with your social channels. Your business, online and under control.", "result": "Your business, online and under control" }
     ]
   },
+  "contact": {
+    "schedule": "Schedule a Call"
+  },
   "call": {
     "heading": "Ready to Get Started?",
     "subtitle": "Schedule a 30-minute consultation to understand your goals and map a transformation roadmap.",
+    "trust": "No commitment • 30 minutes • No credit card",
     "form": {
       "name_placeholder": "Name",
       "email_placeholder": "Email",
@@ -74,7 +78,7 @@
   },
   "footer": {
     "about_title": "About",
-    "about_text": "Lumen X Labs is a digital solutions company specializing in business modernization, automation, and AI integrations.",
+    "about_text": "is a digital solutions company specializing in business modernization, automation, and AI integrations.",
     "quick_links": "Quick Links",
     "services": "Services",
     "service_items": ["Video Production", "Analytics", "Interactive Design", "Web Development"],

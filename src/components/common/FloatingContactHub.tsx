@@ -4,6 +4,7 @@ import { useState, useRef, useEffect } from 'react';
 import styled from 'styled-components';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useLenis } from '@/lib/lenis-context';
+import { useLocale } from '@/lib/locale-context';
 
 const Wrapper = styled(motion.div)`
   position: fixed;
@@ -201,6 +202,7 @@ interface ContactItem {
 interface FloatingContactHubProps {
   whatsapp?: string;
   instagram?: string;
+  facebook?: string;
   linkedin?: string;
   email?: string;
   scheduleAnchor?: string;
@@ -220,6 +222,12 @@ const WhatsAppIcon = () => (
     <path d="M12 10a.5.5 0 0 0 0 1" />
     <path d="M15 10a.5.5 0 0 0 0 1" />
     <path d="M9.5 13.5c.5.5 1.5 1 2.5 1s2-.5 2.5-1" />
+  </svg>
+);
+
+const FacebookIcon = () => (
+  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+    <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z" />
   </svg>
 );
 
@@ -266,6 +274,7 @@ function FloatingIcon({ icon: Icon }: { icon: React.ComponentType }) {
 export default function FloatingContactHub({
   whatsapp = 'https://wa.me/',
   instagram = 'https://instagram.com/lumenxlabs',
+  facebook = 'https://facebook.com/lumenxlabs',
   linkedin = 'https://linkedin.com/company/lumenxlabs',
   email = 'mailto:hello@lumenxlabs.com',
   scheduleAnchor = '#contact',
@@ -273,6 +282,7 @@ export default function FloatingContactHub({
   const [isOpen, setIsOpen] = useState(false);
   const menuRef = useRef<HTMLDivElement>(null);
   const lenis = useLenis();
+  const { t } = useLocale();
 
   useEffect(() => {
     const handleClickOutside = (e: MouseEvent) => {
@@ -291,9 +301,10 @@ export default function FloatingContactHub({
   const items: ContactItem[] = [
     { id: 'whatsapp', label: 'WhatsApp', href: whatsapp, icon: <FloatingIcon icon={WhatsAppIcon} /> },
     { id: 'instagram', label: 'Instagram', href: instagram, icon: <FloatingIcon icon={InstagramIcon} /> },
+    { id: 'facebook', label: 'Facebook', href: facebook, icon: <FloatingIcon icon={FacebookIcon} /> },
     { id: 'linkedin', label: 'LinkedIn', href: linkedin, icon: <FloatingIcon icon={LinkedInIcon} /> },
     { id: 'email', label: 'Email', href: email, icon: <FloatingIcon icon={EmailIcon} /> },
-    { id: 'schedule', label: 'Schedule a Call', href: scheduleAnchor, icon: <FloatingIcon icon={CalendarIcon} /> },
+    { id: 'schedule', label: t('contact.schedule'), href: scheduleAnchor, icon: <FloatingIcon icon={CalendarIcon} /> },
   ];
 
   const handleOptionClick = (href: string) => {

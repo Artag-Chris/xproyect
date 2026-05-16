@@ -60,9 +60,13 @@
       { "title": "Presencia Web Completa", "desc": "Sin sitio web o uno que no te representa. Una presencia profesional con panel de administración, integrada con tus redes sociales. Tu negocio online y bajo control.", "result": "Tu negocio online y bajo control" }
     ]
   },
+  "contact": {
+    "schedule": "Agendar Llamada"
+  },
   "call": {
     "heading": "¿Listo para empezar?",
     "subtitle": "Agenda una consultoría de 30 minutos para entender tus objetivos y mapear una ruta de transformación.",
+    "trust": "Sin compromiso • 30 minutos • Sin tarjeta",
     "form": {
       "name_placeholder": "Nombre",
       "email_placeholder": "Email",
@@ -74,7 +78,7 @@
   },
   "footer": {
     "about_title": "Acerca de",
-    "about_text": "Lumen X Labs es una empresa de soluciones digitales especializada en modernización empresarial, automatización e integraciones de IA.",
+    "about_text": "es una empresa de soluciones digitales especializada en modernización empresarial, automatización e integraciones de IA.",
     "quick_links": "Enlaces Rápidos",
     "services": "Servicios",
     "service_items": ["Producción de Video", "Analítica", "Diseño Interactivo", "Desarrollo Web"],

@@ -10,7 +10,7 @@ const HeroSection = styled.section`
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 40px 20px;
+  padding: 40px 40px 60px;
   position: relative;
   overflow: hidden;
   padding-top: 80px;
@@ -36,15 +36,20 @@ const HeroBg = styled.div`
 `;
 
 const HeroContent = styled.div`
-  max-width: 900px;
+  max-width: 1280px;
   width: 100%;
-  text-align: center;
+  padding: 0 2rem;
+  text-align: left;
   position: relative;
   z-index: 1;
+
+  @media (max-width: 768px) {
+    text-align: center;
+    padding: 0;
+  }
 `;
 
 const TitleWrapper = styled.div`
-  overflow: hidden;
   margin-bottom: 20px;
 
   @media (max-width: 768px) {
@@ -57,7 +62,7 @@ const Title = styled(motion.h1)`
   font-size: clamp(48px, 10vw, 96px);
   font-weight: 800;
   color: white;
-  line-height: 0.9;
+  line-height: 1.1;
   letter-spacing: -0.04em;
   margin: 0;
 
@@ -70,8 +75,7 @@ const Title = styled(motion.h1)`
 `;
 
 const DescriptionWrapper = styled.div`
-  overflow: hidden;
-  margin-bottom: 40px;
+  margin-bottom: 48px;
 
   @media (max-width: 768px) {
     margin-bottom: 32px;
@@ -82,23 +86,27 @@ const Description = styled(motion.p)`
   font-family: var(--font-jakarta);
   font-size: clamp(18px, 2vw, 24px);
   color: rgba(255, 255, 255, 0.7);
-  max-width: 600px;
-  line-height: 1.4;
-  margin: 0 auto;
+  max-width: 640px;
+  line-height: 1.7;
   overflow-wrap: break-word;
 
   @media (max-width: 768px) {
     font-size: 15px;
     line-height: 1.5;
     max-width: 100%;
+    margin: 0 auto;
   }
 `;
 
 const ButtonGroup = styled(motion.div)`
   display: flex;
   gap: 20px;
-  justify-content: center;
+  justify-content: flex-start;
   flex-wrap: wrap;
+
+  @media (max-width: 768px) {
+    justify-content: center;
+  }
 `;
 
 const Button = styled.button<{ $variant?: 'primary' | 'secondary' }>`
@@ -152,8 +160,8 @@ export default function Hero() {
       <HeroContent>
         <TitleWrapper>
           <Title
-            initial={{ y: '100%' }}
-            animate={{ y: 0 }}
+            initial={{ y: 40, opacity: 0 }}
+            animate={{ y: 0, opacity: 1 }}
             transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
           >
             {t('hero.title')}
