@@ -95,6 +95,10 @@ const SocialIcons = styled.div`
   }
 `;
 
+const BrandX = styled.span`
+  color: var(--primary);
+`;
+
 const FooterBottom = styled.div`
   border-top: 1px solid var(--border);
   padding-top: 24px;
@@ -143,7 +147,7 @@ export default function Footer() {
           <FooterSection>
             <h3>{t('footer.about_title')}</h3>
             <p>
-              Lumen <span style={{ color: 'var(--primary)' }}>X</span> Labs {t('footer.about_text')}
+              Lumen <BrandX>X</BrandX> Labs {t('footer.about_text')}
             </p>
           </FooterSection>
 
@@ -179,7 +183,7 @@ export default function Footer() {
         </FooterGrid>
 
         <FooterBottom>
-          <Copyright>&copy; 2024 Lumen <span style={{ color: 'var(--primary)' }}>X</span> Labs. {t('footer.copyright')}</Copyright>
+          <Copyright>&copy; 2024 Lumen <BrandX>X</BrandX> Labs. {t('footer.copyright')}</Copyright>
           <LegalLinks>
             <a href="#">{t('footer.privacy')}</a>
             <a href="#">{t('footer.terms')}</a>

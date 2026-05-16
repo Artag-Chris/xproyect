@@ -1,6 +1,5 @@
 'use client';
 
-import React from 'react'
 import styled from 'styled-components'
 import { motion } from 'framer-motion'
 import { useLocale } from '@/lib/locale-context'
@@ -57,6 +56,7 @@ const Card = styled(motion.div)`
   display: flex;
   flex-direction: column;
   transition: all var(--transition-base);
+  cursor: pointer;
 
   &:hover {
     box-shadow: var(--shadow-md);
@@ -181,7 +181,6 @@ export default function ShowcaseSection() {
             viewport={{ once: true }}
             transition={{ duration: 0.5, delay: idx * 0.15 }}
             onClick={() => track('showcase_card_clicked', { card_title: it.title, card_index: idx })}
-            style={{ cursor: 'pointer' }}
           >
             <Thumb $gradient={gradients[idx]} />
             <Body>

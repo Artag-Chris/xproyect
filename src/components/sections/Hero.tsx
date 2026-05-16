@@ -2,7 +2,6 @@
 
 import styled from 'styled-components';
 import { motion } from 'framer-motion';
-import React from 'react';
 import { useLocale } from '@/lib/locale-context';
 import { useTrack } from '@/hooks/useTrack';
 

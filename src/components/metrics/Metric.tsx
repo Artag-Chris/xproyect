@@ -94,7 +94,7 @@ export default function Metric({ label, value, prefix = '', suffix = '', icon, i
       viewport={{ once: true }}
       transition={{ duration: 0.6, delay: index * 0.1, ease: [0.22, 1, 0.36, 1] }}
     >
-      {icon && (
+      {icon ? (
         <IconWrapper
           initial={{ scale: 0 }}
           whileInView={{ scale: 1 }}
@@ -103,7 +103,7 @@ export default function Metric({ label, value, prefix = '', suffix = '', icon, i
         >
           {icon}
         </IconWrapper>
-      )}
+      ) : null}
       <MetricValue>
         {isNumeric ? (
           <CountUp end={value as number} prefix={prefix} suffix={suffix} />

@@ -28,6 +28,8 @@ export default function RootLayout({
   return (
     <html className={`${syne.variable} ${jakarta.variable} h-full antialiased`}>
       <head>
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
         <link rel="preload" href="/lumenXlogoSVG.svg" as="image" />
       </head>
       <body className="min-h-full flex flex-col">
