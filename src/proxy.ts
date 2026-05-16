@@ -21,7 +21,7 @@ export function proxy(request: NextRequest) {
     (locale) => pathname.startsWith(`/${locale}/`) || pathname === `/${locale}`
   );
 
-  if (pathnameHasLocale) return;
+  if (pathnameHasLocale) return; 
 
   const locale = getLocale(request);
   request.nextUrl.pathname = `/${locale}${pathname}`;
