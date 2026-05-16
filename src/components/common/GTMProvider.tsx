@@ -10,6 +10,7 @@ export default function GTMProvider() {
 
   return (
     <>
+      {/* eslint-disable-next-line @next/next/no-before-interactive-script-outside-document */}
       <Script
         id="gtm-script"
         strategy="beforeInteractive"

@@ -1,6 +1,7 @@
+import type { Metadata } from 'next';
 import dynamic from 'next/dynamic';
 import { notFound } from 'next/navigation';
-import { getDictionary, hasLocale, locales } from '@/lib/get-dictionary';
+import { getDictionary, hasLocale, locales, type Locale } from '@/lib/get-dictionary';
 import { LocaleProvider } from '@/lib/locale-context';
 import ThemeProvider from '@/lib/theme-context';
 import LenisProvider from '@/lib/lenis-context';
@@ -11,6 +12,33 @@ const FloatingContactHub = dynamic(() => import('@/components/common/FloatingCon
 
 export async function generateStaticParams() {
   return locales.map((lang) => ({ lang }));
+}
+
+export async function generateMetadata({ params }: { params: Promise<{ lang: string }> }): Promise<Metadata> {
+  const { lang } = await params;
+
+  if (!hasLocale(lang)) notFound();
+
+  const dictionary = await getDictionary(lang as Locale);
+
+  return {
+    title: dictionary.meta.title,
+    description: dictionary.meta.description,
+    openGraph: {
+      title: dictionary.meta.title,
+      description: dictionary.meta.description,
+      locale: lang === 'es' ? 'es_CO' : 'en_US',
+      siteName: 'Lumen X Labs',
+      url: `https://lumenxlabs.com.co/${lang}`,
+    },
+    alternates: {
+      canonical: `https://lumenxlabs.com.co/${lang}`,
+      languages: {
+        en: 'https://lumenxlabs.com.co/en',
+        es: 'https://lumenxlabs.com.co/es',
+      },
+    },
+  };
 }
 
 export default async function LangLayout({

@@ -14,7 +14,7 @@
     "description": "From fragmented chaos to streamlined precision — we design systems, not just websites.",
     "cta_primary": "View Our Work",
     "cta_secondary": "Get in Touch",
-    "badge": "Interactive Lab"
+    "badge": "Thermoelectrics & Active Noise Cancellation"
   },
   "pain": {
     "heading": "The Cost of Inefficiency",
@@ -60,6 +60,16 @@
       { "title": "Complete Web Presence", "desc": "No website or one that doesn't represent you. A professional online presence with admin panel, integrated with your social channels. Your business, online and under control.", "result": "Your business, online and under control" }
     ]
   },
+  "faq": {
+    "heading": "Frequently Asked Questions",
+    "items": [
+      { "question": "What services do you offer?", "answer": "We offer process automation, AI integration, web development, social media unification, and digital transformation consulting. All designed for businesses in Pereira, Risaralda and across Colombia." },
+      { "question": "How long does it take to automate a business?", "answer": "It depends on complexity. Simple processes can be ready in days. Complete transformations take 2 to 6 weeks. We always start with a free 30-minute consultation to assess your case." },
+      { "question": "Do you work with small businesses or only large corporations?", "answer": "We work with businesses of all sizes. From entrepreneurs in Pereira needing their first website, to established companies requiring multi-layer automation." },
+      { "question": "Do you offer a guarantee?", "answer": "Yes. If in the first 30 days you don't see concrete improvement in your operations, you don't pay. No fine print, no excuses." },
+      { "question": "Can I meet with you in person in Pereira?", "answer": "Yes. We are based in Pereira, Risaralda. We offer in-person meetings to understand your business, as well as virtual service throughout Colombia." }
+    ]
+  },
   "contact": {
     "schedule": "Schedule a Call"
   },
@@ -78,7 +88,7 @@
   },
   "footer": {
     "about_title": "About",
-    "about_text": "is a digital solutions company specializing in business modernization, automation, and AI integrations.",
+    "about_text": "is a digital solutions company based in Pereira, Risaralda — Colombia. Specializing in business modernization, automation, and AI integrations.",
     "quick_links": "Quick Links",
     "services": "Services",
     "service_items": ["Video Production", "Analytics", "Interactive Design", "Web Development"],

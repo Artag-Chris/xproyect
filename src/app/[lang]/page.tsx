@@ -8,6 +8,7 @@ const MethodSection = dynamic(() => import('@/components/sections/MethodSection'
 const CapacitiesSection = dynamic(() => import('@/components/sections/CapacitiesSection'), { ssr: false });
 const ProofSection = dynamic(() => import('@/components/sections/ProofSection'), { ssr: false });
 const ShowcaseSection = dynamic(() => import('@/components/sections/ShowcaseSection'), { ssr: false });
+const FAQSection = dynamic(() => import('@/components/sections/FAQSection'), { ssr: false });
 const CallSection = dynamic(() => import('@/components/sections/CallSection'), { ssr: false });
 
 export default function Home() {
@@ -19,6 +20,7 @@ export default function Home() {
       <CapacitiesSection />
       <ProofSection />
       <ShowcaseSection />
+      <FAQSection />
       <CallSection />
       <Footer />
     </>
