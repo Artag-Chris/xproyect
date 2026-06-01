@@ -24,7 +24,7 @@ const HeroSection = styled.section`
 const HeroBg = styled.div`
   position: absolute;
   inset: 0;
-  background: url('/fondo%20de%20muestra.png') center / cover no-repeat;
+  background: url('/2.png') center / cover no-repeat;
   z-index: 0;
 
   &::after {
