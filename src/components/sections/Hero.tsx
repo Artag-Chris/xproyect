@@ -29,7 +29,7 @@ const HeroBg = styled.div`
 
   &::after {
     content: '';
-    position: absolute;
+    position: absolute; 
     inset: 0;
     background: rgba(0, 0, 0, 0.55);
   }
