@@ -159,7 +159,7 @@ export default function Hero() {
     <HeroSection id="hero">
       <HeroBg>
         <Image
-          src="/lumen front.png"
+          src="/1.png"
           alt=""
           fill
           priority

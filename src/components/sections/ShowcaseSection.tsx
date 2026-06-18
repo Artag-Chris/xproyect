@@ -1,5 +1,6 @@
 'use client';
 
+import Link from 'next/link'
 import styled from 'styled-components'
 import { motion } from 'framer-motion'
 import { useLocale } from '@/lib/locale-context'
@@ -153,7 +154,7 @@ const gradients = [
 ];
 
 export default function ShowcaseSection() {
-  const { t } = useLocale();
+  const { t, locale } = useLocale();
   const track = useTrack();
 
   const items = [
@@ -161,6 +162,8 @@ export default function ShowcaseSection() {
     { title: t('showcase.items.1.title'), desc: t('showcase.items.1.desc'), result: t('showcase.items.1.result') },
     { title: t('showcase.items.2.title'), desc: t('showcase.items.2.desc'), result: t('showcase.items.2.result') },
   ];
+
+  const slugs = ['web-development', 'process-automation', 'web-development'];
 
   return (
     <Section id="showcase">
@@ -174,21 +177,22 @@ export default function ShowcaseSection() {
       </Heading>
       <Grid>
         {items.map((it, idx) => (
-          <Card
-            key={idx}
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.5, delay: idx * 0.15 }}
-            onClick={() => track('showcase_card_clicked', { card_title: it.title, card_index: idx })}
-          >
-            <Thumb $gradient={gradients[idx]} />
-            <Body>
-              <CardTitle>{it.title}</CardTitle>
-              <CardDesc>{it.desc}</CardDesc>
-              <ResultBadge>{it.result}</ResultBadge>
-            </Body>
-          </Card>
+          <Link key={idx} href={`/${locale}/services/${slugs[idx]}`} style={{ textDecoration: 'none' }}>
+            <Card
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, delay: idx * 0.15 }}
+              onClick={() => track('showcase_card_clicked', { card_title: it.title, card_index: idx })}
+            >
+              <Thumb $gradient={gradients[idx]} />
+              <Body>
+                <CardTitle>{it.title}</CardTitle>
+                <CardDesc>{it.desc}</CardDesc>
+                <ResultBadge>{it.result}</ResultBadge>
+              </Body>
+            </Card>
+          </Link>
         ))}
       </Grid>
     </Section>

@@ -5,6 +5,7 @@
   },
   "nav": {
     "hero": "Inicio",
+    "capacities": "Capacidades",
     "services": "Servicios",
     "cases": "Casos de Éxito",
     "contact": "Contacto"
@@ -91,12 +92,135 @@
     "about_text": "es una empresa de soluciones digitales basada en Pereira, Risaralda — Colombia. Especializada en modernización empresarial, automatización e integraciones de IA.",
     "quick_links": "Enlaces Rápidos",
     "services": "Servicios",
-    "service_items": ["Producción de Video", "Analítica", "Diseño Interactivo", "Desarrollo Web"],
+    "service_links": [
+      { "title": "Automatización de Procesos", "slug": "process-automation" },
+      { "title": "IA para Empresas", "slug": "ai-for-business" },
+      { "title": "Desarrollo Web", "slug": "web-development" },
+      { "title": "Transformación Digital", "slug": "digital-transformation" },
+      { "title": "IA para Empresas Colombianas", "slug": "ai-colombia-business" }
+    ],
     "connect": "Conectar",
     "connect_text": "Contáctanos para consultas y colaboraciones.",
     "copyright": "Todos los derechos reservados.",
     "privacy": "Privacidad",
     "terms": "Términos",
     "cookies": "Cookies"
+  },
+  "service_features_heading": "¿Qué Incluye?",
+  "service_whyus_heading": "Por Qué Lumen X Labs",
+  "service_faq_heading": "Preguntas Frecuentes",
+  "service_cta_default": "¿Listo para empezar?",
+  "service_cta_button": "Agenda Consultoría Gratis",
+  "services": {
+    "process-automation": {
+      "meta": { "title": "Automatización de Procesos en Pereira | Lumen X Labs", "description": "Automatiza los procesos de tu empresa en Pereira, Risaralda. Elimina tareas manuales, reduce errores y escala tu operación con soluciones personalizadas." },
+      "hero": { "title": "Automatización de Procesos", "desc": "Deja de hacer el mismo trabajo dos veces. Diseñamos flujos automatizados que conectan tus herramientas, eliminan la entrada manual de datos y liberan a tu equipo para enfocarse en crecer.", "cta": "Automatiza tus Procesos" },
+      "features": [
+        { "title": "Automatización de Flujos", "desc": "Tareas repetitivas ejecutadas automáticamente entre tus herramientas. Sin copiar y pegar entre sistemas." },
+        { "title": "Integración de Sistemas", "desc": "Tu CRM, correo, hojas de cálculo y contabilidad comunicándose entre sí — automáticamente." },
+        { "title": "Reducción de Errores", "desc": "Errores humanos en entrada de datos eliminados. Lo que funciona en automático funciona exactamente igual cada vez." },
+        { "title": "Operaciones Escalables", "desc": "Procesos diseñados para manejar 10x el volumen sin contratar 10x las personas." }
+      ],
+      "why_us": [
+        { "title": "Hecho para empresas de Pereira", "desc": "Entendemos el mercado local. Tu automatización está diseñada para la realidad empresarial colombiana, no importada de otro país." },
+        { "title": "Directo con quien construye", "desc": "Trabajas directamente con quien construye el sistema. Sin account managers, sin capas — conversación directa y respuestas reales." },
+        { "title": "Garantía de 30 días", "desc": "Si no ves una mejora concreta en tu operación en 30 días, no pagas. Sin letra chica." }
+      ],
+      "faq": [
+        { "question": "¿Cuánto toma automatizar un proceso?", "answer": "Automatizaciones simples pueden estar listas en días. Flujos complejos que conectan múltiples sistemas toman de 2 a 4 semanas. Empezamos con una evaluación gratuita de 30 minutos." },
+        { "question": "¿Qué herramientas pueden integrar?", "answer": "Integramos con prácticamente cualquier herramienta que tenga API: CRMs, software contable, plataformas de email, apps de mensajería, hojas de cálculo y sistemas personalizados." },
+        { "question": "¿Trabajan con empresas en Pereira de forma remota?", "answer": "Sí. Estamos basados en Pereira, Risaralda y ofrecemos tanto reuniones presenciales como servicio remoto en toda Colombia." },
+        { "question": "¿Cuánto cuesta la automatización de procesos?", "answer": "Depende de la complejidad. Diseñamos soluciones que se pagan solas — si tu automatización no ahorra tiempo y dinero, la ajustamos hasta que lo haga." }
+      ],
+      "cta": { "title": "¿Listo para automatizar tu negocio?", "button": "Agenda Consultoría Gratis" }
+    },
+    "ai-for-business": {
+      "meta": { "title": "IA para Empresas en Pereira | Lumen X Labs", "description": "Integra inteligencia artificial en tu empresa en Pereira. Modelos de IA para toma de decisiones, servicio al cliente y eficiencia operativa." },
+      "hero": { "title": "IA para tu Negocio", "desc": "No es hype de robots — es IA práctica que resuelve problemas reales. Chatbots que realmente ayudan a clientes, modelos que analizan tus datos y automatización que aprende y mejora.", "cta": "Integra IA Ahora" },
+      "features": [
+        { "title": "Chatbots Inteligentes", "desc": "Servicio al cliente que nunca duerme. Asistentes de IA entrenados en tu negocio que atienden consultas 24/7." },
+        { "title": "Análisis de Datos", "desc": "Modelos de IA que analizan los datos de tu negocio y descubren patrones, tendencias y oportunidades que nunca verías manualmente." },
+        { "title": "Inteligencia de Procesos", "desc": "IA que monitorea tus operaciones y toma decisiones en tiempo real — aprobando, alertando o direccionando automáticamente." },
+        { "title": "Modelos de IA Personalizados", "desc": "Soluciones de IA hechas a la medida para tu desafío empresarial específico, no software genérico." }
+      ],
+      "why_us": [
+        { "title": "IA práctica, no hype", "desc": "No vendemos suscripciones de ChatGPT. Construimos IA que realmente se integra con tus operaciones y entrega resultados medibles." },
+        { "title": "Expertos locales", "desc": "Basados en Pereira, entendemos los desafíos y oportunidades de las empresas colombianas mejor que cualquier consultoría internacional de IA." },
+        { "title": "Primer mes sin riesgo", "desc": "Garantía de 30 días: si la implementación de IA no mejora tus operaciones, no pagas. Simple." }
+      ],
+      "faq": [
+        { "question": "¿Necesito conocimiento técnico para usar IA en mi negocio?", "answer": "No. Nosotros manejamos toda la implementación técnica. Tú interactúas con la IA a través de paneles y herramientas diseñadas para tu equipo." },
+        { "question": "¿Qué tipo de negocios se benefician más de la IA?", "answer": "Cualquier negocio con decisiones repetitivas, consultas de clientes o necesidades de análisis de datos. Desde retail hasta logística y servicios profesionales — si tienes datos, la IA puede ayudar." },
+        { "question": "¿Es cara la IA para pequeñas empresas?", "answer": "Diseñamos soluciones de IA para cada presupuesto. Las pequeñas empresas pueden empezar con automatizaciones enfocadas que entregan ROI inmediato." },
+        { "question": "¿La IA puede reemplazar a mis empleados?", "answer": "No. La IA maneja tareas repetitivas para que tu equipo se enfoque en trabajo de mayor valor — resolución creativa de problemas, relaciones con clientes y pensamiento estratégico." }
+      ],
+      "cta": { "title": "¿Listo para integrar IA?", "button": "Agenda Consultoría Gratis" }
+    },
+    "web-development": {
+      "meta": { "title": "Desarrollo Web en Pereira | Lumen X Labs", "description": "Desarrollo web profesional en Pereira, Risaralda. Sitios web de alto rendimiento, apps web y comercio electrónico para empresas colombianas." },
+      "hero": { "title": "Desarrollo Web", "desc": "Rápido, hermoso y construido para funcionar. Desde landing pages profesionales hasta aplicaciones web completas — diseñadas para tus objetivos de negocio.", "cta": "Inicia tu Proyecto" },
+      "features": [
+        { "title": "Rendimiento Primero", "desc": "Sitios web que cargan en menos de 2 segundos. Imágenes optimizadas, código mínimo y arquitectura moderna." },
+        { "title": "Responsive Móvil", "desc": "Cada diseño funciona perfectamente en celulares, tablets y computadores. Tus clientes están en móvil — tu web también debería estarlo." },
+        { "title": "Optimizado para SEO", "desc": "Construido pensando en buscadores. Código limpio, carga rápida y estructura adecuada para que Google te encuentre." },
+        { "title": "Panel de Administración", "desc": "Administra tu contenido sin tocar código. Actualiza texto, imágenes y páginas desde un panel simple." }
+      ],
+      "why_us": [
+        { "title": "Tecnología moderna, resultados reales", "desc": "Construimos con la tecnología más actual (Next.js, React, Node.js) — no plantillas WordPress obsoletas que te hacen lento." },
+        { "title": "Diseñado para negocios de Pereira", "desc": "Tu sitio web está diseñado para atraer clientes locales en Pereira, Risaralda con SEO local adecuado y contenido relevante." },
+        { "title": "No solo construimos — mantenemos", "desc": "Tu sitio web incluye soporte continuo, actualizaciones y monitoreo de rendimiento. Se mantiene rápido y seguro." }
+      ],
+      "faq": [
+        { "question": "¿Cuánto toma construir un sitio web?", "answer": "Una landing page profesional toma 1-2 semanas. Aplicaciones web y comercio electrónico toman de 3 a 6 semanas dependiendo de la complejidad." },
+        { "question": "¿Ofrecen desarrollo de comercio electrónico?", "answer": "Sí. Construimos tiendas online con integración de pagos, gestión de inventario y checkout optimizado para clientes colombianos." },
+        { "question": "¿Puedo actualizar el sitio yo mismo?", "answer": "Sí. Cada sitio web incluye un panel de administración para que puedas actualizar contenido, agregar páginas y administrar tu sitio sin conocimiento técnico." },
+        { "question": "¿Rediseñan sitios web existentes?", "answer": "Totalmente. Si tienes un sitio actual que es lento, está desactualizado o no convierte, podemos rediseñarlo y reconstruirlo." }
+      ],
+      "cta": { "title": "¿Listo para un nuevo sitio web?", "button": "Agenda Consultoría Gratis" }
+    },
+    "digital-transformation": {
+      "meta": { "title": "Transformación Digital en Pereira | Lumen X Labs", "description": "Transformación digital completa para empresas en Pereira, Risaralda. Estrategia, implementación y soporte continuo para digitalizar tu negocio." },
+      "hero": { "title": "Transformación Digital", "desc": "Lleva tu negocio del caos fragmentado a la precisión optimizada. Diseñamos la infraestructura digital que tu empresa necesita para competir.", "cta": "Transforma tu Negocio" },
+      "features": [
+        { "title": "Auditoría y Mapeo de Procesos", "desc": "Analizamos cada operación, encontramos los cuellos de botella y diseñamos flujos de trabajo digitales optimizados." },
+        { "title": "Diseño de Stack Tecnológico", "desc": "Las herramientas correctas para tu negocio — CRM, gestión de proyectos, comunicación y automatización — trabajando juntas." },
+        { "title": "Unificación de Datos", "desc": "Todos los datos de tu negocio en un solo lugar. Sin más hojas de cálculo, sin más silos, sin más preguntar 'quién tiene el archivo actualizado'." },
+        { "title": "Gestión del Cambio", "desc": "Capacitamos a tu equipo, documentamos cada proceso y nos aseguramos de que la transformación se mantenga." }
+      ],
+      "why_us": [
+        { "title": "Agilidad de startup, resultados empresariales", "desc": "Nos movemos rápido como una startup pero entregamos la solidez de una consultoría empresarial — sin el precio corporativo." },
+        { "title": "Hacemos el trabajo, no solo el plan", "desc": "Muchos consultores entregan un PDF y se van. Nosotros implementamos, probamos y ajustamos hasta que tu negocio realmente funcione mejor." },
+        { "title": "Enfocados en empresas de Pereira", "desc": "Conocemos el mercado colombiano y diseñamos transformaciones que funcionan para negocios locales, no copias de silicon valley." }
+      ],
+      "faq": [
+        { "question": "¿Qué implica una transformación digital?", "answer": "Comienza con una auditoría completa de tus operaciones actuales, seguida del diseño de procesos optimizados, implementación de la tecnología adecuada y capacitación de tu equipo." },
+        { "question": "¿Cuánto toma una transformación completa?", "answer": "La mayoría de las transformaciones toman de 4 a 8 semanas dependiendo del tamaño y complejidad del negocio. Las dividimos en fases para que veas resultados en el camino." },
+        { "question": "¿Necesito cambiar todo al mismo tiempo?", "answer": "No. Priorizamos los cambios por impacto e implementamos incrementalmente. Ves mejoras desde el día uno sin interrumpir tus operaciones." },
+        { "question": "¿La transformación digital es solo para grandes empresas?", "answer": "Para nada. Las pequeñas y medianas empresas a menudo se benefician más porque pueden moverse más rápido y ver mejoras dramáticas con menos cambios." }
+      ],
+      "cta": { "title": "¿Listo para transformarte?", "button": "Agenda Consultoría Gratis" }
+    },
+    "ai-colombia-business": {
+      "meta": { "title": "IA para Empresas Colombianas | Lumen X Labs", "description": "Soluciones de inteligencia artificial diseñadas para empresas colombianas. Automatización, chatbots e integraciones de IA para compañías en Pereira y toda Colombia." },
+      "hero": { "title": "IA para Empresas Colombianas", "desc": "IA construida para la realidad colombiana. Soluciones que entienden las regulaciones locales, el comportamiento del consumidor y las condiciones del mercado — diseñadas para negocios como el tuyo.", "cta": "Explora Soluciones de IA" },
+      "features": [
+        { "title": "IA en Español Colombiano", "desc": "IA que entiende el español de Colombia — expresiones regionales, contexto local y el lenguaje real de tus clientes." },
+        { "title": "Cumplimiento Local", "desc": "Soluciones de IA diseñadas con la normativa colombiana de protección de datos (Habeas Data) en mente." },
+        { "title": "Accesible para Pymes", "desc": "La IA no tiene que costar millones. Diseñamos soluciones que se ajustan a los presupuestos empresariales colombianos y entregan ROI real." },
+        { "title": "Servicio en toda Colombia", "desc": "Basados en Pereira pero sirviendo a empresas en toda Colombia. Implementación remota, entendimiento local." }
+      ],
+      "why_us": [
+        { "title": "Construido para Colombia", "desc": "Cada solución está diseñada para empresas colombianas — regulaciones locales, condiciones de mercado y expectativas de clientes incluidas." },
+        { "title": "Implementación práctica", "desc": "No solo hablamos de IA. Construimos, probamos y desplegamos sistemas funcionales que realmente mejoran tu negocio." },
+        { "title": "30 días sin riesgo", "desc": "Prueba IA en tu negocio con riesgo cero. Si no ves mejora en 30 días, no pagas." }
+      ],
+      "faq": [
+        { "question": "¿La IA realmente funciona para pequeñas empresas colombianas?", "answer": "Sí. La IA es más accesible que nunca. Diseñamos soluciones para cada nivel de presupuesto — desde chatbots simples hasta automatización completa de procesos." },
+        { "question": "¿Necesito estar en Bogotá o Medellín para obtener buenos servicios de IA?", "answer": "Para nada. Estamos basados en Pereira y servimos a empresas en toda Colombia. La implementación moderna de IA se hace de forma remota con excelentes resultados." },
+        { "question": "¿Cómo maneja la IA el español colombiano?", "answer": "Nuestros modelos de IA están entrenados y configurados para entender el español colombiano — incluyendo expresiones regionales, jerga y contexto empresarial local." },
+        { "question": "¿Qué hay sobre la seguridad de datos y regulaciones colombianas?", "answer": "Todas nuestras implementaciones cumplen con la ley colombiana de protección de datos (Ley 1581 / Habeas Data). Tomamos la seguridad de datos muy en serio." }
+      ],
+      "cta": { "title": "¿Listo para IA en tu negocio?", "button": "Agenda Consultoría Gratis" }
+    }
   }
 }

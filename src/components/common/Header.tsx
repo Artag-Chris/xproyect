@@ -2,6 +2,7 @@
 
 import { useState, useEffect, useCallback } from 'react';
 import styled from 'styled-components';
+import Link from 'next/link';
 import { useTheme } from '@/lib/theme-context';
 import { useLocale } from '@/lib/locale-context';
 import { usePathname, useRouter } from 'next/navigation';
@@ -35,7 +36,7 @@ const NavContainer = styled.nav`
   }
 `;
 
-const LogoLink = styled.a`
+const LogoLink = styled(Link)`
   display: flex;
   align-items: center;
   gap: 12px;
@@ -98,6 +99,66 @@ const LinkItem = styled.a<{ $active?: boolean }>`
     &::after {
       width: 100%;
     }
+  }
+`;
+
+const DropdownWrapper = styled.div`
+  position: relative;
+`;
+
+const DropdownTrigger = styled.a`
+  font-family: var(--font-syne);
+  font-size: 13px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--text-secondary);
+  text-decoration: none;
+  transition: color var(--transition-base);
+  position: relative;
+  padding: 4px 0;
+  cursor: pointer;
+
+  &:hover {
+    color: var(--text-primary);
+  }
+`;
+
+const DropdownMenu = styled.div`
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  min-width: 260px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 8px;
+  box-shadow: var(--shadow-md);
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.2s ease;
+  margin-top: 8px;
+
+  ${DropdownWrapper}:hover & {
+    opacity: 1;
+    visibility: visible;
+  }
+`;
+
+const DropdownItem = styled(Link)`
+  display: block;
+  padding: 10px 16px;
+  border-radius: 6px;
+  font-family: var(--font-jakarta);
+  font-size: 14px;
+  color: var(--text-secondary);
+  text-decoration: none;
+  transition: all 0.15s ease;
+
+  &:hover {
+    background: color-mix(in srgb, var(--primary) 8%, transparent);
+    color: var(--primary);
   }
 `;
 
@@ -230,7 +291,7 @@ export default function Header() {
   return (
     <NavWrapper>
       <NavContainer>
-        <LogoLink href="#hero" onClick={(e: React.MouseEvent<HTMLAnchorElement>) => handleNavClick(e, '#hero')}>
+        <LogoLink href={`/${locale}`} onClick={() => track('nav_link_clicked', { link_text: 'logo', link_href: `/${locale}`, location: 'header' })}>
            <LogoImage
             src="/lumenXlogoSVG.svg"
             alt="Lumen X Labs Logo"
@@ -241,8 +302,23 @@ export default function Header() {
 
         <div className="flex items-center gap-4">
           <NavLinks>
-            <LinkItem href="#hero" onClick={(e: React.MouseEvent<HTMLAnchorElement>) => { handleNavClick(e, '#hero'); track('nav_link_clicked', { link_text: t('nav.hero'), link_href: '#hero', location: 'header' }); }}>{t('nav.hero')}</LinkItem>
-            <LinkItem href="#capacities" onClick={(e: React.MouseEvent<HTMLAnchorElement>) => { handleNavClick(e, '#capacities'); track('nav_link_clicked', { link_text: t('nav.services'), link_href: '#capacities', location: 'header' }); }}>{t('nav.services')}</LinkItem>
+            <LinkItem href={`/${locale}`} onClick={(e: React.MouseEvent<HTMLAnchorElement>) => { track('nav_link_clicked', { link_text: t('nav.hero'), link_href: `/${locale}`, location: 'header' }); }}>{t('nav.hero')}</LinkItem>
+            <LinkItem href="#capacities" onClick={(e: React.MouseEvent<HTMLAnchorElement>) => { handleNavClick(e, '#capacities'); track('nav_link_clicked', { link_text: t('nav.capacities'), link_href: '#capacities', location: 'header' }); }}>{t('nav.capacities')}</LinkItem>
+            <DropdownWrapper>
+              <DropdownTrigger
+                onClick={(e) => { e.preventDefault(); track('nav_link_clicked', { link_text: t('nav.services'), link_href: 'dropdown', location: 'header' }); }}
+                href="#"
+              >
+                {t('nav.services')}
+              </DropdownTrigger>
+              <DropdownMenu>
+                <DropdownItem href={`/${locale}/services/process-automation`} onClick={() => track('nav_link_clicked', { link_text: 'Process Automation', link_href: `/${locale}/services/process-automation`, location: 'header_dropdown' })}>{t('services.process-automation.hero.title')}</DropdownItem>
+                <DropdownItem href={`/${locale}/services/ai-for-business`} onClick={() => track('nav_link_clicked', { link_text: 'AI for Business', link_href: `/${locale}/services/ai-for-business`, location: 'header_dropdown' })}>{t('services.ai-for-business.hero.title')}</DropdownItem>
+                <DropdownItem href={`/${locale}/services/web-development`} onClick={() => track('nav_link_clicked', { link_text: 'Web Development', link_href: `/${locale}/services/web-development`, location: 'header_dropdown' })}>{t('services.web-development.hero.title')}</DropdownItem>
+                <DropdownItem href={`/${locale}/services/digital-transformation`} onClick={() => track('nav_link_clicked', { link_text: 'Digital Transformation', link_href: `/${locale}/services/digital-transformation`, location: 'header_dropdown' })}>{t('services.digital-transformation.hero.title')}</DropdownItem>
+                <DropdownItem href={`/${locale}/services/ai-colombia-business`} onClick={() => track('nav_link_clicked', { link_text: 'AI Colombia', link_href: `/${locale}/services/ai-colombia-business`, location: 'header_dropdown' })}>{t('services.ai-colombia-business.hero.title')}</DropdownItem>
+              </DropdownMenu>
+            </DropdownWrapper>
             <LinkItem href="#showcase" onClick={(e: React.MouseEvent<HTMLAnchorElement>) => { handleNavClick(e, '#showcase'); track('nav_link_clicked', { link_text: t('nav.cases'), link_href: '#showcase', location: 'header' }); }}>{t('nav.cases')}</LinkItem>
             <CTA href="#contact" onClick={(e: React.MouseEvent<HTMLAnchorElement>) => { handleNavClick(e, '#contact'); track('cta_clicked', { cta_text: t('nav.contact'), cta_location: 'nav_cta' }); }}>{t('nav.contact')}</CTA>
           </NavLinks>
@@ -278,8 +354,13 @@ export default function Header() {
       </NavContainer>
 
         <MobileMenu $isOpen={isOpen}>
-          <LinkItem href="#hero" onClick={(e: React.MouseEvent<HTMLAnchorElement>) => { handleNavClick(e, '#hero'); closeMenu(); }} style={{ fontSize: '2rem' }}>{t('nav.hero')}</LinkItem>
-          <LinkItem href="#capacities" onClick={(e: React.MouseEvent<HTMLAnchorElement>) => { handleNavClick(e, '#capacities'); closeMenu(); }} style={{ fontSize: '2rem' }}>{t('nav.services')}</LinkItem>
+          <LinkItem href={`/${locale}`} onClick={() => { closeMenu(); }} style={{ fontSize: '2rem' }}>{t('nav.hero')}</LinkItem>
+          <LinkItem href="#capacities" onClick={(e: React.MouseEvent<HTMLAnchorElement>) => { handleNavClick(e, '#capacities'); closeMenu(); }} style={{ fontSize: '2rem' }}>{t('nav.capacities')}</LinkItem>
+          <LinkItem href={`/${locale}/services/process-automation`} onClick={closeMenu} style={{ fontSize: '1.2rem', opacity: 0.7 }}>{t('services.process-automation.hero.title')}</LinkItem>
+          <LinkItem href={`/${locale}/services/ai-for-business`} onClick={closeMenu} style={{ fontSize: '1.2rem', opacity: 0.7 }}>{t('services.ai-for-business.hero.title')}</LinkItem>
+          <LinkItem href={`/${locale}/services/web-development`} onClick={closeMenu} style={{ fontSize: '1.2rem', opacity: 0.7 }}>{t('services.web-development.hero.title')}</LinkItem>
+          <LinkItem href={`/${locale}/services/digital-transformation`} onClick={closeMenu} style={{ fontSize: '1.2rem', opacity: 0.7 }}>{t('services.digital-transformation.hero.title')}</LinkItem>
+          <LinkItem href={`/${locale}/services/ai-colombia-business`} onClick={closeMenu} style={{ fontSize: '1.2rem', opacity: 0.7 }}>{t('services.ai-colombia-business.hero.title')}</LinkItem>
           <LinkItem href="#showcase" onClick={(e: React.MouseEvent<HTMLAnchorElement>) => { handleNavClick(e, '#showcase'); closeMenu(); }} style={{ fontSize: '2rem' }}>{t('nav.cases')}</LinkItem>
           <CTA href="#contact" onClick={(e: React.MouseEvent<HTMLAnchorElement>) => { handleNavClick(e, '#contact'); closeMenu(); }} style={{ fontSize: '1.2rem' }}>{t('nav.contact')}</CTA>
 

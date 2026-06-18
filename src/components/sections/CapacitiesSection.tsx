@@ -1,5 +1,6 @@
 'use client';
 
+import Link from 'next/link'
 import styled from 'styled-components'
 import { motion } from 'framer-motion'
 import { useLocale } from '@/lib/locale-context'
@@ -92,7 +93,7 @@ const CardDesc = styled.p`
 `;
 
 export default function CapacitiesSection(){
-  const { t } = useLocale();
+  const { t, locale } = useLocale();
 
   const capabilities = [
     { title: t('capacities.items.0.title'), desc: t('capacities.items.0.desc') },
@@ -102,6 +103,8 @@ export default function CapacitiesSection(){
     { title: t('capacities.items.4.title'), desc: t('capacities.items.4.desc') },
     { title: t('capacities.items.5.title'), desc: t('capacities.items.5.desc') },
   ];
+
+  const slugs = ['process-automation', 'ai-for-business', 'digital-transformation', 'digital-transformation', 'web-development', 'digital-transformation'];
 
   return (
     <Section id="capacities">
@@ -115,16 +118,17 @@ export default function CapacitiesSection(){
       </Heading>
       <Grid>
         {capabilities.map((c, idx) => (
-          <Card
-            key={idx}
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6, delay: idx * 0.1 }}
-          >
-            <CardTitle>{c.title}</CardTitle>
-            <CardDesc>{c.desc}</CardDesc>
-          </Card>
+          <Link key={idx} href={`/${locale}/services/${slugs[idx]}`} style={{ textDecoration: 'none' }}>
+            <Card
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, delay: idx * 0.1 }}
+            >
+              <CardTitle>{c.title}</CardTitle>
+              <CardDesc>{c.desc}</CardDesc>
+            </Card>
+          </Link>
         ))}
       </Grid>
     </Section>

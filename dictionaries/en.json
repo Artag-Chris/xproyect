@@ -5,6 +5,7 @@
   },
   "nav": {
     "hero": "Home",
+    "capacities": "Capacities",
     "services": "Services",
     "cases": "Case Studies",
     "contact": "Contact"
@@ -91,12 +92,135 @@
     "about_text": "is a digital solutions company based in Pereira, Risaralda — Colombia. Specializing in business modernization, automation, and AI integrations.",
     "quick_links": "Quick Links",
     "services": "Services",
-    "service_items": ["Video Production", "Analytics", "Interactive Design", "Web Development"],
+    "service_links": [
+      { "title": "Process Automation", "slug": "process-automation" },
+      { "title": "AI for Business", "slug": "ai-for-business" },
+      { "title": "Web Development", "slug": "web-development" },
+      { "title": "Digital Transformation", "slug": "digital-transformation" },
+      { "title": "AI for Colombian Businesses", "slug": "ai-colombia-business" }
+    ],
     "connect": "Connect",
     "connect_text": "Get in touch with us for inquiries and collaborations.",
     "copyright": "All rights reserved.",
     "privacy": "Privacy",
     "terms": "Terms",
     "cookies": "Cookies"
+  },
+  "service_features_heading": "What's Included",
+  "service_whyus_heading": "Why Lumen X Labs",
+  "service_faq_heading": "Frequently Asked Questions",
+  "service_cta_default": "Ready to get started?",
+  "service_cta_button": "Schedule Free Consultation",
+  "services": {
+    "process-automation": {
+      "meta": { "title": "Process Automation in Pereira | Lumen X Labs", "description": "Automate your business processes in Pereira, Risaralda. Eliminate manual tasks, reduce errors, and scale your operations with custom automation solutions." },
+      "hero": { "title": "Process Automation", "desc": "Stop doing the same work twice. We design automated workflows that connect your tools, eliminate manual data entry, and free your team to focus on growth.", "cta": "Automate Your Processes" },
+      "features": [
+        { "title": "Workflow Automation", "desc": "Repetitive tasks executed automatically across your tools. No more copy-paste between systems." },
+        { "title": "System Integration", "desc": "Your CRM, email, spreadsheets, and accounting tools all talking to each other — automatically." },
+        { "title": "Error Reduction", "desc": "Human errors in data entry eliminated. What runs on autopilot runs exactly the same way every time." },
+        { "title": "Scalable Operations", "desc": "Processes designed to handle 10x the volume without hiring 10x the people." }
+      ],
+      "why_us": [
+        { "title": "Built for Pereira businesses", "desc": "We understand the local market. Your automation is designed for Colombian business realities, not imported from another country." },
+        { "title": "Direct with the builder", "desc": "You work directly with who builds the system. No account managers, no layers — straight talk and real answers." },
+        { "title": "30-day guarantee", "desc": "If you don't see concrete improvement in your operations in 30 days, you don't pay. No fine print." }
+      ],
+      "faq": [
+        { "question": "How long does it take to automate a process?", "answer": "Simple automations can be ready in days. Complex workflows connecting multiple systems typically take 2-4 weeks. We start with a free 30-minute assessment." },
+        { "question": "What tools can you integrate?", "answer": "We integrate with virtually any tool that has an API: CRMs, accounting software, email platforms, messaging apps, spreadsheets, and custom systems." },
+        { "question": "Do you work with businesses in Pereira remotely?", "answer": "Yes. We are based in Pereira, Risaralda and offer both in-person meetings and remote service throughout Colombia." },
+        { "question": "What does process automation cost?", "answer": "It depends on complexity. We design solutions that pay for themselves — if your automation doesn't save time and money, we adjust until it does." }
+      ],
+      "cta": { "title": "Ready to automate your business?", "button": "Schedule Free Consultation" }
+    },
+    "ai-for-business": {
+      "meta": { "title": "AI for Businesses in Pereira | Lumen X Labs", "description": "Integrate artificial intelligence into your Pereira business. AI models for decision-making, customer service, and operational efficiency." },
+      "hero": { "title": "AI for Your Business", "desc": "Not robot hype — practical AI that solves real problems. Chatbots that actually help customers, models that analyze your data, and automation that learns and improves.", "cta": "Integrate AI Now" },
+      "features": [
+        { "title": "Intelligent Chatbots", "desc": "Customer service that never sleeps. AI assistants trained on your business that handle inquiries 24/7." },
+        { "title": "Data Analysis & Insights", "desc": "AI models that analyze your business data and surface patterns, trends, and opportunities you'd never spot manually." },
+        { "title": "Process Intelligence", "desc": "AI that monitors your operations and makes real-time decisions — approving, flagging, or routing automatically." },
+        { "title": "Custom AI Models", "desc": "Tailored AI solutions built for your specific business challenge, not generic off-the-shelf software." }
+      ],
+      "why_us": [
+        { "title": "Practical AI, not hype", "desc": "We don't sell ChatGPT subscriptions. We build AI that actually integrates with your business operations and delivers measurable results." },
+        { "title": "Local expertise", "desc": "Based in Pereira, we understand the challenges and opportunities of Colombian businesses better than any international AI consultancy." },
+        { "title": "Risk-free first month", "desc": "30-day guarantee: if the AI implementation doesn't improve your operations, you don't pay. Simple." }
+      ],
+      "faq": [
+        { "question": "Do I need technical knowledge to use AI in my business?", "answer": "No. We handle all the technical implementation. You interact with the AI through simple dashboards and tools designed for your team." },
+        { "question": "What kind of businesses benefit most from AI?", "answer": "Any business with repetitive decisions, customer inquiries, or data analysis needs. From retail to logistics to professional services — if you have data, AI can help." },
+        { "question": "Is AI expensive for small businesses?", "answer": "We design AI solutions at every price point. Small businesses can start with focused automations that deliver immediate ROI." },
+        { "question": "Can AI replace my employees?", "answer": "No. AI handles repetitive tasks so your team can focus on higher-value work — creative problem-solving, customer relationships, and strategic thinking." }
+      ],
+      "cta": { "title": "Ready to integrate AI?", "button": "Schedule Free Consultation" }
+    },
+    "web-development": {
+      "meta": { "title": "Web Development in Pereira | Lumen X Labs", "description": "Professional web development in Pereira, Risaralda. High-performance websites, web apps, and e-commerce solutions for Colombian businesses." },
+      "hero": { "title": "Web Development", "desc": "Fast, beautiful, and built to perform. From professional landing pages to full web applications — designed for your business goals.", "cta": "Start Your Project" },
+      "features": [
+        { "title": "Performance-First", "desc": "Websites that load in under 2 seconds. Optimized images, minimal code, and modern architecture." },
+        { "title": "Mobile-Responsive", "desc": "Every design works flawlessly on phones, tablets, and desktops. Your customers are on mobile — your website should be too." },
+        { "title": "SEO Optimized", "desc": "Built with search engines in mind. Clean code, fast load times, and proper structure so Google finds you." },
+        { "title": "Admin Panel Included", "desc": "Manage your content without touching code. Update text, images, and pages from a simple dashboard." }
+      ],
+      "why_us": [
+        { "title": "Modern stack, real results", "desc": "We build with the latest technology (Next.js, React, Node.js) — not outdated WordPress templates that slow you down." },
+        { "title": "Designed for Pereira businesses", "desc": "Your website is designed to attract local customers in Pereira, Risaralda with proper local SEO and relevant content." },
+        { "title": "We don't just build — we maintain", "desc": "Your website includes ongoing support, updates, and performance monitoring. It stays fast and secure." }
+      ],
+      "faq": [
+        { "question": "How long does it take to build a website?", "answer": "A professional landing page takes 1-2 weeks. Web applications and e-commerce typically take 3-6 weeks depending on complexity." },
+        { "question": "Do you offer e-commerce development?", "answer": "Yes. We build online stores with payment integration, inventory management, and checkout optimized for Colombian customers." },
+        { "question": "Can I update the website myself?", "answer": "Yes. Every website includes an admin panel so you can update content, add pages, and manage your site without technical knowledge." },
+        { "question": "Do you redesign existing websites?", "answer": "Absolutely. If you have an existing site that's slow, outdated, or not converting, we can redesign and rebuild it." }
+      ],
+      "cta": { "title": "Ready for a new website?", "button": "Schedule Free Consultation" }
+    },
+    "digital-transformation": {
+      "meta": { "title": "Digital Transformation in Pereira | Lumen X Labs", "description": "Complete digital transformation for businesses in Pereira, Risaralda. Strategy, implementation, and ongoing support to take your business digital." },
+      "hero": { "title": "Digital Transformation", "desc": "Move your business from fragmented chaos to streamlined precision. We design the digital infrastructure your company needs to compete.", "cta": "Transform Your Business" },
+      "features": [
+        { "title": "Process Audit & Mapping", "desc": "We analyze every operation, find the bottlenecks, and design optimized digital workflows." },
+        { "title": "Technology Stack Design", "desc": "The right tools for your business — CRM, project management, communication, and automation — working together." },
+        { "title": "Data Unification", "desc": "All your business data in one place. No more spreadsheets, no more silos, no more asking 'who has the latest file?'." },
+        { "title": "Change Management", "desc": "We train your team, document every process, and ensure the transformation sticks." }
+      ],
+      "why_us": [
+        { "title": "Startup agility, enterprise results", "desc": "We move fast like a startup but deliver the robustness of enterprise consulting — without the enterprise price tag." },
+        { "title": "We do the work, not just the plan", "desc": "Many consultants deliver a PDF and leave. We implement, test, and adjust until your business actually runs better." },
+        { "title": "Focused on Pereira businesses", "desc": "We know the Colombian market and design transformations that work for local businesses, not silicon valley copycats." }
+      ],
+      "faq": [
+        { "question": "What does a digital transformation involve?", "answer": "It starts with a full audit of your current operations, followed by designing optimized processes, implementing the right technology, and training your team." },
+        { "question": "How long does a full transformation take?", "answer": "Most transformations take 4-8 weeks depending on business size and complexity. We break it into phases so you see results along the way." },
+        { "question": "Do I need to change everything at once?", "answer": "No. We prioritize changes by impact and implement incrementally. You see improvements from day one without disrupting your operations." },
+        { "question": "Is digital transformation only for large companies?", "answer": "Not at all. Small and medium businesses often benefit the most because they can move faster and see dramatic improvements with fewer changes." }
+      ],
+      "cta": { "title": "Ready to transform?", "button": "Schedule Free Consultation" }
+    },
+    "ai-colombia-business": {
+      "meta": { "title": "AI for Colombian Businesses | Lumen X Labs", "description": "Artificial intelligence solutions designed for Colombian businesses. Automation, chatbots, and AI integrations for companies in Pereira and across Colombia." },
+      "hero": { "title": "AI for Colombian Businesses", "desc": "AI built for Colombian realities. Solutions that understand local regulations, customer behavior, and market conditions — designed for businesses like yours.", "cta": "Explore AI Solutions" },
+      "features": [
+        { "title": "Spanish-First AI", "desc": "AI that understands Colombian Spanish — regional expressions, local context, and your customers' actual language." },
+        { "title": "Local Compliance", "desc": "AI solutions designed with Colombian data protection regulations (Habeas Data) in mind." },
+        { "title": "Affordable for SMBs", "desc": "AI doesn't have to cost millions. We design solutions that fit Colombian business budgets and deliver real ROI." },
+        { "title": "Colombia-Wide Service", "desc": "Based in Pereira but serving businesses across Colombia. Remote implementation, local understanding." }
+      ],
+      "why_us": [
+        { "title": "Built for Colombia", "desc": "Every solution is designed for Colombian businesses — local regulations, market conditions, and customer expectations included." },
+        { "title": "Practical implementation", "desc": "We don't just talk about AI. We build, test, and deploy working systems that actually run your business better." },
+        { "title": "30-day risk-free", "desc": "Try AI in your business with zero risk. If you don't see improvement in 30 days, you don't pay." }
+      ],
+      "faq": [
+        { "question": "Can AI really work for Colombian small businesses?", "answer": "Yes. AI is more accessible than ever. We design solutions at every budget level — from simple chatbots to full process automation." },
+        { "question": "Do you need to be in Bogota or Medellin to get good AI services?", "answer": "Not at all. We are based in Pereira and serve businesses across Colombia. Modern AI implementation is done remotely with excellent results." },
+        { "question": "How does AI handle Colombian Spanish?", "answer": "Our AI models are trained and configured to understand Colombian Spanish — including regional expressions, slang, and local business context." },
+        { "question": "What about data security and Colombian regulations?", "answer": "All our implementations comply with Colombian data protection law (Ley 1581 / Habeas Data). We take data security seriously." }
+      ],
+      "cta": { "title": "Ready for AI in your business?", "button": "Schedule Free Consultation" }
+    }
   }
 }

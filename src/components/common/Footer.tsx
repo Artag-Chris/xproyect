@@ -138,7 +138,7 @@ const LegalLinks = styled.div`
 `;
 
 export default function Footer() {
-  const { t } = useLocale();
+  const { t, tRaw, locale } = useLocale();
 
   return (
     <FooterContainer>
@@ -154,7 +154,7 @@ export default function Footer() {
           <FooterSection>
             <h3>{t('footer.quick_links')}</h3>
             <ul>
-              <li><a href="#hero">{t('nav.hero')}</a></li>
+              <li><a href={`/${locale}`}>{t('nav.hero')}</a></li>
               <li><a href="#capacities">{t('nav.services')}</a></li>
               <li><a href="#showcase">{t('nav.cases')}</a></li>
               <li><a href="#contact">{t('nav.contact')}</a></li>
@@ -164,10 +164,11 @@ export default function Footer() {
           <FooterSection>
             <h3>{t('footer.services')}</h3>
             <ul>
-              <li><a href="#">{t('footer.service_items.0')}</a></li>
-              <li><a href="#">{t('footer.service_items.1')}</a></li>
-              <li><a href="#">{t('footer.service_items.2')}</a></li>
-              <li><a href="#">{t('footer.service_items.3')}</a></li>
+              {(tRaw('footer.service_links') as Array<{ title: string; slug: string }>).map((s, i) => (
+                <li key={i}>
+                  <a href={`/${locale}/services/${s.slug}`}>{s.title}</a>
+                </li>
+              ))}
             </ul>
           </FooterSection>
 
