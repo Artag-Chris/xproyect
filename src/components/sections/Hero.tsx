@@ -2,6 +2,7 @@
 
 import styled from 'styled-components';
 import { motion } from 'framer-motion';
+import Image from 'next/image';
 import { useLocale } from '@/lib/locale-context';
 import { useTrack } from '@/hooks/useTrack';
 
@@ -24,15 +25,14 @@ const HeroSection = styled.section`
 const HeroBg = styled.div`
   position: absolute;
   inset: 0;
-  background: url('/2.png') center / cover no-repeat;
   z-index: 0;
+`;
 
-  &::after {
-    content: '';
-    position: absolute; 
-    inset: 0;
-    background: rgba(0, 0, 0, 0.55);
-  }
+const BgOverlay = styled.div`
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.55);
+  z-index: 1;
 `;
 
 const HeroContent = styled.div`
@@ -157,7 +157,17 @@ export default function Hero() {
 
   return (
     <HeroSection id="hero">
-      <HeroBg />
+      <HeroBg>
+        <Image
+          src="/lumen front.png"
+          alt=""
+          fill
+          priority
+          sizes="100vw"
+          style={{ objectFit: 'cover' }}
+        />
+      </HeroBg>
+      <BgOverlay />
       <HeroContent>
         <TitleWrapper>
           <Title
