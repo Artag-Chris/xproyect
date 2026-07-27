@@ -63,6 +63,10 @@ const Card = styled(motion.div)`
     box-shadow: var(--shadow-md);
     transform: translateY(-4px);
   }
+
+  &:active {
+    transform: translateY(-2px) scale(0.98);
+  }
 `;
 
 const Thumb = styled.div<{ $gradient: string }>`
@@ -148,8 +152,8 @@ const ResultBadge = styled.div`
 `;
 
 const gradients = [
-  'linear-gradient(135deg, #007bff 0%, #4da3ff 100%)',
-  'linear-gradient(135deg, #0056b3 0%, #007bff 100%)',
+  'linear-gradient(135deg, var(--primary) 0%, #4da3ff 100%)',
+  'linear-gradient(135deg, var(--primary-dark) 0%, var(--primary) 100%)',
   'linear-gradient(135deg, #4da3ff 0%, #b0d4ff 100%)',
 ];
 
@@ -163,7 +167,7 @@ export default function ShowcaseSection() {
     { title: t('showcase.items.2.title'), desc: t('showcase.items.2.desc'), result: t('showcase.items.2.result') },
   ];
 
-  const slugs = ['web-development', 'process-automation', 'web-development'];
+  const slugs = ['web-development', 'process-automation', 'digital-transformation'];
 
   return (
     <Section id="showcase">

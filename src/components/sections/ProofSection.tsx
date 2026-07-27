@@ -98,7 +98,7 @@ const CardDesc = styled.p`
   }
 `;
 
-const accentColors = ['#007bff', '#0056b3', '#4da3ff'];
+const accentColors = ['var(--primary)', 'var(--primary-dark)', '#4da3ff'];
 
 export default function ProofSection() {
   const { t } = useLocale();

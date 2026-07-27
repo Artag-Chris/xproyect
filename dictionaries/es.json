@@ -83,8 +83,14 @@
       "email_placeholder": "Email",
       "phone_placeholder": "Teléfono",
       "company_placeholder": "Empresa",
+      "name_label": "Nombre Completo",
+      "email_label": "Correo Electrónico",
+      "phone_label": "Teléfono",
+      "company_label": "Empresa",
       "submit": "Solicitar Consulta",
-      "alert": "Gracias por tu interés. Nos pondremos en contacto pronto."
+      "submit_another": "Enviar otro mensaje",
+      "thank_you": "Gracias",
+      "thank_you_desc": "Hemos recibido tu información y te contactaremos en las próximas 24 horas."
     }
   },
   "footer": {

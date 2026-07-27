@@ -31,6 +31,16 @@ This version has breaking changes — APIs, conventions, and file structure may 
 - **Type Safety**: Strict TypeScript usage across the project.
 - **Animations**: Prefer `framer-motion` for simple enters/exits and `gsap` for timeline-based animations.
 
+## Skills (Premium Stack)
+
+- `emil-design-eng` — Emil Kowalski's premium design engineering patterns (164.9K installs)
+- `high-end-visual-design` — High-end visual design system (227.6K installs)
+- `design-taste-frontend` — Design taste for frontend interfaces (294.8K installs)
+- `ui-ux-pro-max` — Professional UI/UX (287K installs) — High Risk flag on Gen scanner
+- `scroll-stop-builder` — Scroll-driven premium landing pages with video
+- `frontend-design` — Core frontend design (709K installs)
+- `vercel-react-best-practices` — React/Next.js perf from Vercel (582.5K installs)
+
 ## Verification
 
 - Run `npm run lint` before finalizing changes.

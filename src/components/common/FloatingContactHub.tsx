@@ -99,7 +99,7 @@ const OptionLink = styled(motion.a)`
   font-size: 13px;
   font-weight: 500;
   white-space: nowrap;
-  transition: background 0.25s ease, border-color 0.25s ease;
+  transition: background 0.25s ease, border-color 0.25s ease, transform 0.15s ease;
   position: relative;
   overflow: hidden;
 
@@ -125,6 +125,10 @@ const OptionLink = styled(motion.a)`
     &::before {
       opacity: 1;
     }
+  }
+
+  &:active {
+    transform: scale(0.96);
   }
 `;
 
@@ -298,6 +302,20 @@ export default function FloatingContactHub({
     }
 
     return () => document.removeEventListener('mousedown', handleClickOutside);
+  }, [isOpen]);
+
+  useEffect(() => {
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (e.key === 'Escape' && isOpen) {
+        setIsOpen(false);
+      }
+    };
+
+    if (isOpen) {
+      document.addEventListener('keydown', handleKeyDown);
+    }
+
+    return () => document.removeEventListener('keydown', handleKeyDown);
   }, [isOpen]);
 
   const items: ContactItem[] = [

@@ -134,13 +134,17 @@ const Button = styled.button<{ $variant?: 'primary' | 'secondary' }>`
     }
   `
       : `
-    background: var(--primary);
+    background: var(--primary-dark);
     color: white;
 
     &:hover {
-      background: var(--primary-dark);
+      background: #004494;
       box-shadow: 0 10px 30px rgba(0, 123, 255, 0.3);
       transform: translateY(-2px);
+    }
+
+    &:active {
+      transform: translateY(-1px) scale(0.97);
     }
   `}
 

@@ -1,5 +1,6 @@
 'use client';
 
+import { useState } from 'react'
 import styled from 'styled-components'
 import { motion } from 'framer-motion'
 import { useLocale } from '@/lib/locale-context'
@@ -128,13 +129,23 @@ const Input = styled.input`
 
   &:focus {
     border-color: var(--primary);
-    box-shadow: 0 0 0 3px color-mix(in srgb, var(--primary) 12%, transparent);
+    box-shadow: var(--focus-ring);
     background: var(--surface);
   }
 
   @media (max-width: 768px) {
     padding: 14px 16px;
   }
+`;
+
+const Label = styled.label`
+  display: block;
+  font-family: var(--font-jakarta);
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--text-secondary);
+  margin-bottom: 6px;
+  text-align: left;
 `;
 
 const FullRow = styled.div`
@@ -166,6 +177,10 @@ const Button = styled.button`
     box-shadow: 0 8px 24px rgba(0, 123, 255, 0.3);
   }
 
+  &:active {
+    transform: translateY(-1px) scale(0.97);
+  }
+
   @media (min-width: 768px) {
     width: auto;
     align-self: center;
@@ -187,10 +202,76 @@ const TrustLine = styled(motion.p)`
   }
 `;
 
+const ResetButton = styled.button`
+  margin: 0 auto;
+  padding: 12px 32px;
+  border-radius: 8px;
+  border: 1px solid var(--primary);
+  background: transparent;
+  color: var(--primary);
+  font-family: var(--font-syne);
+  font-size: 14px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all var(--transition-base);
+  display: block;
+
+  &:hover {
+    background: var(--primary);
+    color: white;
+  }
+
+  &:active {
+    transform: scale(0.97);
+  }
+`;
+
 export default function CallSection(){
   const { t } = useLocale();
   const track = useTrack();
-  const onSubmit = (e: React.FormEvent) => { e.preventDefault(); track('form_submitted', { form_type: 'contact' }); alert(t('call.form.alert')); };
+  const [submitted, setSubmitted] = useState(false);
+  const [formData, setFormData] = useState({ name: '', email: '', phone: '', company: '' });
+
+  const onSubmit = (e: React.FormEvent) => { 
+    e.preventDefault(); 
+    track('form_submitted', { form_type: 'contact' }); 
+    try {
+      const existing = JSON.parse(localStorage.getItem('lumen_contacts') || '[]');
+      existing.push({ ...formData, timestamp: new Date().toISOString() });
+      localStorage.setItem('lumen_contacts', JSON.stringify(existing));
+    } catch {}
+    setSubmitted(true);
+  };
+
+  const handleChange = (field: string) => (e: React.ChangeEvent<HTMLInputElement>) => {
+    setFormData(prev => ({ ...prev, [field]: e.target.value }));
+  };
+
+  if (submitted) {
+    return (
+      <Section id="contact">
+        <Heading
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+        >
+          {t('call.form.thank_you')}
+        </Heading>
+        <Sub
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6, delay: 0.1 }}
+        >
+          {t('call.form.thank_you_desc')}
+        </Sub>
+        <ResetButton onClick={() => { setSubmitted(false); setFormData({ name: '', email: '', phone: '', company: '' }); }}>
+          {t('call.form.submit_another')}
+        </ResetButton>
+      </Section>
+    );
+  }
 
   return (
     <Section id="contact">
@@ -228,10 +309,22 @@ export default function CallSection(){
         viewport={{ once: true }}
         transition={{ duration: 0.6, delay: 0.3 }}
       >
-        <Input placeholder={t('call.form.name_placeholder')} required />
-        <Input placeholder={t('call.form.email_placeholder')} type="email" required />
-        <Input placeholder={t('call.form.phone_placeholder')} />
-        <Input placeholder={t('call.form.company_placeholder')} />
+        <div>
+          <Label htmlFor="call-name">{t('call.form.name_label')}</Label>
+          <Input id="call-name" value={formData.name} onChange={handleChange('name')} placeholder={t('call.form.name_placeholder')} required />
+        </div>
+        <div>
+          <Label htmlFor="call-email">{t('call.form.email_label')}</Label>
+          <Input id="call-email" value={formData.email} onChange={handleChange('email')} placeholder={t('call.form.email_placeholder')} type="email" required />
+        </div>
+        <div>
+          <Label htmlFor="call-phone">{t('call.form.phone_label')}</Label>
+          <Input id="call-phone" value={formData.phone} onChange={handleChange('phone')} placeholder={t('call.form.phone_placeholder')} />
+        </div>
+        <div>
+          <Label htmlFor="call-company">{t('call.form.company_label')}</Label>
+          <Input id="call-company" value={formData.company} onChange={handleChange('company')} placeholder={t('call.form.company_placeholder')} />
+        </div>
         <FullRow>
           <Button type="submit">{t('call.form.submit')}</Button>
         </FullRow>

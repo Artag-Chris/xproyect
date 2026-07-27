@@ -60,6 +60,10 @@ const Card = styled(motion.div)`
     box-shadow: var(--shadow-md);
   }
 
+  &:active {
+    transform: translateY(-2px) scale(0.98);
+  }
+
   @media (max-width: 768px) {
     padding: 20px;
   }
@@ -104,7 +108,7 @@ export default function CapacitiesSection(){
     { title: t('capacities.items.5.title'), desc: t('capacities.items.5.desc') },
   ];
 
-  const slugs = ['process-automation', 'ai-for-business', 'digital-transformation', 'digital-transformation', 'web-development', 'digital-transformation'];
+  const slugs = ['process-automation', 'ai-for-business', 'digital-transformation', 'ai-colombia-business', 'web-development', 'process-automation'];
 
   return (
     <Section id="capacities">

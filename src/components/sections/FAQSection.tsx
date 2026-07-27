@@ -29,7 +29,7 @@ const Heading = styled.h2`
 `;
 
 const FAQItem = styled.div`
-  border-bottom: 1px solid var(--border-color, rgba(0, 123, 255, 0.15));
+  border-bottom: 1px solid var(--border);
   padding: 16px 0;
 `;
 
@@ -49,25 +49,37 @@ const QuestionButton = styled.button`
   font-size: 18px;
   text-align: left;
   line-height: 1.4;
+  transition: opacity var(--transition-base);
+
+  &:active {
+    opacity: 0.6;
+  }
 
   @media (max-width: 768px) {
     font-size: 16px;
   }
 `;
 
-const Answer = styled.p<{ $isOpen: boolean }>`
-  max-height: ${({ $isOpen }) => ($isOpen ? '300px' : '0')};
+const AnswerWrapper = styled.div<{ $isOpen: boolean }>`
+  display: grid;
+  grid-template-rows: ${({ $isOpen }) => ($isOpen ? '1fr' : '0fr')};
+  transition: grid-template-rows 0.3s ease;
+  margin-top: ${({ $isOpen }) => ($isOpen ? '12px' : '0')};
+`;
+
+const Answer = styled.p`
   overflow: hidden;
-  transition: max-height 0.3s ease, margin 0.3s ease;
-  margin: ${({ $isOpen }) => ($isOpen ? '12px 0 0' : '0')};
-  color: var(--text-secondary, rgba(255, 255, 255, 0.7));
+  min-height: 0;
+  color: var(--text-secondary);
   font-family: var(--font-jakarta);
   font-size: 16px;
   line-height: 1.6;
 `;
 
 const Arrow = styled.span<{ $isOpen: boolean }>`
-  font-size: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   color: var(--primary);
   transition: transform 0.3s ease;
   transform: ${({ $isOpen }) => ($isOpen ? 'rotate(45deg)' : 'rotate(0deg)')};
@@ -107,11 +119,19 @@ export default function FAQSection() {
             <QuestionButton
               onClick={() => setOpenIndex(openIndex === index ? null : index)}
               aria-expanded={openIndex === index}
+              aria-controls={`faq-answer-${index}`}
             >
               {item.question}
-              <Arrow $isOpen={openIndex === index}>+</Arrow>
+              <Arrow $isOpen={openIndex === index}>
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                  <line x1="12" y1="5" x2="12" y2="19"/>
+                  <line x1="5" y1="12" x2="19" y2="12"/>
+                </svg>
+              </Arrow>
             </QuestionButton>
-            <Answer $isOpen={openIndex === index}>{item.answer}</Answer>
+            <AnswerWrapper $isOpen={openIndex === index}>
+              <Answer id={`faq-answer-${index}`}>{item.answer}</Answer>
+            </AnswerWrapper>
           </FAQItem>
         ))}
       </Section>

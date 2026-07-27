@@ -29,8 +29,11 @@ export default function RootLayout({
   const gtmId = process.env.NEXT_PUBLIC_GTM_ID;
 
   return (
-    <html className={`${syne.variable} ${jakarta.variable} h-full antialiased`}>
+    <html lang="en" suppressHydrationWarning className={`${syne.variable} ${jakarta.variable} h-full antialiased`}>
       <head>
+        <script dangerouslySetInnerHTML={{
+          __html: `document.documentElement.lang = location.pathname.startsWith('/es') ? 'es' : 'en';`
+        }} />
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
         <link rel="preload" href="/lumenXlogoSVG.svg" as="image" />

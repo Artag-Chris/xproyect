@@ -47,6 +47,10 @@ const LogoLink = styled(Link)`
   &:hover {
     transform: scale(1.05);
   }
+
+  &:active {
+    transform: scale(0.98);
+  }
 `;
 
 const LogoImage = styled.img`
@@ -100,6 +104,10 @@ const LinkItem = styled.a<{ $active?: boolean }>`
       width: 100%;
     }
   }
+
+  &:active {
+    opacity: 0.6;
+  }
 `;
 
 const DropdownWrapper = styled.div`
@@ -122,9 +130,13 @@ const DropdownTrigger = styled.a`
   &:hover {
     color: var(--text-primary);
   }
+
+  &:active {
+    opacity: 0.6;
+  }
 `;
 
-const DropdownMenu = styled.div`
+const DropdownMenu = styled.div<{ $isOpen: boolean }>`
   position: absolute;
   top: 100%;
   left: 50%;
@@ -135,15 +147,10 @@ const DropdownMenu = styled.div`
   border-radius: 8px;
   padding: 8px;
   box-shadow: var(--shadow-md);
-  opacity: 0;
-  visibility: hidden;
+  opacity: ${({ $isOpen }) => ($isOpen ? '1' : '0')};
+  visibility: ${({ $isOpen }) => ($isOpen ? 'visible' : 'hidden')};
   transition: all 0.2s ease;
   margin-top: 8px;
-
-  ${DropdownWrapper}:hover & {
-    opacity: 1;
-    visibility: visible;
-  }
 `;
 
 const DropdownItem = styled(Link)`
@@ -160,6 +167,11 @@ const DropdownItem = styled(Link)`
     background: color-mix(in srgb, var(--primary) 8%, transparent);
     color: var(--primary);
   }
+
+  &:active {
+    background: color-mix(in srgb, var(--primary) 15%, transparent);
+    transform: scale(0.97);
+  }
 `;
 
 const CTA = styled.a`
@@ -168,20 +180,24 @@ const CTA = styled.a`
   font-weight: 800;
   text-transform: uppercase;
   letter-spacing: 0.1em;
-  background: var(--primary);
+  background: var(--primary-dark);
   color: white;
   padding: 10px 24px;
   border-radius: 8px;
-  border: 1px solid var(--primary);
+  border: 1px solid var(--primary-dark);
   text-decoration: none;
   transition: all var(--transition-base);
   cursor: pointer;
 
   &:hover {
     background: transparent;
-    color: var(--primary);
+    color: var(--primary-dark);
     transform: translateY(-2px);
     box-shadow: 0 4px 12px rgba(0, 123, 255, 0.2);
+  }
+
+  &:active {
+    transform: translateY(-1px) scale(0.97);
   }
 `;
 
@@ -203,11 +219,15 @@ const ThemeToggle = styled.button`
     border-color: var(--primary);
     background: var(--surface-tertiary);
   }
+
+  &:active {
+    transform: scale(0.92);
+  }
 `;
 
 const LocaleToggle = styled.button`
-  background: var(--primary);
-  border: 1px solid var(--primary);
+  background: var(--primary-dark);
+  border: 1px solid var(--primary-dark);
   color: white;
   width: 40px;
   height: 40px;
@@ -230,6 +250,10 @@ const LocaleToggle = styled.button`
     border-color: var(--primary-dark);
     transform: scale(1.05);
   }
+
+  &:active {
+    transform: scale(0.92);
+  }
 `;
 
 const MobileToggle = styled.button`
@@ -239,6 +263,11 @@ const MobileToggle = styled.button`
   cursor: pointer;
   color: var(--text-primary);
   z-index: 101;
+  transition: opacity var(--transition-base);
+
+  &:active {
+    opacity: 0.6;
+  }
 
   @media (max-width: 768px) {
     display: block;
@@ -264,6 +293,7 @@ const MobileMenu = styled.div<{ $isOpen: boolean }>`
 
 export default function Header() {
   const [isOpen, setIsOpen] = useState(false);
+  const [dropdownOpen, setDropdownOpen] = useState(false);
   const { theme, toggleTheme } = useTheme();
   const { t, locale } = useLocale();
   const pathname = usePathname();
@@ -302,16 +332,22 @@ export default function Header() {
 
         <div className="flex items-center gap-4">
           <NavLinks>
-            <LinkItem href={`/${locale}`} onClick={(e: React.MouseEvent<HTMLAnchorElement>) => { track('nav_link_clicked', { link_text: t('nav.hero'), link_href: `/${locale}`, location: 'header' }); }}>{t('nav.hero')}</LinkItem>
+            <LinkItem href={`/${locale}`} onClick={() => { track('nav_link_clicked', { link_text: t('nav.hero'), link_href: `/${locale}`, location: 'header' }); }}>{t('nav.hero')}</LinkItem>
             <LinkItem href="#capacities" onClick={(e: React.MouseEvent<HTMLAnchorElement>) => { handleNavClick(e, '#capacities'); track('nav_link_clicked', { link_text: t('nav.capacities'), link_href: '#capacities', location: 'header' }); }}>{t('nav.capacities')}</LinkItem>
-            <DropdownWrapper>
+            <DropdownWrapper
+              onMouseEnter={() => setDropdownOpen(true)}
+              onMouseLeave={() => setDropdownOpen(false)}
+            >
               <DropdownTrigger
-                onClick={(e) => { e.preventDefault(); track('nav_link_clicked', { link_text: t('nav.services'), link_href: 'dropdown', location: 'header' }); }}
+                onClick={(e) => { e.preventDefault(); setDropdownOpen(prev => !prev); track('nav_link_clicked', { link_text: t('nav.services'), link_href: 'dropdown', location: 'header' }); }}
+                onKeyDown={(e: React.KeyboardEvent) => { if (e.key === 'Escape') setDropdownOpen(false); }}
                 href="#"
+                aria-expanded={dropdownOpen}
+                aria-haspopup="true"
               >
                 {t('nav.services')}
               </DropdownTrigger>
-              <DropdownMenu>
+              <DropdownMenu $isOpen={dropdownOpen}>
                 <DropdownItem href={`/${locale}/services/process-automation`} onClick={() => track('nav_link_clicked', { link_text: 'Process Automation', link_href: `/${locale}/services/process-automation`, location: 'header_dropdown' })}>{t('services.process-automation.hero.title')}</DropdownItem>
                 <DropdownItem href={`/${locale}/services/ai-for-business`} onClick={() => track('nav_link_clicked', { link_text: 'AI for Business', link_href: `/${locale}/services/ai-for-business`, location: 'header_dropdown' })}>{t('services.ai-for-business.hero.title')}</DropdownItem>
                 <DropdownItem href={`/${locale}/services/web-development`} onClick={() => track('nav_link_clicked', { link_text: 'Web Development', link_href: `/${locale}/services/web-development`, location: 'header_dropdown' })}>{t('services.web-development.hero.title')}</DropdownItem>
@@ -336,8 +372,24 @@ export default function Header() {
               {locale === 'en' ? 'ES' : 'EN'}
             </LocaleToggle>
 
-            <ThemeToggle onClick={() => { toggleTheme(); track('theme_toggled', { theme: theme === 'light' ? 'dark' : 'light' }); }} title="Toggle Theme">
-              {theme === 'light' ? '🌙' : '☀️'}
+            <ThemeToggle onClick={() => { toggleTheme(); track('theme_toggled', { theme: theme === 'light' ? 'dark' : 'light' }); }} aria-label={theme === 'light' ? 'Switch to dark mode' : 'Switch to light mode'} title="Toggle Theme">
+              {theme === 'light' ? (
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                  <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
+                </svg>
+              ) : (
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                  <circle cx="12" cy="12" r="5"/>
+                  <line x1="12" y1="1" x2="12" y2="3"/>
+                  <line x1="12" y1="21" x2="12" y2="23"/>
+                  <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/>
+                  <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/>
+                  <line x1="1" y1="12" x2="3" y2="12"/>
+                  <line x1="21" y1="12" x2="23" y2="12"/>
+                  <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/>
+                  <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/>
+                </svg>
+              )}
             </ThemeToggle>
           </div>
         </div>
@@ -377,8 +429,24 @@ export default function Header() {
               {locale === 'en' ? 'ES' : 'EN'}
             </LocaleToggle>
 
-            <ThemeToggle onClick={() => { toggleTheme(); closeMenu(); }} title="Toggle Theme">
-              {theme === 'light' ? '🌙' : '☀️'}
+            <ThemeToggle onClick={() => { toggleTheme(); closeMenu(); }} aria-label={theme === 'light' ? 'Switch to dark mode' : 'Switch to light mode'} title="Toggle Theme">
+              {theme === 'light' ? (
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                  <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
+                </svg>
+              ) : (
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                  <circle cx="12" cy="12" r="5"/>
+                  <line x1="12" y1="1" x2="12" y2="3"/>
+                  <line x1="12" y1="21" x2="12" y2="23"/>
+                  <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/>
+                  <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/>
+                  <line x1="1" y1="12" x2="3" y2="12"/>
+                  <line x1="21" y1="12" x2="23" y2="12"/>
+                  <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/>
+                  <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/>
+                </svg>
+              )}
             </ThemeToggle>
           </div>
 
