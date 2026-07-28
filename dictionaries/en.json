@@ -18,6 +18,16 @@
     "cta_secondary": "Get in Touch",
     "badge": "Thermoelectrics & Active Noise Cancellation"
   },
+  "narrative": {
+    "stages": {
+      "0": { "label": "Stage 1.0", "heading": "Diagnose", "description": "We find the friction points in your operation — the hidden bottlenecks that drain time, money, and focus." },
+      "1": { "label": "Stage 2.0", "heading": "Plan", "description": "We design the shortest path from where you are to where you want to be — removing every unnecessary step." },
+      "2": { "label": "Stage 3.0", "heading": "Build", "description": "We build the systems, automations, and interfaces that make your business run with surgical precision." },
+      "3": { "label": "Stage 4.0", "heading": "Deliver", "description": "We ship working technology that your team actually uses — tested, documented, and ready to scale." }
+    },
+    "divider": "Next stage",
+    "cta": "Start at stage 1.0"
+  },
   "pain": {
     "heading": "The Cost of Inefficiency",
     "subtitle": "Most businesses operate in a state of invisible chaos. Slow processes, human error, and the feeling that you're the only one holding it all together.",

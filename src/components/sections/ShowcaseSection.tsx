@@ -2,37 +2,17 @@
 
 import Link from 'next/link'
 import styled from 'styled-components'
-import { motion } from 'framer-motion'
 import { useLocale } from '@/lib/locale-context'
 import { useTrack } from '@/hooks/useTrack'
+import StageHeader from './StageHeader'
 
 const Section = styled.section`
-  padding: 120px 40px;
+  padding: 80px 40px;
   max-width: 1200px;
   margin: 0 auto;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
 
   @media (max-width: 768px) {
     padding: 60px 16px;
-  }
-`;
-
-const Heading = styled(motion.h2)`
-  font-family: var(--font-syne);
-  font-size: clamp(32px, 5vw, 56px);
-  font-weight: 800;
-  color: var(--text-primary);
-  text-align: center;
-  margin-bottom: 60px;
-  line-height: 1.1;
-  text-wrap: balance;
-
-  @media (max-width: 768px) {
-    font-size: clamp(22px, 6vw, 28px);
-    line-height: 1.3;
-    margin-bottom: 28px;
   }
 `;
 
@@ -158,8 +138,9 @@ const gradients = [
 ];
 
 export default function ShowcaseSection() {
-  const { t, locale } = useLocale();
+  const { t, tRaw, locale } = useLocale();
   const track = useTrack();
+  const stage = tRaw('narrative.stages.3') as Record<string, string>;
 
   const items = [
     { title: t('showcase.items.0.title'), desc: t('showcase.items.0.desc'), result: t('showcase.items.0.result') },
@@ -171,14 +152,12 @@ export default function ShowcaseSection() {
 
   return (
     <Section id="showcase">
-      <Heading
-        initial={{ opacity: 0, y: 20 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true }}
-        transition={{ duration: 0.6 }}
-      >
-        {t('showcase.heading')}
-      </Heading>
+      <StageHeader
+        num="4.0"
+        label={stage?.label ?? 'Stage 4.0'}
+        heading={stage?.heading ?? 'Deliver'}
+        description={stage?.description ?? ''}
+      />
       <Grid>
         {items.map((it, idx) => (
           <Link key={idx} href={`/${locale}/services/${slugs[idx]}`} style={{ textDecoration: 'none' }}>

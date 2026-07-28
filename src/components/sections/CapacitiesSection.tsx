@@ -2,36 +2,16 @@
 
 import Link from 'next/link'
 import styled from 'styled-components'
-import { motion } from 'framer-motion'
 import { useLocale } from '@/lib/locale-context'
+import StageHeader from './StageHeader'
 
 const Section = styled.section`
-  padding: 120px 40px;
+  padding: 100px 40px;
   max-width: 1200px;
   margin: 0 auto;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  text-align: center;
 
   @media (max-width: 768px) {
     padding: 60px 16px;
-  }
-`;
-
-const Heading = styled(motion.h2)`
-  font-family: var(--font-syne);
-  font-size: clamp(32px, 5vw, 56px);
-  font-weight: 800;
-  color: var(--text-primary);
-  margin-bottom: 60px;
-  line-height: 1.1;
-  text-wrap: balance;
-
-  @media (max-width: 768px) {
-    font-size: clamp(22px, 6vw, 28px);
-    line-height: 1.3;
-    margin-bottom: 28px;
   }
 `;
 
@@ -99,7 +79,8 @@ const CardDesc = styled.p`
 `;
 
 export default function CapacitiesSection(){
-  const { t, locale } = useLocale();
+  const { t, tRaw, locale } = useLocale();
+  const stage = tRaw('narrative.stages.2') as Record<string, string>;
 
   const capabilities = [
     { title: t('capacities.items.0.title'), desc: t('capacities.items.0.desc') },
@@ -114,14 +95,12 @@ export default function CapacitiesSection(){
 
   return (
     <Section id="capacities">
-      <Heading
-        initial={{ opacity: 0, y: 20 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true }}
-        transition={{ duration: 0.6 }}
-      >
-        {t('capacities.heading')}
-      </Heading>
+      <StageHeader
+        num="3.0"
+        label={stage?.label ?? 'Stage 3.0'}
+        heading={stage?.heading ?? 'Build'}
+        description={stage?.description ?? ''}
+      />
       <Grid>
         {capabilities.map((c, idx) => (
           <Link key={idx} href={`/${locale}/services/${slugs[idx]}`} style={{ textDecoration: 'none' }}>

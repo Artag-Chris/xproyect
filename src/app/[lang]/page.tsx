@@ -11,16 +11,21 @@ const ShowcaseSection = dynamic(() => import('@/components/sections/ShowcaseSect
 const FAQSection = dynamic(() => import('@/components/sections/FAQSection'), { ssr: false });
 const FounderSection = dynamic(() => import('@/components/sections/FounderSection'), { ssr: false });
 const CallSection = dynamic(() => import('@/components/sections/CallSection'), { ssr: false });
+const StageDivider = dynamic(() => import('@/components/sections/StageDivider'), { ssr: false });
 
 export default function Home() {
   return (
     <>
       <Hero />
       <PainSection />
+      <StageDivider num="01" />
       <MethodSection />
+      <StageDivider num="02" />
       <CapacitiesSection />
-      <ProofSection />
+      <StageDivider num="03" />
       <ShowcaseSection />
+      <StageDivider num="04" />
+      <ProofSection />
       <FounderSection />
       <FAQSection />
       <CallSection />

@@ -1,40 +1,20 @@
 'use client';
 
 import styled from 'styled-components';
-import { motion } from 'framer-motion';
 import { useLocale } from '@/lib/locale-context';
+import StageHeader from './StageHeader';
 
 const Section = styled.section`
   padding: 100px 40px;
   max-width: 1200px;
   margin: 0 auto;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  text-align: center;
 
   @media (max-width: 768px) {
     padding: 50px 16px;
   }
 `;
 
-const Heading = styled(motion.h2)`
-  font-family: var(--font-syne);
-  font-size: clamp(32px, 5vw, 56px);
-  font-weight: 800;
-  color: var(--text-primary);
-  margin-bottom: 60px;
-  line-height: 1.1;
-  text-wrap: balance;
-
-  @media (max-width: 768px) {
-    font-size: clamp(22px, 6vw, 28px);
-    line-height: 1.3;
-    margin-bottom: 28px;
-  }
-`;
-
-const MethodGrid = styled.div`
+const Grid = styled.div`
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 40px;
@@ -46,7 +26,7 @@ const MethodGrid = styled.div`
   }
 `;
 
-const MethodStep = styled.div`
+const Step = styled.div`
   position: relative;
   padding: 40px;
   background: var(--surface);
@@ -119,7 +99,8 @@ const MethodStep = styled.div`
 `;
 
 export default function MethodSection() {
-  const { t } = useLocale();
+  const { t, tRaw } = useLocale();
+  const stage = tRaw('narrative.stages.1') as Record<string, string>;
 
   const steps = [
     { title: t('method.steps.0.title'), desc: t('method.steps.0.desc') },
@@ -129,24 +110,21 @@ export default function MethodSection() {
 
   return (
     <Section id="method">
-      <Heading
-        initial={{ opacity: 0, y: 20 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true }}
-        transition={{ duration: 0.6 }}
-      >
-        {t('method.heading')}
-      </Heading>
-
-      <MethodGrid>
+      <StageHeader
+        num="2.0"
+        label={stage?.label ?? 'Stage 2.0'}
+        heading={stage?.heading ?? 'Plan'}
+        description={stage?.description ?? ''}
+      />
+      <Grid>
         {steps.map((step, i) => (
-          <MethodStep key={i}>
+          <Step key={i}>
             <div className="step-number">0{i + 1}</div>
             <h3>{step.title}</h3>
             <p>{step.desc}</p>
-          </MethodStep>
+          </Step>
         ))}
-      </MethodGrid>
+      </Grid>
     </Section>
   );
 }

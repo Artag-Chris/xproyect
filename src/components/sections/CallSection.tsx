@@ -198,6 +198,29 @@ const TrustLine = styled.p`
   }
 `;
 
+const NarrativeLink = styled(motion.a)`
+  display: inline-block;
+  margin-top: 48px;
+  font-family: var(--font-syne);
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--text-tertiary);
+  text-decoration: none;
+  letter-spacing: 0.06em;
+  position: relative;
+  z-index: 1;
+  transition: color var(--transition-base);
+
+  &:hover {
+    color: var(--primary);
+  }
+
+  @media (max-width: 768px) {
+    margin-top: 36px;
+    font-size: 12px;
+  }
+`;
+
 const ResetButton = styled.button`
   margin: 0 auto;
   padding: 12px 32px;
@@ -255,6 +278,12 @@ export default function CallSection(){
         <ResetButton onClick={() => { setSubmitted(false); setFormData({ name: '', email: '', phone: '', company: '' }); }}>
           {t('call.form.submit_another')}
         </ResetButton>
+        <NarrativeLink
+          as="a"
+          href="#pain"
+        >
+          {t('narrative.cta')} →
+        </NarrativeLink>
       </Section>
     );
   }
@@ -313,6 +342,16 @@ export default function CallSection(){
       <TrustLine>
         {t('call.trust')}
       </TrustLine>
+
+      <NarrativeLink
+        href="#pain"
+        initial={{ opacity: 0 }}
+        whileInView={{ opacity: 1 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.6, delay: 0.3 }}
+      >
+        {t('narrative.cta')} →
+      </NarrativeLink>
     </Section>
   )
 }
