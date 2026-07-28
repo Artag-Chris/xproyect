@@ -59,11 +59,6 @@ const Card = styled(motion.div)`
   }
 `;
 
-const Accent = styled.div<{ $color: string }>`
-  height: 4px;
-  background: ${(props) => props.$color};
-`;
-
 const Body = styled.div`
   padding: 40px;
 
@@ -98,8 +93,6 @@ const CardDesc = styled.p`
   }
 `;
 
-const accentColors = ['var(--primary)', 'var(--primary-dark)', '#4da3ff'];
-
 export default function ProofSection() {
   const { t } = useLocale();
 
@@ -128,7 +121,6 @@ export default function ProofSection() {
             viewport={{ once: true }}
             transition={{ duration: 0.5, delay: idx * 0.15 }}
           >
-            <Accent $color={accentColors[idx]} />
             <Body>
               <CardTitle>{it.title}</CardTitle>
               <CardDesc>{it.desc}</CardDesc>
