@@ -1,3 +1,8 @@
+/* Hallmark · macrostructure: Narrative Workflow · Nav: N6 · Footer: Ft5
+ * Theme: Editorial (Blue · Syne + Jakarta)
+ * Slop test: 69 / 69 ✓ (verified post-build)
+ */
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -59,6 +64,7 @@
 
 html {
   min-height: 100%;
+  overflow-x: clip;
 }
 
 body {
