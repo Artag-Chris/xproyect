@@ -1,7 +1,6 @@
 'use client';
 
 import styled from 'styled-components';
-import { motion } from 'framer-motion';
 import { useLocale } from '@/lib/locale-context';
 
 const Section = styled.section`
@@ -23,7 +22,7 @@ const ContentWrapper = styled.div`
   margin: 0 auto;
 `;
 
-const Heading = styled(motion.h2)`
+const Heading = styled.h2`
   font-family: var(--font-syne);
   font-size: clamp(32px, 5vw, 56px);
   font-weight: 800;
@@ -38,7 +37,7 @@ const Heading = styled(motion.h2)`
   }
 `;
 
-const Text = styled(motion.p)`
+const Text = styled.p`
   font-family: var(--font-jakarta);
   font-size: 18px;
   color: var(--text-secondary);
@@ -60,7 +59,7 @@ const ChaosGrid = styled.div`
   width: 100%;
 `;
 
-const ChaosCard = styled(motion.div)`
+const ChaosCard = styled.div`
   padding: 40px;
   background: var(--surface);
   border: 1px solid var(--border);
@@ -118,33 +117,17 @@ export default function PainSection() {
   return (
     <Section id="pain">
       <ContentWrapper>
-        <Heading
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
-        >
+        <Heading>
           {t('pain.heading')}
         </Heading>
-        <Text
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6, delay: 0.2 }}
-        >
+        <Text>
           {t('pain.subtitle')}
         </Text>
       </ContentWrapper>
 
       <ChaosGrid>
         {painPoints.map((point, i) => (
-          <ChaosCard
-            key={i}
-            initial={{ opacity: 0, scale: 0.9 }}
-            whileInView={{ opacity: 1, scale: 1 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.5, delay: i * 0.2 }}
-          >
+          <ChaosCard key={i}>
             <h3>{point.title}</h3>
             <p>{point.desc}</p>
           </ChaosCard>

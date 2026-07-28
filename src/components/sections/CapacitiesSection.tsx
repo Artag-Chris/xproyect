@@ -51,7 +51,7 @@ const Grid = styled.div`
   }
 `;
 
-const Card = styled(motion.div)<{ $wide?: boolean }>`
+const Card = styled.div<{ $wide?: boolean }>`
   padding: ${props => props.$wide ? '48px' : '32px'};
   border-radius: 16px;
   border: 1px solid var(--border);
@@ -125,13 +125,7 @@ export default function CapacitiesSection(){
       <Grid>
         {capabilities.map((c, idx) => (
           <Link key={idx} href={`/${locale}/services/${slugs[idx]}`} style={{ textDecoration: 'none' }}>
-            <Card
-              $wide={idx === 2 || idx === 5}
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6, delay: idx * 0.1 }}
-            >
+            <Card $wide={idx === 2 || idx === 5}>
               <CardTitle>{c.title}</CardTitle>
               <CardDesc>{c.desc}</CardDesc>
             </Card>

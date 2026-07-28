@@ -45,7 +45,7 @@ const Grid = styled.div`
   }
 `;
 
-const Card = styled(motion.div)`
+const Card = styled.div`
   border-radius: 16px;
   border: 1px solid var(--border);
   background: var(--surface);
@@ -114,13 +114,7 @@ export default function ProofSection() {
       </Heading>
       <Grid>
         {items.map((it, idx) => (
-          <Card
-            key={idx}
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.5, delay: idx * 0.15 }}
-          >
+          <Card key={idx}>
             <Body>
               <CardTitle>{it.title}</CardTitle>
               <CardDesc>{it.desc}</CardDesc>

@@ -46,7 +46,7 @@ const MethodGrid = styled.div`
   }
 `;
 
-const MethodStep = styled(motion.div)`
+const MethodStep = styled.div`
   position: relative;
   padding: 40px;
   background: var(--surface);
@@ -140,13 +140,7 @@ export default function MethodSection() {
 
       <MethodGrid>
         {steps.map((step, i) => (
-          <MethodStep
-            key={i}
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6, delay: i * 0.2 }}
-          >
+          <MethodStep key={i}>
             <div className="step-number">0{i + 1}</div>
             <h3>{step.title}</h3>
             <p>{step.desc}</p>

@@ -91,7 +91,7 @@ const Sub = styled(motion.p)`
   }
 `;
 
-const Form = styled(motion.form)`
+const Form = styled.form`
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 20px;
@@ -184,7 +184,7 @@ const Button = styled.button`
   }
 `;
 
-const TrustLine = styled(motion.p)`
+const TrustLine = styled.p`
   font-family: var(--font-jakarta);
   font-size: 13px;
   color: var(--text-tertiary);
@@ -246,20 +246,10 @@ export default function CallSection(){
   if (submitted) {
     return (
       <Section id="contact">
-        <Heading
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
-        >
+        <Heading>
           {t('call.form.thank_you')}
         </Heading>
-        <Sub
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6, delay: 0.1 }}
-        >
+        <Sub>
           {t('call.form.thank_you_desc')}
         </Sub>
         <ResetButton onClick={() => { setSubmitted(false); setFormData({ name: '', email: '', phone: '', company: '' }); }}>
@@ -284,7 +274,7 @@ export default function CallSection(){
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
-        transition={{ duration: 0.6, delay: 0.1 }}
+        transition={{ duration: 0.6 }}
       >
         {t('call.heading')}
       </Heading>
@@ -293,18 +283,12 @@ export default function CallSection(){
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
-        transition={{ duration: 0.6, delay: 0.2 }}
+        transition={{ duration: 0.6, delay: 0.1 }}
       >
         {t('call.subtitle')}
       </Sub>
 
-      <Form
-        onSubmit={onSubmit}
-        initial={{ opacity: 0, y: 20 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true }}
-        transition={{ duration: 0.6, delay: 0.3 }}
-      >
+      <Form onSubmit={onSubmit}>
         <div>
           <Label htmlFor="call-name">{t('call.form.name_label')}</Label>
           <Input id="call-name" value={formData.name} onChange={handleChange('name')} placeholder={t('call.form.name_placeholder')} required />
@@ -326,12 +310,7 @@ export default function CallSection(){
         </FullRow>
       </Form>
 
-      <TrustLine
-        initial={{ opacity: 0 }}
-        whileInView={{ opacity: 1 }}
-        viewport={{ once: true }}
-        transition={{ duration: 0.6, delay: 0.5 }}
-      >
+      <TrustLine>
         {t('call.trust')}
       </TrustLine>
     </Section>

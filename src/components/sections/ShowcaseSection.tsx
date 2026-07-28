@@ -48,7 +48,7 @@ const Grid = styled.div`
   }
 `;
 
-const Card = styled(motion.div)`
+const Card = styled.div`
   border-radius: 16px;
   overflow: hidden;
   border: 1px solid var(--border);
@@ -183,10 +183,6 @@ export default function ShowcaseSection() {
         {items.map((it, idx) => (
           <Link key={idx} href={`/${locale}/services/${slugs[idx]}`} style={{ textDecoration: 'none' }}>
             <Card
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: idx * 0.15 }}
               onClick={() => track('showcase_card_clicked', { card_title: it.title, card_index: idx })}
             >
               <Thumb $gradient={gradients[idx]} />
