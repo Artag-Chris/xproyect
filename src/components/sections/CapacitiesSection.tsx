@@ -37,31 +37,33 @@ const Heading = styled(motion.h2)`
 
 const Grid = styled.div`
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 40px;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
   width: 100%;
 
   @media (max-width: 992px) {
-    gap: 24px;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+  }
+
+  @media (max-width: 600px) {
+    grid-template-columns: 1fr;
   }
 `;
 
-const Card = styled(motion.div)`
-  padding: 40px;
+const Card = styled(motion.div)<{ $wide?: boolean }>`
+  padding: ${props => props.$wide ? '48px' : '32px'};
   border-radius: 16px;
   border: 1px solid var(--border);
   background: var(--surface);
   box-shadow: var(--shadow-sm);
   text-align: left;
-  transition: all var(--transition-base);
+  transition: border-color var(--transition-base), box-shadow var(--transition-base);
+  grid-column: ${props => props.$wide ? '1 / -1' : 'auto'};
 
   &:hover {
     border-color: var(--primary);
     box-shadow: var(--shadow-md);
-  }
-
-  &:active {
-    transform: translateY(-2px) scale(0.98);
   }
 
   @media (max-width: 768px) {
@@ -124,6 +126,7 @@ export default function CapacitiesSection(){
         {capabilities.map((c, idx) => (
           <Link key={idx} href={`/${locale}/services/${slugs[idx]}`} style={{ textDecoration: 'none' }}>
             <Card
+              $wide={idx === 2 || idx === 5}
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
