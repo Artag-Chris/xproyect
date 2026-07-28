@@ -5,7 +5,7 @@ import { useLocale } from '@/lib/locale-context';
 import styled from 'styled-components';
 
 const Section = styled.section`
-  padding: 120px 40px;
+  padding: 80px 40px;
   max-width: 900px;
   margin: 0 auto;
   width: 100%;

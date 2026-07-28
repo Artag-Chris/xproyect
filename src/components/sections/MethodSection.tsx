@@ -5,7 +5,7 @@ import { motion } from 'framer-motion';
 import { useLocale } from '@/lib/locale-context';
 
 const Section = styled.section`
-  padding: 120px 40px;
+  padding: 100px 40px;
   max-width: 1200px;
   margin: 0 auto;
   display: flex;
@@ -14,7 +14,7 @@ const Section = styled.section`
   text-align: center;
 
   @media (max-width: 768px) {
-    padding: 60px 16px;
+    padding: 50px 16px;
   }
 `;
 

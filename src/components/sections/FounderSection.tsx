@@ -7,12 +7,12 @@ import { useLocale } from '@/lib/locale-context';
 import { useTrack } from '@/hooks/useTrack';
 
 const Section = styled.section`
-  padding: 120px 40px;
+  padding: 100px 40px;
   max-width: 1200px;
   margin: 0 auto;
 
   @media (max-width: 768px) {
-    padding: 60px 16px;
+    padding: 50px 16px;
   }
 `;
 
