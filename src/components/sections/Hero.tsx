@@ -7,18 +7,12 @@ import { useLocale } from '@/lib/locale-context';
 import { useTrack } from '@/hooks/useTrack';
 
 const HeroSection = styled.section`
-  min-height: 100vh;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 40px 40px 60px;
   position: relative;
   overflow: hidden;
-  padding-top: 80px;
+  padding: 140px 40px 100px;
 
   @media (max-width: 768px) {
-    padding: 80px 24px 60px;
-    min-height: 90vh;
+    padding: 100px 24px 60px;
   }
 `;
 
