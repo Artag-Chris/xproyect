@@ -3,13 +3,13 @@
 @tailwind utilities;
 
 :root {
-  --background: #ffffff !important;
+  --background: oklch(99.2% 0.004 250) !important;
   --foreground: #0a0a0a !important;
   --primary: #007bff;
   --primary-dark: #0056b3;
   --primary-light: #e6f0ff;
   
-  --surface: #ffffff !important;
+  --surface: oklch(99% 0.006 250) !important;
   --rgb-surface: 255, 255, 255;
   --surface-secondary: #fcfcfc;
   --surface-tertiary: #f5f5f5;
