@@ -34,7 +34,7 @@ const NavContainer = styled.nav`
     padding: 0 1.25rem;
     height: 70px;
   }
-`;
+`; /* Hallmark · Nav: N6 */
 
 const LogoLink = styled(Link)`
   display: flex;
@@ -42,25 +42,15 @@ const LogoLink = styled(Link)`
   gap: 12px;
   text-decoration: none;
   cursor: pointer;
-  transition: transform 0.2s ease;
-
-  &:hover {
-    transform: scale(1.05);
-  }
-
-  &:active {
-    transform: scale(0.98);
-  }
 `;
 
 const LogoImage = styled.img`
-  height: 110px;
+  height: 140px;
   width: auto;
   aspect-ratio: 612 / 408;
-  transition: transform 0.2s ease;
 
   @media (max-width: 768px) {
-    height: 80px;
+    height: 90px;
   }
 `;
 
@@ -76,11 +66,11 @@ const NavLinks = styled.div`
 
 const LinkItem = styled.a<{ $active?: boolean }>`
   font-family: var(--font-syne);
-  font-size: 13px;
-  font-weight: 700;
+  font-size: 11px;
+  font-weight: 600;
   text-transform: uppercase;
-  letter-spacing: 0.08em;
-  color: ${props => props.$active ? 'var(--primary)' : 'var(--text-secondary)'};
+  letter-spacing: 0.1em;
+  color: ${props => props.$active ? 'var(--primary)' : 'var(--text-tertiary)'};
   text-decoration: none;
   transition: color var(--transition-base);
   position: relative;
@@ -93,7 +83,7 @@ const LinkItem = styled.a<{ $active?: boolean }>`
     bottom: 0;
     left: 0;
     width: ${props => props.$active ? '100%' : '0'};
-    height: 2px;
+    height: 1px;
     background: var(--primary);
     transition: width var(--transition-base);
   }
@@ -104,10 +94,6 @@ const LinkItem = styled.a<{ $active?: boolean }>`
       width: 100%;
     }
   }
-
-  &:active {
-    opacity: 0.6;
-  }
 `;
 
 const DropdownWrapper = styled.div`
@@ -116,11 +102,11 @@ const DropdownWrapper = styled.div`
 
 const DropdownTrigger = styled.a`
   font-family: var(--font-syne);
-  font-size: 13px;
-  font-weight: 700;
+  font-size: 11px;
+  font-weight: 600;
   text-transform: uppercase;
-  letter-spacing: 0.08em;
-  color: var(--text-secondary);
+  letter-spacing: 0.1em;
+  color: var(--text-tertiary);
   text-decoration: none;
   transition: color var(--transition-base);
   position: relative;
@@ -129,10 +115,6 @@ const DropdownTrigger = styled.a`
 
   &:hover {
     color: var(--text-primary);
-  }
-
-  &:active {
-    opacity: 0.6;
   }
 `;
 
@@ -168,10 +150,6 @@ const DropdownItem = styled(Link)`
     color: var(--primary);
   }
 
-  &:active {
-    background: color-mix(in srgb, var(--primary) 15%, transparent);
-    transform: scale(0.97);
-  }
 `;
 
 const CTA = styled.a`
@@ -195,10 +173,6 @@ const CTA = styled.a`
     transform: translateY(-2px);
     box-shadow: 0 4px 12px rgba(0, 123, 255, 0.2);
   }
-
-  &:active {
-    transform: translateY(-1px) scale(0.97);
-  }
 `;
 
 const ThemeToggle = styled.button`
@@ -218,10 +192,6 @@ const ThemeToggle = styled.button`
   &:hover {
     border-color: var(--primary);
     background: var(--surface-tertiary);
-  }
-
-  &:active {
-    transform: scale(0.92);
   }
 `;
 
@@ -249,10 +219,6 @@ const LocaleToggle = styled.button`
     background: var(--primary-dark);
     border-color: var(--primary-dark);
     transform: scale(1.05);
-  }
-
-  &:active {
-    transform: scale(0.92);
   }
 `;
 
