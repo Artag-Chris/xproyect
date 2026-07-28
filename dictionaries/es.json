@@ -8,7 +8,8 @@
     "capacities": "Capacidades",
     "services": "Servicios",
     "cases": "Casos de Éxito",
-    "contact": "Contacto"
+    "contact": "Contacto",
+    "about": "Nosotros"
   },
   "hero": {
     "title": "Modernizamos. Automatizamos. Escalamos.",
@@ -227,6 +228,39 @@
         { "question": "¿Qué hay sobre la seguridad de datos y regulaciones colombianas?", "answer": "Todas nuestras implementaciones cumplen con la ley colombiana de protección de datos (Ley 1581 / Habeas Data). Tomamos la seguridad de datos muy en serio." }
       ],
       "cta": { "title": "¿Listo para IA en tu negocio?", "button": "Agenda Consultoría Gratis" }
+    }
+  },
+  "about": {
+    "meta": { "title": "Nosotros", "description": "Conoce al equipo detrás de Lumen X Labs. El fundador Christian Henao y nuestro equipo de expertos." },
+    "hero": {
+      "title": "Sobre Lumen X Labs",
+      "subtitle": "Fundado por Christian Henao Aguirre",
+      "description": "Somos un estudio de soluciones digitales basado en Pereira, Colombia. Construimos sistemas que automatizan, conectan y escalan negocios — desde tiendas locales hasta empresas en crecimiento."
+    },
+    "story": {
+      "heading": "La Historia",
+      "p1": "Después de años construyendo software para empresas en toda Colombia, noté el mismo patrón: las pequeñas y medianas empresas se quedaban atrás. Las herramientas que usan las grandes compañías son demasiado caras, complejas o simplemente no están disponibles en nuestra región.",
+      "p2": "Creé Lumen X Labs para cambiar eso. No con plantillas de sitios web o consultores genéricos — sino con ingeniería real. Sistemas que conectan tus herramientas, automatizan tu trabajo manual y realmente se adaptan a cómo funciona tu negocio.",
+      "p3": "Hoy trabajamos con negocios en Pereira, Risaralda y toda Colombia. Hemos construido sistemas de WhatsApp que manejan miles de mensajes, flujos automatizados que ahorran 10+ horas a la semana, y plataformas web que dan a los negocios una presencia online real."
+    },
+    "team": {
+      "heading": "El Equipo",
+      "founder_name": "Christian Henao Aguirre",
+      "founder_role": "Founder & Lead Developer",
+      "founder_bio": "5+ años construyendo software. Especialista en arquitectura de sistemas, automatización de procesos e integración de APIs. Creador de Artag Dev.",
+      "designer_name": "Designer",
+      "designer_role": "Diseñadora",
+      "designer_bio": "Creando interfaces limpias y funcionales que comunican confianza y claridad."
+    },
+    "artag": {
+      "heading": "También fundador de Artag Dev",
+      "description": "Artag Dev es mi portafolio personal y laboratorio técnico. Allí puedes ver casos de estudio detallados, explorar mi stack tecnológico y ver demos en vivo.",
+      "button": "Visitar Artag Dev"
+    },
+    "cta": {
+      "heading": "Construyamos Algo Juntos",
+      "description": "Una conversación es todo lo que necesitamos para empezar. Sin compromiso, sin discurso de ventas — solo una charla real sobre lo que necesitas.",
+      "button": "Contáctanos"
     }
   }
 }

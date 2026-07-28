@@ -57,12 +57,17 @@
   box-sizing: border-box;
 }
 
+html {
+  min-height: 100%;
+}
+
 body {
   font-family: var(--font-jakarta), system-ui, sans-serif;
   -webkit-font-smoothing: antialiased;
   background-color: var(--background) !important;
   color: var(--text-primary) !important;
   transition: background-color 0.5s ease, color 0.5s ease, border-color 0.5s ease;
+  min-height: 100vh;
 }
 
 h1, h2, h3, h4, h5, h6 {

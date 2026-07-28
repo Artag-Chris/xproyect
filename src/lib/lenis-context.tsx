@@ -20,12 +20,12 @@ export default function LenisProvider({ children }: { children: ReactNode }) {
     const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
     const lenis = new Lenis({
-      duration: prefersReduced ? 0 : 1.8,
+      duration: prefersReduced ? 0 : 1.2,
       easing: (t: number) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
       orientation: 'vertical',
       gestureOrientation: 'vertical',
       smoothWheel: !prefersReduced,
-      wheelMultiplier: 0.8,
+      wheelMultiplier: 1,
       touchMultiplier: 1.5,
       infinite: false,
     });

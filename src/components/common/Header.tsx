@@ -355,6 +355,7 @@ export default function Header() {
                 <DropdownItem href={`/${locale}/services/ai-colombia-business`} onClick={() => track('nav_link_clicked', { link_text: 'AI Colombia', link_href: `/${locale}/services/ai-colombia-business`, location: 'header_dropdown' })}>{t('services.ai-colombia-business.hero.title')}</DropdownItem>
               </DropdownMenu>
             </DropdownWrapper>
+            <LinkItem href={`/${locale}/about`} onClick={() => { track('nav_link_clicked', { link_text: t('nav.about'), link_href: `/${locale}/about`, location: 'header' }); }}>{t('nav.about')}</LinkItem>
             <LinkItem href="#showcase" onClick={(e: React.MouseEvent<HTMLAnchorElement>) => { handleNavClick(e, '#showcase'); track('nav_link_clicked', { link_text: t('nav.cases'), link_href: '#showcase', location: 'header' }); }}>{t('nav.cases')}</LinkItem>
             <CTA href="#contact" onClick={(e: React.MouseEvent<HTMLAnchorElement>) => { handleNavClick(e, '#contact'); track('cta_clicked', { cta_text: t('nav.contact'), cta_location: 'nav_cta' }); }}>{t('nav.contact')}</CTA>
           </NavLinks>
@@ -413,6 +414,7 @@ export default function Header() {
           <LinkItem href={`/${locale}/services/web-development`} onClick={closeMenu} style={{ fontSize: '1.2rem', opacity: 0.7 }}>{t('services.web-development.hero.title')}</LinkItem>
           <LinkItem href={`/${locale}/services/digital-transformation`} onClick={closeMenu} style={{ fontSize: '1.2rem', opacity: 0.7 }}>{t('services.digital-transformation.hero.title')}</LinkItem>
           <LinkItem href={`/${locale}/services/ai-colombia-business`} onClick={closeMenu} style={{ fontSize: '1.2rem', opacity: 0.7 }}>{t('services.ai-colombia-business.hero.title')}</LinkItem>
+          <LinkItem href={`/${locale}/about`} onClick={closeMenu} style={{ fontSize: '2rem' }}>{t('nav.about')}</LinkItem>
           <LinkItem href="#showcase" onClick={(e: React.MouseEvent<HTMLAnchorElement>) => { handleNavClick(e, '#showcase'); closeMenu(); }} style={{ fontSize: '2rem' }}>{t('nav.cases')}</LinkItem>
           <CTA href="#contact" onClick={(e: React.MouseEvent<HTMLAnchorElement>) => { handleNavClick(e, '#contact'); closeMenu(); }} style={{ fontSize: '1.2rem' }}>{t('nav.contact')}</CTA>
 

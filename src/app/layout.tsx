@@ -29,7 +29,7 @@ export default function RootLayout({
   const gtmId = process.env.NEXT_PUBLIC_GTM_ID;
 
   return (
-    <html lang="en" suppressHydrationWarning className={`${syne.variable} ${jakarta.variable} h-full antialiased`}>
+    <html lang="en" suppressHydrationWarning className={`${syne.variable} ${jakarta.variable} antialiased`}>
       <head>
         <script dangerouslySetInnerHTML={{
           __html: `document.documentElement.lang = location.pathname.startsWith('/es') ? 'es' : 'en';`
@@ -60,6 +60,12 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
               logo: 'https://lumenxlabs.com.co/lumenXlogoSVG.svg',
               description: 'Modernización empresarial, automatización de procesos e integraciones de IA.',
               foundingDate: '2024',
+              founder: {
+                '@type': 'Person',
+                name: 'Christian Henao Aguirre',
+                jobTitle: 'Founder & Lead Developer',
+                url: 'https://artagdev.com.co',
+              },
               sameAs: [
                 'https://www.linkedin.com/company/lumenxlabs',
                 'https://github.com/lumenxlabs',
@@ -96,7 +102,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
           }}
         />
       </head>
-      <body className="min-h-full flex flex-col">
+      <body>
         {gtmId && (
           <noscript>
             <iframe

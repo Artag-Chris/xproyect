@@ -8,7 +8,8 @@
     "capacities": "Capacities",
     "services": "Services",
     "cases": "Case Studies",
-    "contact": "Contact"
+    "contact": "Contact",
+    "about": "About"
   },
   "hero": {
     "title": "We Modernize. We Automate. We Scale.",
@@ -227,6 +228,39 @@
         { "question": "What about data security and Colombian regulations?", "answer": "All our implementations comply with Colombian data protection law (Ley 1581 / Habeas Data). We take data security seriously." }
       ],
       "cta": { "title": "Ready for AI in your business?", "button": "Schedule Free Consultation" }
+    }
+  },
+  "about": {
+    "meta": { "title": "About Us", "description": "Meet the team behind Lumen X Labs. Founder Christian Henao and our team of experts." },
+    "hero": {
+      "title": "About Lumen X Labs",
+      "subtitle": "Founded by Christian Henao Aguirre",
+      "description": "We are a digital solutions studio based in Pereira, Colombia. We build systems that automate, connect, and scale businesses — from local shops to growing companies."
+    },
+    "story": {
+      "heading": "The Story",
+      "p1": "After years of building software for companies across Colombia, I noticed the same pattern: small and medium businesses were being left behind. The tools that big companies use are either too expensive, too complex, or simply not available in our region.",
+      "p2": "I started Lumen X Labs to change that. Not with templated websites or generic consultants — but with real engineering. Systems that connect your tools, automate your manual work, and actually fit how your business runs.",
+      "p3": "Today, we work with businesses in Pereira, Risaralda, and across Colombia. We've built WhatsApp systems handling thousands of messages, automated workflows that save 10+ hours a week, and web platforms that give businesses a real online presence."
+    },
+    "team": {
+      "heading": "The Team",
+      "founder_name": "Christian Henao Aguirre",
+      "founder_role": "Founder & Lead Developer",
+      "founder_bio": "5+ years building software. Specialist in system architecture, process automation, and API integration. Creator of Artag Dev.",
+      "designer_name": "Designer",
+      "designer_role": "Designer",
+      "designer_bio": "Crafting clean, functional interfaces that communicate trust and clarity."
+    },
+    "artag": {
+      "heading": "Also the founder of Artag Dev",
+      "description": "Artag Dev is my personal portfolio and technical playground. You can see detailed project case studies, explore my tech stack, and check out live demos.",
+      "button": "Visit Artag Dev"
+    },
+    "cta": {
+      "heading": "Let's Build Something Together",
+      "description": "One conversation is all it takes to start. No commitment, no sales pitch — just real talk about what you need.",
+      "button": "Get in Touch"
     }
   }
 }
