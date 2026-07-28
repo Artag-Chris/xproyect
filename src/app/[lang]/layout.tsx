@@ -7,6 +7,7 @@ import ThemeProvider from '@/lib/theme-context';
 import LenisProvider from '@/lib/lenis-context';
 import Header from '@/components/common/Header';
 import PageViewTracker from '@/components/common/PageViewTracker';
+import LangDetector from '@/components/common/LangDetector';
 
 const FloatingContactHub = dynamic(() => import('@/components/common/FloatingContactHub'));
 
@@ -59,6 +60,7 @@ export default async function LangLayout({
       <ThemeProvider>
         <LenisProvider>
         <PageViewTracker />
+        <LangDetector />
           <Header />
           {children}
           <FloatingContactHub />

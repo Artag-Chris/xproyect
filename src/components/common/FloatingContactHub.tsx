@@ -22,6 +22,60 @@ const Wrapper = styled(motion.div)`
   }
 `;
 
+const Tooltip = styled(motion.div)`
+  position: absolute;
+  right: calc(100% + 16px);
+  top: 50%;
+  transform: translateY(-50%);
+  white-space: nowrap;
+  padding: 10px 20px;
+  border-radius: 12px;
+  background: rgba(var(--rgb-surface), 0.8);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid color-mix(in srgb, var(--primary) 15%, transparent);
+  box-shadow: var(--shadow-sm);
+  font-family: var(--font-jakarta);
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--text-primary);
+  pointer-events: none;
+  letter-spacing: 0.01em;
+
+  @media (max-width: 768px) {
+    right: auto;
+    left: 50%;
+    top: auto;
+    bottom: calc(100% + 14px);
+    transform: translateX(-50%);
+    padding: 8px 16px;
+    font-size: 12px;
+  }
+`;
+
+const PulseRing = styled.div`
+  position: absolute;
+  inset: -6px;
+  border-radius: 50%;
+  border: 2px solid var(--primary);
+  opacity: 0;
+  pointer-events: none;
+  animation: pulse-ring 2.4s ease-out infinite;
+  animation-delay: 1.2s;
+
+  @keyframes pulse-ring {
+    0% { transform: scale(1); opacity: 0.4; }
+    60% { transform: scale(1.25); opacity: 0.1; }
+    100% { transform: scale(1.4); opacity: 0; }
+  }
+`;
+
+const TriggerGroup = styled.div`
+  position: relative;
+  display: flex;
+  align-items: center;
+`;
+
 const MenuContainer = styled(motion.div)`
   display: flex;
   flex-direction: column;
@@ -285,10 +339,24 @@ export default function FloatingContactHub({
   scheduleAnchor = '#contact',
 }: FloatingContactHubProps) {
   const [isOpen, setIsOpen] = useState(false);
+  const [showTooltip, setShowTooltip] = useState(false);
+
+  useEffect(() => {
+    if (!sessionStorage.getItem('lumen_hub_tooltip_dismissed')) {
+      setShowTooltip(true);
+    }
+  }, []);
   const menuRef = useRef<HTMLDivElement>(null);
   const lenis = useLenis();
   const { t } = useLocale();
   const track = useTrack();
+
+  const dismissTooltip = () => {
+    if (showTooltip) {
+      setShowTooltip(false);
+      try { sessionStorage.setItem('lumen_hub_tooltip_dismissed', '1'); } catch {}
+    }
+  };
 
   useEffect(() => {
     const handleClickOutside = (e: MouseEvent) => {
@@ -372,20 +440,38 @@ export default function FloatingContactHub({
         )}
       </AnimatePresence>
 
-      <TriggerButton
-        onClick={() => {
-          const next = !isOpen;
-          setIsOpen(next);
-          track('contact_hub_toggled', { action: next ? 'open' : 'close' });
-        }}
-        whileHover={{ scale: 1.06 }}
-        whileTap={{ scale: 0.94 }}
-        animate={{ rotate: isOpen ? 45 : 0 }}
-        transition={{ duration: 0.4, ease }}
-        aria-label={isOpen ? 'Close contact menu' : 'Open contact menu'}
-      >
-        <XIcon />
-      </TriggerButton>
+      <AnimatePresence>
+        {showTooltip && (
+          <Tooltip
+            key="tooltip"
+            initial={{ opacity: 0, x: 10 }}
+            animate={{ opacity: 1, x: 0 }}
+            exit={{ opacity: 0, x: 8 }}
+            transition={{ duration: 0.5, ease, delay: 1.2 }}
+          >
+            {t('contact_hub.tooltip')}
+          </Tooltip>
+        )}
+      </AnimatePresence>
+
+      <TriggerGroup>
+        {showTooltip && <PulseRing />}
+        <TriggerButton
+          onClick={() => {
+            dismissTooltip();
+            const next = !isOpen;
+            setIsOpen(next);
+            track('contact_hub_toggled', { action: next ? 'open' : 'close' });
+          }}
+          whileHover={{ scale: 1.06 }}
+          whileTap={{ scale: 0.94 }}
+          animate={{ rotate: isOpen ? 45 : 0 }}
+          transition={{ duration: 0.4, ease }}
+          aria-label={isOpen ? 'Close contact menu' : 'Open contact menu'}
+        >
+          <XIcon />
+        </TriggerButton>
+      </TriggerGroup>
     </Wrapper>
   );
 }

@@ -85,6 +85,9 @@
   "contact": {
     "schedule": "Agendar Llamada"
   },
+  "contact_hub": {
+    "tooltip": "Hablemos →"
+  },
   "call": {
     "heading": "¿Listo para empezar?",
     "subtitle": "Agenda una consultoría de 30 minutos para entender tus objetivos y mapear una ruta de transformación.",
