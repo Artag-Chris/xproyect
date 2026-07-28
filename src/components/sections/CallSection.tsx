@@ -19,11 +19,7 @@ const Section = styled.section`
   &::before {
     content: '';
     position: absolute;
-    width: 100vw;
-    height: 100%;
-    top: 0;
-    left: 50%;
-    transform: translateX(-50%);
+    inset: 0;
     background: radial-gradient(ellipse 800px 500px at 50% 40%, color-mix(in srgb, var(--primary) 6%, transparent), transparent 70%);
     pointer-events: none;
   }
