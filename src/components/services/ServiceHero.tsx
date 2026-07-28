@@ -45,7 +45,7 @@ const CTAButton = styled(motion.button)`
   text-transform: uppercase;
   letter-spacing: 0.1em;
   cursor: pointer;
-  transition: all var(--transition-base);
+  transition: background var(--transition-base), box-shadow var(--transition-base), transform var(--transition-base);
 
   &:hover {
     background: var(--primary-dark);

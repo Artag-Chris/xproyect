@@ -131,7 +131,7 @@ const DropdownMenu = styled.div<{ $isOpen: boolean }>`
   box-shadow: var(--shadow-md);
   opacity: ${({ $isOpen }) => ($isOpen ? '1' : '0')};
   visibility: ${({ $isOpen }) => ($isOpen ? 'visible' : 'hidden')};
-  transition: all 0.2s ease;
+  transition: opacity 0.2s ease, visibility 0.2s ease;
   margin-top: 8px;
 `;
 
@@ -143,7 +143,7 @@ const DropdownItem = styled(Link)`
   font-size: 14px;
   color: var(--text-secondary);
   text-decoration: none;
-  transition: all 0.15s ease;
+  transition: background 0.15s ease, color 0.15s ease;
 
   &:hover {
     background: color-mix(in srgb, var(--primary) 8%, transparent);
@@ -164,7 +164,7 @@ const CTA = styled.a`
   border-radius: 8px;
   border: 1px solid var(--primary-dark);
   text-decoration: none;
-  transition: all var(--transition-base);
+  transition: background var(--transition-base), color var(--transition-base), border-color var(--transition-base), transform var(--transition-base), box-shadow var(--transition-base);
   cursor: pointer;
 
   &:hover {
@@ -186,7 +186,7 @@ const ThemeToggle = styled.button`
   align-items: center;
   justify-content: center;
   cursor: pointer;
-  transition: all var(--transition-base);
+  transition: border-color var(--transition-base), background var(--transition-base);
   margin-left: 2rem;
 
   &:hover {
@@ -211,7 +211,7 @@ const LocaleToggle = styled.button`
   font-size: 14px;
   text-transform: uppercase;
   letter-spacing: 0.05em;
-  transition: all var(--transition-base);
+  transition: transform var(--transition-base);
   margin-left: 8px;
   line-height: 1;
 
@@ -252,7 +252,7 @@ const MobileMenu = styled.div<{ $isOpen: boolean }>`
   align-items: center;
   justify-content: center;
   gap: 2rem;
-  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
   transform: ${({ $isOpen }) => ($isOpen ? 'translateX(0)' : 'translateX(100%)')};
   z-index: 100;
 `;

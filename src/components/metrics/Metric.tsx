@@ -20,7 +20,7 @@ const MetricContainer = styled.div`
   align-items: center;
   justify-content: center;
   text-align: center;
-  transition: all var(--transition-base);
+  transition: transform var(--transition-base);
 `;
 
 const IconWrapper = styled(motion.div)`

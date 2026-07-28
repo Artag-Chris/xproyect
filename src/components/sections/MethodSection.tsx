@@ -54,7 +54,7 @@ const MethodStep = styled(motion.div)`
   border-radius: 16px;
   text-align: left;
   box-shadow: var(--shadow-sm);
-  transition: all var(--transition-base);
+  transition: border-color var(--transition-base), box-shadow var(--transition-base);
 
   &:hover {
     border-color: var(--primary);

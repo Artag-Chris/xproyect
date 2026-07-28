@@ -55,7 +55,7 @@ const VideoContainer = styled.div`
       align-items: center;
       justify-content: center;
       cursor: pointer;
-      transition: all var(--transition-base);
+      transition: background var(--transition-base), transform var(--transition-base);
 
       &:hover {
         background: #0056b3;

@@ -99,12 +99,11 @@ const SocialLinks = styled.div`
     padding: 8px 16px;
     border: 1px solid var(--border);
     border-radius: 8px;
-    transition: all var(--transition-base);
+  transition: border-color var(--transition-base), color var(--transition-base);
 
-    &:hover {
-      border-color: var(--primary);
-      color: var(--primary);
-    }
+  &:hover {
+    border-color: var(--primary);
+    color: var(--primary);
   }
 `;
 
@@ -225,7 +224,7 @@ const ArtagButton = styled.a`
   text-transform: uppercase;
   letter-spacing: 0.08em;
   text-decoration: none;
-  transition: all var(--transition-base);
+  transition: background var(--transition-base), transform var(--transition-base);
 
   &:hover {
     background: var(--primary);
@@ -273,7 +272,7 @@ const CTAButton = styled.a`
   text-transform: uppercase;
   letter-spacing: 0.08em;
   text-decoration: none;
-  transition: all var(--transition-base);
+  transition: background var(--transition-base), transform var(--transition-base);
 
   &:hover {
     background: var(--primary);

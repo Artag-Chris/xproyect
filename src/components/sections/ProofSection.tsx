@@ -51,7 +51,7 @@ const Card = styled(motion.div)`
   background: var(--surface);
   box-shadow: var(--shadow-sm);
   overflow: hidden;
-  transition: all var(--transition-base);
+  transition: box-shadow var(--transition-base), transform var(--transition-base);
 
   &:hover {
     box-shadow: var(--shadow-md);

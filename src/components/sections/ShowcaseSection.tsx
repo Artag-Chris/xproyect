@@ -56,7 +56,7 @@ const Card = styled(motion.div)`
   box-shadow: var(--shadow-sm);
   display: flex;
   flex-direction: column;
-  transition: all var(--transition-base);
+  transition: box-shadow var(--transition-base), transform var(--transition-base);
   cursor: pointer;
 
   &:hover {

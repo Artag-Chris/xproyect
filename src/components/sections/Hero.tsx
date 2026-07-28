@@ -112,7 +112,7 @@ const Button = styled.button<{ $variant?: 'primary' | 'secondary' }>`
   text-transform: uppercase;
   letter-spacing: 0.1em;
   cursor: pointer;
-  transition: all var(--transition-base);
+  transition: background var(--transition-base), box-shadow var(--transition-base), transform var(--transition-base), border-color var(--transition-base);
   border: 1px solid var(--primary);
 
   ${(props) =>

@@ -117,7 +117,7 @@ const Input = styled.input`
   font-size: 15px;
   color: var(--text-primary);
   outline: none;
-  transition: all var(--transition-base);
+  transition: border-color var(--transition-base), box-shadow var(--transition-base), background var(--transition-base);
 
   &::placeholder {
     color: var(--text-tertiary);
@@ -164,7 +164,7 @@ const Button = styled.button`
   font-weight: 700;
   font-size: 15px;
   cursor: pointer;
-  transition: all var(--transition-base);
+  transition: background var(--transition-base), transform var(--transition-base), box-shadow var(--transition-base);
   letter-spacing: 0.02em;
 
   &:hover {
@@ -209,7 +209,7 @@ const ResetButton = styled.button`
   font-size: 14px;
   font-weight: 700;
   cursor: pointer;
-  transition: all var(--transition-base);
+  transition: background var(--transition-base), color var(--transition-base), transform var(--transition-base);
   display: block;
 
   &:hover {
