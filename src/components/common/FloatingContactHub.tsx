@@ -342,9 +342,8 @@ export default function FloatingContactHub({
   const [showTooltip, setShowTooltip] = useState(false);
 
   useEffect(() => {
-    if (!sessionStorage.getItem('lumen_hub_tooltip_dismissed')) {
-      setShowTooltip(true);
-    }
+    const timer = setTimeout(() => setShowTooltip(true), 100);
+    return () => clearTimeout(timer);
   }, []);
   const menuRef = useRef<HTMLDivElement>(null);
   const lenis = useLenis();
@@ -352,10 +351,7 @@ export default function FloatingContactHub({
   const track = useTrack();
 
   const dismissTooltip = () => {
-    if (showTooltip) {
-      setShowTooltip(false);
-      try { sessionStorage.setItem('lumen_hub_tooltip_dismissed', '1'); } catch {}
-    }
+    setShowTooltip(false);
   };
 
   useEffect(() => {
