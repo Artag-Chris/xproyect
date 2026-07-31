@@ -75,18 +75,20 @@
   "faq": {
     "heading": "Preguntas Frecuentes",
     "items": [
-      { "question": "¿Qué servicios ofrecen en Pereira?", "answer": "Ofrecemos automatización de procesos, integración de IA, desarrollo web, unificación de redes sociales y consultoría en transformación digital. Todo diseñado para empresas en Pereira, Risaralda y toda Colombia." },
+      { "question": "¿Qué servicios ofrecen en Pereira?", "answer": "Ofrecemos automatización de procesos, integración de IA, desarrollo web, unificación de redes sociales y consultoría en transformación digital. Todo diseñado para empresas en Pereira, Risaralda y toda Colombia — y entregado de forma remota para clientes en cualquier parte del mundo." },
       { "question": "¿Cuánto tiempo toma automatizar un negocio?", "answer": "Depende de la complejidad. Procesos simples pueden estar listos en días. Transformaciones completas toman de 2 a 6 semanas. Siempre empezamos con una consultoría gratuita de 30 minutos para evaluar tu caso." },
       { "question": "¿Trabajan con empresas pequeñas o solo grandes corporaciones?", "answer": "Trabajamos con negocios de todos los tamaños. Desde emprendedores en Pereira que necesitan su primera página web, hasta empresas consolidadas que requieren automatización multicapa." },
+      { "question": "¿Trabajan con empresas fuera de Colombia?", "answer": "Sí. Somos un estudio remote-first con base en Pereira — trabajamos con clientes en todo el mundo mediante reuniones virtuales estructuradas, y presencialmente en Pereira si nos visitas." },
       { "question": "¿Ofrecen garantía?", "answer": "Sí. Si en los primeros 30 días no ves una mejora concreta en tu operación, no pagas. Sin letra chica, sin excusas." },
-      { "question": "¿Puedo reunirme presencialmente en Pereira?", "answer": "Sí. Estamos basados en Pereira, Risaralda. Ofrecemos reuniones presenciales para entender tu negocio y también atención virtual en toda Colombia." }
+      { "question": "¿Puedo reunirme presencialmente en Pereira?", "answer": "Sí. Estamos basados en Pereira, Risaralda. Ofrecemos reuniones presenciales para entender tu negocio y también atención virtual remota para clientes en cualquier parte del mundo." }
     ]
   },
   "contact": {
     "schedule": "Agendar Llamada"
   },
   "contact_hub": {
-    "tooltip": "Hablemos →"
+    "tooltip": "Hablemos →",
+    "heading": "Canales de contacto"
   },
   "call": {
     "heading": "¿Listo para empezar?",
@@ -109,7 +111,7 @@
   },
   "footer": {
     "about_title": "Acerca de",
-    "about_text": "es una empresa de soluciones digitales basada en Pereira, Risaralda — Colombia. Especializada en modernización empresarial, automatización e integraciones de IA.",
+    "about_text": "es un estudio de soluciones digitales remote-first basado en Pereira, Risaralda — Colombia. Especializado en modernización empresarial, automatización e integraciones de IA para clientes en cualquier parte del mundo.",
     "quick_links": "Enlaces Rápidos",
     "services": "Servicios",
     "service_links": [
@@ -248,13 +250,13 @@
     "hero": {
       "title": "Sobre Lumen X Labs",
       "subtitle": "Fundado por Christian Henao Aguirre",
-      "description": "Somos un estudio de soluciones digitales basado en Pereira, Colombia. Construimos sistemas que automatizan, conectan y escalan negocios — desde tiendas locales hasta empresas en crecimiento."
+      "description": "Somos un estudio de soluciones digitales remote-first basado en Pereira, Colombia. Construimos sistemas que automatizan, conectan y escalan negocios — desde tiendas locales hasta empresas en crecimiento, en cualquier parte del mundo."
     },
     "story": {
       "heading": "La Historia",
       "p1": "Después de años construyendo software para empresas en toda Colombia, noté el mismo patrón: las pequeñas y medianas empresas se quedaban atrás. Las herramientas que usan las grandes compañías son demasiado caras, complejas o simplemente no están disponibles en nuestra región.",
       "p2": "Creé Lumen X Labs para cambiar eso. No con plantillas de sitios web o consultores genéricos — sino con ingeniería real. Sistemas que conectan tus herramientas, automatizan tu trabajo manual y realmente se adaptan a cómo funciona tu negocio.",
-      "p3": "Hoy trabajamos con negocios en Pereira, Risaralda y toda Colombia. Hemos construido sistemas de WhatsApp que manejan miles de mensajes, flujos automatizados que ahorran 10+ horas a la semana, y plataformas web que dan a los negocios una presencia online real."
+      "p3": "Hoy trabajamos con negocios en Pereira, Risaralda y toda Colombia, y de forma remota con clientes en cualquier parte del mundo. Hemos construido sistemas de WhatsApp que manejan miles de mensajes, flujos automatizados que ahorran 10+ horas a la semana, y plataformas web que dan a los negocios una presencia online real."
     },
     "team": {
       "heading": "El Equipo",
