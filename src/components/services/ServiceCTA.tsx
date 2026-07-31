@@ -1,7 +1,7 @@
 'use client';
 import styled from 'styled-components';
-import { useLenis } from '@/lib/lenis-context';
 import { useTrack } from '@/hooks/useTrack';
+import ContactDropdown from '@/components/common/ContactDropdown';
 
 const Section = styled.section`
   padding: 80px 40px 120px;
@@ -47,20 +47,27 @@ interface Props {
 }
 
 export default function ServiceCTA({ title, button }: Props) {
-  const lenis = useLenis();
   const track = useTrack();
 
   return (
     <Section>
       <Title>{title}</Title>
-      <CTAButton
-        onClick={() => {
-          track('cta_clicked', { cta_text: button, cta_location: 'service_cta' });
-          if (lenis) lenis.scrollTo('#contact');
-        }}
-      >
-        {button}
-      </CTAButton>
+      <ContactDropdown
+        source="service_cta"
+        align="center"
+        trigger={({ isOpen, toggle }) => (
+          <CTAButton
+            aria-expanded={isOpen}
+            aria-haspopup="menu"
+            onClick={() => {
+              track('cta_clicked', { cta_text: button, cta_location: 'service_cta' });
+              toggle();
+            }}
+          >
+            {button}
+          </CTAButton>
+        )}
+      />
     </Section>
   );
 }

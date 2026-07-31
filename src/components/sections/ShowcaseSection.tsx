@@ -148,7 +148,7 @@ export default function ShowcaseSection() {
     { title: t('showcase.items.2.title'), desc: t('showcase.items.2.desc'), result: t('showcase.items.2.result') },
   ];
 
-  const slugs = ['web-development', 'process-automation', 'digital-transformation'];
+  const slugs = ['ai-for-business', 'process-automation', 'digital-transformation'];
 
   return (
     <Section id="showcase">

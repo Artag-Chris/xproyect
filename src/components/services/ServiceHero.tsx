@@ -2,6 +2,7 @@
 import styled from 'styled-components';
 import { motion } from 'framer-motion';
 import { useTrack } from '@/hooks/useTrack';
+import ContactDropdown from '@/components/common/ContactDropdown';
 
 const HeroSection = styled.section`
   padding: 140px 40px 80px;
@@ -79,14 +80,24 @@ export default function ServiceHero({ title, desc, cta }: Props) {
       >
         {desc}
       </Description>
-      <CTAButton
-        initial={{ opacity: 0, y: 20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.6, delay: 0.3, ease: [0.22, 1, 0.36, 1] }}
-        onClick={() => track('cta_clicked', { cta_text: cta, cta_location: 'service_hero' })}
-      >
-        {cta}
-      </CTAButton>
+      <ContactDropdown
+        source="service_hero"
+        trigger={({ isOpen, toggle }) => (
+          <CTAButton
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.3, ease: [0.22, 1, 0.36, 1] }}
+            aria-expanded={isOpen}
+            aria-haspopup="menu"
+            onClick={() => {
+              track('cta_clicked', { cta_text: cta, cta_location: 'service_hero' });
+              toggle();
+            }}
+          >
+            {cta}
+          </CTAButton>
+        )}
+      />
     </HeroSection>
   );
 }

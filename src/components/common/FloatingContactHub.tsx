@@ -257,7 +257,7 @@ const XIcon = () => (
 );
 
 export default function FloatingContactHub({
-  whatsapp = 'https://wa.me/',
+  whatsapp = 'https://wa.me/573171287426',
   instagram = 'https://instagram.com/lumenxlabs',
   facebook = 'https://facebook.com/lumenxlabs',
   linkedin = 'https://linkedin.com/company/lumenxlabs',

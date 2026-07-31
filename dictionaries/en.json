@@ -61,13 +61,14 @@
     "items": [
       { "title": "Direct Access to the Founder", "desc": "You work directly with who builds. No account managers, no layers, no filtered communication. Just straight talk and real answers." },
       { "title": "Real Results or You Don't Pay", "desc": "If in the first 30 days you don't see concrete improvement in your operations, you don't pay. No fine print, no excuses." },
-      { "title": "Technology That Actually Works", "desc": "Every system is tested, measured, and delivered working — or it doesn't ship. No empty promises, no half-baked deliveries." }
+      { "title": "Technology That Actually Works", "desc": "Every system is tested, measured, and delivered working — or it doesn't ship. No empty promises, no half-baked deliveries." },
+      { "title": "We Use What We Build", "desc": "The WhatsApp button on this website is answered by our own AI agent — running in production, every day. If it didn't work, we'd be the first to know." }
     ]
   },
   "showcase": {
     "heading": "Real Results",
     "items": [
-      { "title": "Unified Social Inbox", "desc": "WhatsApp, Instagram, and Facebook messages scattered across devices. Now every conversation lands in one dashboard — no more missed leads, no more chaos.", "result": "Never lose a lead again" },
+      { "title": "AI WhatsApp Agent", "desc": "A business inbox that answers itself. Every WhatsApp message is handled in natural language by an AI trained on the business's own catalog and policies — orders taken, humans escalated when needed. The button on this very site is answered by this system — and the same agent is expanding to Instagram, Facebook, and more platforms soon.", "result": "Never lose a lead again" },
       { "title": "Business Automation", "desc": "Hours lost on invoices, follow-ups, and manual data entry. Now the business runs itself — automations handle the repetitive work while you focus on what matters.", "result": "Reclaim 10+ hours per week" },
       { "title": "Complete Web Presence", "desc": "No website or one that doesn't represent you. A professional online presence with admin panel, integrated with your social channels. Your business, online and under control.", "result": "Your business, online and under control" }
     ]
@@ -79,6 +80,7 @@
       { "question": "How long does it take to automate a business?", "answer": "It depends on complexity. Simple processes can be ready in days. Complete transformations take 2 to 6 weeks. We always start with a free 30-minute consultation to assess your case." },
       { "question": "Do you work with small businesses or only large corporations?", "answer": "We work with businesses of all sizes. From entrepreneurs in Pereira needing their first website, to established companies requiring multi-layer automation." },
       { "question": "Can you work with my company outside Colombia?", "answer": "Yes. We are a remote-first studio based in Pereira — we deliver for clients worldwide with structured virtual meetings, and in person in Pereira whenever you visit." },
+      { "question": "Can my WhatsApp answer itself?", "answer": "Yes. The WhatsApp button on this website is answered by our own AI agent — trained on our catalog and policies, 24/7. We use what we build. Your business can run the same system — and soon the same agent will answer on Instagram and more channels." },
       { "question": "Do you offer a guarantee?", "answer": "Yes. If in the first 30 days you don't see concrete improvement in your operations, you don't pay. No fine print, no excuses." },
       { "question": "Can I meet with you in person in Pereira?", "answer": "Yes. We are based in Pereira, Risaralda. We offer in-person meetings to understand your business, as well as remote-first service for clients anywhere in the world." }
     ]
@@ -160,7 +162,7 @@
       "meta": { "title": "AI for Businesses in Pereira | Lumen X Labs", "description": "Integrate artificial intelligence into your Pereira business. AI models for decision-making, customer service, and operational efficiency." },
       "hero": { "title": "AI for Your Business", "desc": "Not robot hype — practical AI that solves real problems. Chatbots that actually help customers, models that analyze your data, and automation that learns and improves.", "cta": "Integrate AI Now" },
       "features": [
-        { "title": "Intelligent Chatbots", "desc": "Customer service that never sleeps. AI assistants trained on your business that handle inquiries 24/7." },
+        { "title": "AI WhatsApp Agent", "desc": "Customer service that never sleeps. AI agents that answer WhatsApp in natural language — trained on your catalog and policies, with real answers, order-taking, and human escalation when needed. The same agent expands to Instagram, Facebook, and more platforms." },
         { "title": "Data Analysis & Insights", "desc": "AI models that analyze your business data and surface patterns, trends, and opportunities you'd never spot manually." },
         { "title": "Process Intelligence", "desc": "AI that monitors your operations and makes real-time decisions — approving, flagging, or routing automatically." },
         { "title": "Custom AI Models", "desc": "Tailored AI solutions built for your specific business challenge, not generic off-the-shelf software." }
@@ -174,7 +176,8 @@
         { "question": "Do I need technical knowledge to use AI in my business?", "answer": "No. We handle all the technical implementation. You interact with the AI through simple dashboards and tools designed for your team." },
         { "question": "What kind of businesses benefit most from AI?", "answer": "Any business with repetitive decisions, customer inquiries, or data analysis needs. From retail to logistics to professional services — if you have data, AI can help." },
         { "question": "Is AI expensive for small businesses?", "answer": "We design AI solutions at every price point. Small businesses can start with focused automations that deliver immediate ROI." },
-        { "question": "Can AI replace my employees?", "answer": "No. AI handles repetitive tasks so your team can focus on higher-value work — creative problem-solving, customer relationships, and strategic thinking." }
+        { "question": "Can AI replace my employees?", "answer": "No. AI handles repetitive tasks so your team can focus on higher-value work — creative problem-solving, customer relationships, and strategic thinking." },
+        { "question": "Can you build an AI agent for my WhatsApp?", "answer": "Yes. It's the same system behind this website's WhatsApp button: an agent that answers 24/7 in natural language from your catalog and documents, takes orders, escalates to your team when it should, and costs cents per conversation. And soon the same agent will answer on Instagram and more platforms — one brain, every channel." }
       ],
       "cta": { "title": "Ready to integrate AI?", "button": "Schedule Free Consultation" }
     },

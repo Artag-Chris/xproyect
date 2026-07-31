@@ -61,13 +61,14 @@
     "items": [
       { "title": "Acceso Directo al Fundador", "desc": "Trabajas directamente con quien construye. Sin account managers, sin capas, sin filtros. Conversación directa y respuestas reales." },
       { "title": "Resultados Reales o No Pagas", "desc": "Si en los primeros 30 días no ves una mejora concreta en tu operación, no pagas. Sin letra chica, sin excusas." },
-      { "title": "Tecnología Que Funciona de Verdad", "desc": "Cada sistema se prueba, se mide y se entrega funcionando — o no se entrega. Sin promesas vacías, sin entregas a medias." }
+      { "title": "Tecnología Que Funciona de Verdad", "desc": "Cada sistema se prueba, se mide y se entrega funcionando — o no se entrega. Sin promesas vacías, sin entregas a medias." },
+      { "title": "Usamos Lo Que Construimos", "desc": "El botón de WhatsApp de esta web lo responde nuestro propio agente de IA — en producción, todos los días. Si no funcionara, seríamos los primeros en enterarnos." }
     ]
   },
   "showcase": {
     "heading": "Resultados Reales",
     "items": [
-      { "title": "Bandeja Unificada de Redes", "desc": "Mensajes de WhatsApp, Instagram y Facebook dispersos en varios dispositivos. Ahora cada conversación llega a un solo panel — sin más leads perdidos, sin más caos.", "result": "Nunca pierdas un cliente" },
+      { "title": "Agente WhatsApp con IA", "desc": "Una bandeja de negocio que responde sola. Cada mensaje de WhatsApp se atiende en lenguaje natural con IA entrenada en el catálogo y políticas del negocio — órdenes tomadas, humanos escalados cuando se necesita. El botón de esta misma web lo responde este sistema — y el mismo agente está expandiéndose a Instagram, Facebook y más plataformas muy pronto.", "result": "Nunca pierdas un lead" },
       { "title": "Automatización del Negocio", "desc": "Horas perdidas en facturas, seguimientos y datos manuales. Ahora el negocio funciona solo — las automatizaciones hacen el trabajo repetitivo mientras tú te enfocas en lo que importa.", "result": "Recupera 10+ horas a la semana" },
       { "title": "Presencia Web Completa", "desc": "Sin sitio web o uno que no te representa. Una presencia profesional con panel de administración, integrada con tus redes sociales. Tu negocio online y bajo control.", "result": "Tu negocio online y bajo control" }
     ]
@@ -79,6 +80,7 @@
       { "question": "¿Cuánto tiempo toma automatizar un negocio?", "answer": "Depende de la complejidad. Procesos simples pueden estar listos en días. Transformaciones completas toman de 2 a 6 semanas. Siempre empezamos con una consultoría gratuita de 30 minutos para evaluar tu caso." },
       { "question": "¿Trabajan con empresas pequeñas o solo grandes corporaciones?", "answer": "Trabajamos con negocios de todos los tamaños. Desde emprendedores en Pereira que necesitan su primera página web, hasta empresas consolidadas que requieren automatización multicapa." },
       { "question": "¿Trabajan con empresas fuera de Colombia?", "answer": "Sí. Somos un estudio remote-first con base en Pereira — trabajamos con clientes en todo el mundo mediante reuniones virtuales estructuradas, y presencialmente en Pereira si nos visitas." },
+      { "question": "¿Mi WhatsApp puede responder solo?", "answer": "Sí. El botón de WhatsApp de esta web lo responde nuestro propio agente de IA — entrenado en nuestro catálogo y políticas, 24/7. Usamos lo que construimos. Tu negocio puede tener el mismo sistema — y pronto el mismo agente atenderá Instagram y más canales." },
       { "question": "¿Ofrecen garantía?", "answer": "Sí. Si en los primeros 30 días no ves una mejora concreta en tu operación, no pagas. Sin letra chica, sin excusas." },
       { "question": "¿Puedo reunirme presencialmente en Pereira?", "answer": "Sí. Estamos basados en Pereira, Risaralda. Ofrecemos reuniones presenciales para entender tu negocio y también atención virtual remota para clientes en cualquier parte del mundo." }
     ]
@@ -160,7 +162,7 @@
       "meta": { "title": "IA para Empresas en Pereira | Lumen X Labs", "description": "Integra inteligencia artificial en tu empresa en Pereira. Modelos de IA para toma de decisiones, servicio al cliente y eficiencia operativa." },
       "hero": { "title": "IA para tu Negocio", "desc": "No es hype de robots — es IA práctica que resuelve problemas reales. Chatbots que realmente ayudan a clientes, modelos que analizan tus datos y automatización que aprende y mejora.", "cta": "Integra IA Ahora" },
       "features": [
-        { "title": "Chatbots Inteligentes", "desc": "Servicio al cliente que nunca duerme. Asistentes de IA entrenados en tu negocio que atienden consultas 24/7." },
+        { "title": "Agente WhatsApp con IA", "desc": "Servicio al cliente que nunca duerme. Agentes de IA que responden WhatsApp en lenguaje natural — entrenados en tu catálogo y políticas, con respuestas reales, toma de órdenes y escalación a humano cuando se necesita. El mismo agente se expande a Instagram, Facebook y más plataformas." },
         { "title": "Análisis de Datos", "desc": "Modelos de IA que analizan los datos de tu negocio y descubren patrones, tendencias y oportunidades que nunca verías manualmente." },
         { "title": "Inteligencia de Procesos", "desc": "IA que monitorea tus operaciones y toma decisiones en tiempo real — aprobando, alertando o direccionando automáticamente." },
         { "title": "Modelos de IA Personalizados", "desc": "Soluciones de IA hechas a la medida para tu desafío empresarial específico, no software genérico." }
@@ -174,7 +176,8 @@
         { "question": "¿Necesito conocimiento técnico para usar IA en mi negocio?", "answer": "No. Nosotros manejamos toda la implementación técnica. Tú interactúas con la IA a través de paneles y herramientas diseñadas para tu equipo." },
         { "question": "¿Qué tipo de negocios se benefician más de la IA?", "answer": "Cualquier negocio con decisiones repetitivas, consultas de clientes o necesidades de análisis de datos. Desde retail hasta logística y servicios profesionales — si tienes datos, la IA puede ayudar." },
         { "question": "¿Es cara la IA para pequeñas empresas?", "answer": "Diseñamos soluciones de IA para cada presupuesto. Las pequeñas empresas pueden empezar con automatizaciones enfocadas que entregan ROI inmediato." },
-        { "question": "¿La IA puede reemplazar a mis empleados?", "answer": "No. La IA maneja tareas repetitivas para que tu equipo se enfoque en trabajo de mayor valor — resolución creativa de problemas, relaciones con clientes y pensamiento estratégico." }
+        { "question": "¿La IA puede reemplazar a mis empleados?", "answer": "No. La IA maneja tareas repetitivas para que tu equipo se enfoque en trabajo de mayor valor — resolución creativa de problemas, relaciones con clientes y pensamiento estratégico." },
+        { "question": "¿Pueden construirme un agente de IA para mi WhatsApp?", "answer": "Sí. Es el mismo sistema detrás del botón de WhatsApp de esta web: un agente que responde 24/7 en lenguaje natural desde tu catálogo y documentos, toma órdenes, escala a tu equipo cuando debe, y cuesta centavos por conversación. Y pronto el mismo agente atenderá Instagram y más plataformas — una sola IA, todos tus canales." }
       ],
       "cta": { "title": "¿Listo para integrar IA?", "button": "Agenda Consultoría Gratis" }
     },

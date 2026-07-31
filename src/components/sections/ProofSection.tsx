@@ -36,7 +36,7 @@ const Heading = styled(motion.h2)`
 
 const Grid = styled.div`
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
   gap: 40px;
 
   @media (max-width: 900px) {
@@ -100,6 +100,7 @@ export default function ProofSection() {
     { title: t('proof.items.0.title'), desc: t('proof.items.0.desc') },
     { title: t('proof.items.1.title'), desc: t('proof.items.1.desc') },
     { title: t('proof.items.2.title'), desc: t('proof.items.2.desc') },
+    { title: t('proof.items.3.title'), desc: t('proof.items.3.desc') },
   ];
 
   return (

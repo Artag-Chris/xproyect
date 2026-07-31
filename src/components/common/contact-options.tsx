@@ -90,7 +90,7 @@ export interface ContactHrefs {
 }
 
 const DEFAULT_HREFS: ContactHrefs = {
-  whatsapp: 'https://wa.me/',
+  whatsapp: 'https://wa.me/573171287426',
   instagram: 'https://instagram.com/lumenxlabs',
   facebook: 'https://facebook.com/lumenxlabs',
   linkedin: 'https://linkedin.com/company/lumenxlabs',
