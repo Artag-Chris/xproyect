@@ -22,7 +22,8 @@ metadata:
 - Clarify goals, constraints, and required inputs.
 - Apply relevant best practices and validate outcomes.
 - Provide actionable steps and verification.
-- If detailed examples are required, open `resources/implementation-playbook.md`.
+
+> **Version note (2026):** Beyond human-quality standards, audit content for **AI extractability** — self-contained answer blocks (40-60 words) right under H2/H3s, FAQ Q&A that can be pulled verbatim, tables for comparisons, statistics with dates and sources, and author/date on every piece. FAQ rich results are gone, but AI answer engines cite FAQ blocks heavily.
 
 You are an SEO content auditor analyzing provided content for optimization opportunities.
 
@@ -81,3 +82,11 @@ You are an SEO content auditor analyzing provided content for optimization oppor
 - Trust signal opportunities
 
 Focus on actionable improvements based on SEO best practices and content quality standards.
+
+## Project Context: Lumen X Labs
+
+- **Site:** lumenxlabs.com.co — Next.js 16 App Router, bilingual EN/ES. Pages: homepage, about, 5 service pages (`process-automation`, `ai-for-business`, `web-development`, `digital-transformation`, `ai-colombia-business`).
+- **Audit target:** `dictionaries/en.json` + `dictionaries/es.json` (all copy), plus metadata in `src/app/layout.tsx` and `src/app/[lang]/` pages.
+- **Known gaps to watch:** `about/page.tsx` uses client-side title mutation (no server meta); service-page OG lacks images; root `/` has no redirect. Check these when auditing.
+- **i18n constraint:** EN and ES must stay in sync; 2026 Google indexes multilingual via hreflang pairs — audit both languages or the diff, not just one.
+- **AI angle:** local queries (Pereira) + remote-first global queries are different audiences; one content audit should cover both clusters.

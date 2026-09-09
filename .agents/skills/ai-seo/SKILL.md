@@ -2,8 +2,11 @@
 name: ai-seo
 description: "When the user wants to optimize content for AI search engines, get cited by LLMs, or appear in AI-generated answers. Also use when the user mentions 'AI SEO,' 'AEO,' 'GEO,' 'LLMO,' 'answer engine optimization,' 'generative engine optimization,' 'LLM optimization,' 'AI Overviews,' 'optimize for ChatGPT,' 'optimize for Perplexity,' 'AI citations,' 'AI visibility,' or 'zero-click search.' This skill covers content optimization for AI answer engines, monitoring AI visibility, and getting cited as a source. For traditional technical and on-page SEO audits, see seo-audit. For structured data implementation, see schema-markup."
 metadata:
-  version: 1.0.0
+  version: 1.1.0
+  updated: 2026-09
 ---
+
+> **2026 update:** FAQ rich results were removed from Google search results (Google deprecated FAQ rich results in 2023-2026; SERP snippet rendering has decayed). Keep FAQ sections — they still help AI answer engines extract Q&A — but stop optimizing for the FAQ rich-result surface. `llms.txt` showed **no measurable lift** in AI citations (SERanking study of ~300K domains, Nov 2025) — do not invest engineering time there. The 2026 standard split is: **block training crawlers, allow search crawlers** (see "AI Bot Access Check").
 
 # AI SEO
 
@@ -44,12 +47,12 @@ Gather this context (ask if not provided):
 
 | Platform | How It Works | Source Selection |
 |----------|-------------|----------------|
-| **Google AI Overviews** | Summarizes top-ranking pages | Strong correlation with traditional rankings |
-| **ChatGPT (with search)** | Searches web, cites sources | Draws from wider range, not just top-ranked |
-| **Perplexity** | Always cites sources with links | Favors authoritative, recent, well-structured content |
-| **Gemini** | Google's AI assistant | Pulls from Google index + Knowledge Graph |
+| **Google AI Overviews** | Summarizes top-ranking pages | Strong correlation with traditional rankings; uses **Googlebot** index (blocking `Google-Extended` does NOT block AI Overviews) |
+| **ChatGPT (search)** | Searches web, cites sources | Uses **OAI-SearchBot** crawler (NOT GPTBot). ChatGPT search results tab is now a serious zero-click surface |
+| **Perplexity** | Always cites sources with links | **PerplexityBot**. Favors authoritative, recent, well-structured content + Reddit |
+| **Gemini** | Google's AI assistant | Gemini **training** uses `Google-Extended`; Google Search grounding uses Googlebot. Gemini 3 browser era → bigger answer surface |
 | **Copilot** | Bing-powered AI search | Bing index + authoritative sources |
-| **Claude** | Brave Search (when enabled) | Training data + Brave search results |
+| **Claude (search)** | Search-enabled since 2025 | **Claude-SearchBot** (search) + **ClaudeBot**/`anthropic-ai` (training). Growing citation source |
 
 
 ### Key Difference from Traditional SEO
@@ -59,11 +62,12 @@ Traditional SEO gets you ranked. AI SEO gets you **cited**.
 In traditional search, you need to rank on page 1. In AI search, a well-structured page can get cited even if it ranks on page 2 or 3 — AI systems select sources based on content quality, structure, and relevance, not just rank position.
 
 **Critical stats:**
-- AI Overviews appear in ~45% of Google searches
+- AI Overviews appear in ~45-55% of Google searches (stronger on informational queries)
 - AI Overviews reduce clicks to websites by up to 58%
 - Brands are 6.5x more likely to be cited via third-party sources than their own domains
 - Optimized content gets cited 3x more often than non-optimized
 - Statistics and citations boost visibility by 40%+ across queries
+- 2026 trend: **author identity as a ranking/citation signal** — Google is increasingly weighting accredited author pages, expert bios, and people-first experience. Named authors with credentials outperform anonymous content for both rankings and AI citations.
 
 ---
 
@@ -115,15 +119,24 @@ For each priority page, verify:
 
 ### Step 4: AI Bot Access Check
 
-Verify your robots.txt allows AI crawlers. Each AI platform has its own bot, and blocking it means that platform can't cite you:
+Verify your robots.txt allows AI **search** crawlers. The 2026 rule: **allow search, optionally block training.** Blocking a search crawler means that platform can't cite you; blocking a training crawler only prevents your content from being used for model training.
 
-- **GPTBot** and **ChatGPT-User** — OpenAI (ChatGPT)
+**Search crawlers (allow — these get you cited):**
+- **OAI-SearchBot** — OpenAI search results / ChatGPT search (critical, often forgotten)
 - **PerplexityBot** — Perplexity
-- **ClaudeBot** and **anthropic-ai** — Anthropic (Claude)
-- **Google-Extended** — Google Gemini and AI Overviews
+- **Claude-SearchBot** — Anthropic Claude search
 - **Bingbot** — Microsoft Copilot (via Bing)
+- **Googlebot** — Google AI Overviews (AI Overviews run off the regular index)
 
-Check your robots.txt for `Disallow` rules targeting any of these. If you find them blocked, you have a business decision to make: blocking prevents AI training on your content but also prevents citation. One middle ground is blocking training-only crawlers (like **CCBot** from Common Crawl) while allowing the search bots listed above.
+**Training crawlers (optional to block):**
+- **GPTBot** — OpenAI model training
+- **ChatGPT-User** — ChatGPT browsing feature (may train on interactions)
+- **ClaudeBot** / **anthropic-ai** — Anthropic training
+- **Google-Extended** — Gemini training + Vertex AI grounding (does not affect Google search or AI Overviews)
+- **Applebot-Extended** — Apple model training
+- **CCBot** — Common Crawl
+
+**Best practice:** declare one `User-agent` block per bot, list AI-bot rules **before** the `User-agent: *` catch-all, and never group bots with commas (only the first token is honored). For AI-SEO-focused sites the safe default is: allow all search bots, block training bots. Validate `robots.txt` after edits (Google Search Console or a local parser); a single bad line makes the rest of the file unparseable.
 
 
 ---
@@ -355,7 +368,9 @@ Monthly manual check:
 - **Ignoring third-party presence** — You may get more AI citations from a Wikipedia mention than from your own blog
 - **No structured data** — Schema markup gives AI systems structured context about your content
 - **Keyword stuffing** — Unlike traditional SEO where it's just ineffective, keyword stuffing actively reduces AI visibility by 10% (Princeton GEO study)
-- **Blocking AI bots** — If GPTBot, PerplexityBot, or ClaudeBot are blocked in robots.txt, those platforms can't cite you
+- **Blocking the wrong AI bots** — Blocking `OAI-SearchBot`/`Claude-SearchBot` kills citations while `GPTBot` and `Google-Extended` (training) are the ones you'd block if you want opt-out. Allow search birds, block training birds.
+- **Chasing retired rich results** — FAQ rich results are gone; don't spend effort on FAQ SERP rich snippets. FAQ content still helps AI answer engines extract Q&A.
+- **Publishing anonymous content** — Undated, unauthored, or auto-generated content ranks and cites worse in 2026. Every page needs an author + "last updated" date.
 - **Generic content without data** — "We're the best" won't get cited. "Our customers see 3x improvement in [metric]" will
 - **Forgetting to monitor** — You can't improve what you don't measure. Check AI visibility monthly at minimum
 

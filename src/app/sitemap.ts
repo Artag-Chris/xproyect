@@ -16,16 +16,17 @@ export default function sitemap(): MetadataRoute.Sitemap {
   for (const lang of locales) {
     entries.push({
       url: `${baseUrl}/${lang}`,
-      lastModified: new Date(),
-      changeFrequency: 'monthly' as const,
       priority: 1,
+    });
+
+    entries.push({
+      url: `${baseUrl}/${lang}/about`,
+      priority: 0.8,
     });
 
     for (const slug of services) {
       entries.push({
         url: `${baseUrl}/${lang}/services/${slug}`,
-        lastModified: new Date(),
-        changeFrequency: 'monthly' as const,
         priority: 0.8,
       });
     }

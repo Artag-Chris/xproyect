@@ -22,7 +22,8 @@ metadata:
 - Clarify goals, constraints, and required inputs.
 - Apply relevant best practices and validate outcomes.
 - Provide actionable steps and verification.
-- If detailed examples are required, open `resources/implementation-playbook.md`.
+
+> **Version note (2026):** Google's ranking system continues to push **people-first content and author identity**. Anonymous, auto-generated, or undated content performs worse. Brand + author entity (Organization + Person schema, author pages, consistent name/URL/socials) is the backbone of both rankings and AI citations. Apply the E-E-A-T framework below with these signals front and center.
 
 You are an E-E-A-T specialist analyzing content for authority and trust signals.
 
@@ -134,3 +135,12 @@ Priority Actions:
 - Google Knowledge Panel optimization
 
 Focus on demonstrable expertise and clear trust signals. Suggest concrete improvements for authority building.
+
+## Project Context: Lumen X Labs
+
+- **Site:** lumenxlabs.com.co — Next.js 16 App Router, bilingual EN/ES (`/en`, `/es`, hreflang pairs, JSON-LD `Organization` + `LocalBusiness` in `src/app/layout.tsx`).
+- **Entity story:** founder-led brand (Christian Henao Aguirre, Founder & Lead Developer, `artagdev.com.co`). Real Person entity + governance signals = strong E-E-A-T; keep the founder visibly attached to expertise claims.
+- **Local moat:** Pereira/Risaralda, CO queries are the defensible local presence; keep local meta (Org address, LocalBusiness areaServed) intact while adding global remote-first positioning.
+- **Flagship capability:** AI WhatsApp agent (producción real, atendido por agente en ese canal) — a genuinely demonstrable "experience" signal; use it in case studies and proof.
+- **Content lives in `dictionaries/en.json` + `dictionaries/es.json`** (i18n via `t()`/`tRaw()` from `src/lib/locale-context.tsx`). Copy changes must be made through both dictionaries.
+- **YMYL caution:** any health/finance-adjacent automation claims must be factual and specific, not generic.

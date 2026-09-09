@@ -27,6 +27,8 @@ export async function generateMetadata({ params }: { params: Promise<{ lang: str
   const service = dict.services?.[slug];
   if (!service?.meta) return { title: 'Lumen X Labs' };
 
+  const imageUrl = `https://lumenxlabs.com.co/${lang}/opengraph-image`;
+
   return {
     title: service.meta.title,
     description: service.meta.description,
@@ -34,6 +36,13 @@ export async function generateMetadata({ params }: { params: Promise<{ lang: str
       title: service.meta.title,
       description: service.meta.description,
       locale: lang === 'es' ? 'es_CO' : 'en_US',
+      images: [imageUrl],
+    },
+    twitter: {
+      card: 'summary_large_image',
+      title: service.meta.title,
+      description: service.meta.description,
+      images: [imageUrl],
     },
     alternates: {
       canonical: `https://lumenxlabs.com.co/${lang}/services/${slug}`,
@@ -46,6 +55,43 @@ export async function generateMetadata({ params }: { params: Promise<{ lang: str
 }
 
 export default async function Page({ params }: { params: Promise<{ lang: string; slug: string }> }) {
-  const { slug } = await params;
-  return <ServicePage slug={slug} />;
+  const { lang, slug } = await params;
+  const dict = await getDictionary(lang as 'en' | 'es') as { services?: Record<string, { meta: { title: string; description: string } }> };
+  const meta = dict.services?.[slug]?.meta;
+  const Base = 'https://lumenxlabs.com.co';
+  const homeUrl = `${Base}/${lang}`;
+  const pageUrl = `${Base}/${lang}/services/${slug}`;
+
+  const schema = {
+    '@context': 'https://schema.org',
+    '@graph': [
+      meta && {
+        '@type': 'Service',
+        '@id': `${pageUrl}#service`,
+        name: meta.title,
+        description: meta.description,
+        url: pageUrl,
+        provider: { '@id': `${Base}/#organization` },
+        areaServed: ['Pereira', 'Risaralda', 'Colombia', 'Worldwide'],
+      },
+      {
+        '@type': 'BreadcrumbList',
+        '@id': `${pageUrl}#breadcrumb`,
+        itemListElement: [
+          { '@type': 'ListItem', position: 1, name: 'Lumen X Labs', item: homeUrl },
+          { '@type': 'ListItem', position: 2, name: meta?.title ?? slug, item: pageUrl },
+        ],
+      },
+    ].filter(Boolean),
+  };
+
+  return (
+    <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
+      />
+      <ServicePage slug={slug} />
+    </>
+  );
 }

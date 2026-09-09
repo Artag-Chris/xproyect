@@ -32,6 +32,11 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning className={`${syne.variable} ${jakarta.variable} antialiased`}>
       <head>
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `document.documentElement.lang = location.pathname.startsWith('/es') ? 'es' : 'en';`,
+          }}
+        />
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
         <link rel="preload" href="/lumenXlogoSVG.svg" as="image" />
@@ -41,6 +46,7 @@ export default function RootLayout({
             __html: JSON.stringify({
               '@context': 'https://schema.org',
               '@type': 'Organization',
+              '@id': 'https://lumenxlabs.com.co/#organization',
               name: 'Lumen X Labs',
               url: 'https://lumenxlabs.com.co',
               logo: 'https://lumenxlabs.com.co/lumenXlogoSVG.svg',
@@ -48,10 +54,18 @@ export default function RootLayout({
               foundingDate: '2024',
               founder: {
                 '@type': 'Person',
+                '@id': 'https://artagdev.com.co/#person',
                 name: 'Christian Henao Aguirre',
                 jobTitle: 'Founder & Lead Developer',
                 url: 'https://artagdev.com.co',
               },
+              knowsAbout: [
+                'Automatización de procesos',
+                'Integración de IA',
+                'Desarrollo web',
+                'Agentes WhatsApp con IA',
+                'Transformación digital',
+              ],
               sameAs: [
                 'https://www.linkedin.com/company/lumenxlabs',
                 'https://github.com/lumenxlabs',
@@ -71,19 +85,41 @@ export default function RootLayout({
             __html: JSON.stringify({
               '@context': 'https://schema.org',
               '@type': 'LocalBusiness',
+              '@id': 'https://lumenxlabs.com.co/#localbusiness',
               name: 'Lumen X Labs',
               description: 'Soluciones digitales: automatización de procesos, integración de IA y desarrollo web.',
               url: 'https://lumenxlabs.com.co',
-              telephone: '+57-300-000-0000',
+              telephone: '+57-317-128-7426',
               email: 'hello@lumenxlabs.com.co',
               areaServed: ['Pereira', 'Risaralda', 'Colombia'],
+              parentOrganization: { '@id': 'https://lumenxlabs.com.co/#organization' },
               address: {
                 '@type': 'PostalAddress',
                 addressLocality: 'Pereira',
                 addressRegion: 'Risaralda',
                 addressCountry: 'CO',
               },
+              geo: {
+                '@type': 'GeoCoordinates',
+                latitude: 4.808717,
+                longitude: -75.690601,
+              },
               priceRange: '$$',
+            }),
+          }}
+        />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              '@context': 'https://schema.org',
+              '@type': 'WebSite',
+              '@id': 'https://lumenxlabs.com.co/#website',
+              name: 'Lumen X Labs',
+              url: 'https://lumenxlabs.com.co',
+              description: 'Modernización empresarial, automatización de procesos e integraciones de IA.',
+              inLanguage: ['es-CO', 'en-US'],
+              publisher: { '@id': 'https://lumenxlabs.com.co/#organization' },
             }),
           }}
         />
