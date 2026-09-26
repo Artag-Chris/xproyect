@@ -4,6 +4,13 @@ const nextConfig: NextConfig = {
   compiler: {
     styledComponents: true,
   },
+  async headers() {
+    const cacheControl = [
+      { key: 'Cache-Control', value: 'public, max-age=31536000, immutable' },
+    ];
+
+    return [{ source: '/lumenxxlabsHero.mp4', headers: cacheControl }];
+  },
 };
 
 let config: NextConfig = nextConfig;

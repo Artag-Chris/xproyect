@@ -1,0 +1,19 @@
+{
+  "permissions": {
+    "allow": [
+      "Shell(ffmpeg:*)",
+      "Shell(Select-Object:*)",
+      "Shell(node -v)",
+      "Shell(npm:*)",
+      "Shell(Get-ChildItem:*)",
+      "powershell",
+      "Shell(if:*)",
+      "Shell(else:*)",
+      "Shell(powershell -NoProfile -Command \"$ProgressPreference='SilentlyContinue'; Get-Content 'C:\\Users\\scris\\AppData\\Local\\Temp\\commandcode\\shellout\\2026-09-26T22-53-39-180Z-s0vf6aoo.log' -Tail 40; '---COUNT---'; (Get-ChildItem node_modules -Directory -ErrorAction SilentlyContinue).Count\")",
+      "Shell(dir:*)",
+      "Shell(findstr:*)"
+    ],
+    "deny": [],
+    "defaultMode": "default"
+  }
+}

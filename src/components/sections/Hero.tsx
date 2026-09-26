@@ -6,6 +6,7 @@ import Image from 'next/image';
 import { useLocale } from '@/lib/locale-context';
 import { useTrack } from '@/hooks/useTrack';
 import ContactDropdown from '@/components/common/ContactDropdown';
+import VideoHero from '@/components/video/VideoHero';
 
 const HeroSection = styled.section`
   position: relative;
@@ -164,6 +165,7 @@ export default function Hero() {
           sizes="100vw"
           style={{ objectFit: 'cover' }}
         />
+        <VideoHero src="/lumenxxlabsHero.mp4" />
       </HeroBg>
       <BgOverlay />
       <HeroContent>
